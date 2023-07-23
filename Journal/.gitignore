@@ -5,5 +5,5 @@ venv
 *venv/
 *.env
 .vscode
-model/
+
 documents/
