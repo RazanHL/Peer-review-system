@@ -1,0 +1,34 @@
+{% load i18n %}
+{% block content %}{% autoescape off %}
+{% trans 'Dear' %} {{ author.profiles.certificate|default_if_none:"" }} {{ author.profiles.name }}  
+{% blocktrans with article_title=article.title received_at=article.received_date id=article.id %}
+Your manuscript titled  
+{{ article_title }}
+Date submitted: {{ received_at }}
+and assigned as {{ id }} has now been evaluated by members of the editorial board.
+please see the correction hints as mentioned by the reviewers/expert(s) for the necessary changes 
+that you have to take in consideraton in your paper. 
+Please see attached files and provide point-by-point answers to the reviewers
+criticisms in your replay email and send us the revised paper as soon as possible.
+Kindly include your manuscript number and address in all your future correspondence with us.
+We attached our journal guidelines to be followed.
+Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR) and look forward to receiving the revised version soon.
+
+Regards
+{{ user }}
+--------------------------
+Editor-in-Chief comments: {% endblocktrans %}
+{{ article.notes_to_author|default_if_none:"" }}
+-------------------------
+{% for rev in review %}
+{% if rev.review_start_on %}
+{% trans 'Reviewer' %} {{ forloop.counter }} {% trans 'comments' %}:
+{{ rev.notes_to_author|default_if_none:"" }}
+-------------------------
+{% endif %}
+{% endfor %}
+
+{% endautoescape %}
+{% endblock %}
+
+

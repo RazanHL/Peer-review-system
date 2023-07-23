@@ -1,0 +1,83 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Guidelines' %}{% endblock title%}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+{% get_current_language as CURRENT_LANGUAGE %}
+<div class="my-3 p-3 ">
+    <h2 class="text-center my-3">{% trans "Guidelines" %}</h2><br>
+    <div class="text-justify fs-5">
+        {% blocktrans %}<br>
+        <span class='text-success fw-bold'>Journal affiliation:</span> Syrian Journal of Agricultural Research (SJAR) is a scientific refereed periodical (six times a year) that is concerned with creative, original researches and studies of different agricultural sciences 
+        <strong class='text-secondary'>(Crops, Horticulture, Animal Production, Plant Protection, Soil, Irrigation and drainage, Environment, Economic Studies, Biotechnology, Genetics, Forestry, Natural resources)</strong>.<br> 
+        The journal welcomes to receive the scientific and original manuscripts that achieved the scientific quality, long researches (8-12 pages), or short researches (2-4 pages), or short communication (one page). The journal issues six a year, at the end of February,  April, June, August, October and December.
+
+        <br><br><span class='text-success fw-bold'>Languages of publication:</span> The languages of publication are either Arabic or English.
+        
+        <br><br><span class='text-success fw-bold'>Submitting the manuscript: </span>The manuscript (or its content) that is sent for publication must not been published before or sent to another periodical for publication, either in Arabic language or other languages. The author must declare also that the manuscript is original not copied or derived (totally or partly) from any other works, except the academic thesis (master’s and PhD’s).  All the recipient manuscripts will be revised and checked if it is repeated or faked. If it is the journal will follow the proper procedures of the International Guide of Publication Morals. The corresponding author must be clarified besides the approval of the other authors before submitting the manuscript and after the reviewing.
+        
+        <br><br><strong class='text-secondary'>Manuscript should be submitted online via:</strong> sjargcsar@gmail.com or dr.entessara@gmail.com. Upon receipt of manuscript submission, the corresponding author will be notified within 72 hours. In absence of a confirmation email, you are advice to contact the journal via its email address.
+        
+        <br><br><span class='text-success fw-bold'>Peer Review:</span> The submitted manuscript is sent to tow referees at least specialized in the subject area. If the manuscript rejected the corresponding author will be notified, otherwise, the referee notes and comments are conveyed to the corresponding author so that he can respond to them in order to meet the publication rules to be at the required scholarly level.
+        
+        <br><br><span class='text-success fw-bold'>Preparation of manuscript:</span> The manuscript should be typed in Arabic language with no mistakes and clear and typed single-spaced and all pages numbered. Page size is A4 (29.7 X 21.0 cm). Font type is Simplified Arabic (font size is 12), leaving 2 cm  margin on all four sides, Only the Arabic numbers are used (1,2,3,4,5,6,7,8,9), using the proper numeral marks. Abbreviations are to be used sparingly and given at first mention of word. Each abbreviation should be spelled out and introduced in parentheses the first time it is used in the text. A full page should be assigned (in English language) including the title, the name of authors and their addresses, the abstract and key words. The length of the manuscript should not exceed 15 pages. It is preferable to low the numbering within the materials and methods, and the results.
+        
+        <br><br><span class='text-primary fw-bold'>Title:</span> The title should be brief and clear, not exceeds 100 words.
+        
+        <br><br><span class='text-primary fw-bold'>Author’s name and address:</span> The full name should be mentioned followed by a subscript number in parentheses (1, 2, 3), which denotes the place of work. The numbers should be explained in separate rows as follow: Place of work, contact address, and e-mail if so. The contact address of the corresponding author should write in details (email id, fax, and telephone number) in a separate row.
+        
+        <br><br><span class='text-primary fw-bold'>English abstract:</span> The English abstract should brief and accurate (not more than 150 words), clarifies the place, time, and methods of the research, focuses basically on the results and conclusions. It should be written as one paragraph.
+        
+        <br><br><span class='text-primary fw-bold'>Key words:</span> 4 to 6 key words can be used to ease the search and tracking information.
+        
+        <br><br><span class='text-primary fw-bold'>Introduction:</span> Should provide a clear statement of the problem, the relevant literature on the subject, and the proposed approach or solution, besides the goals and justifications.
+        
+        <br><br><span class='text-primary fw-bold'>Materials and methods:</span> This should be sufficiently detailed (with reference where possible) to permit other work to duplicate the study. Sources of materials (plant, animal, chemical compounds ….etc) used must be given (scientific, commercial, and common names), and statistical method must be specified by reference unless non standard ones are used.
+        
+        <br><br><span class='text-primary fw-bold'>Results:</span> Must be clearly and concisely with the help of appropriate illustrative material tables and/or figures (with its serial number). Each table or figure should be explained before presented, and it is preferable to use less number of tables.
+        
+        <br><br><span class='text-primary fw-bold'>Discussion:</span> Should interpret the findings in view of the results obtained in this and in past studies on this topic. Unjustified speculation should be avoided. The results and discussion can be one title.
+        
+        <br><br><span class='text-primary fw-bold'>Conclusion:</span> Briefs the main results.
+        
+        <br><br><span class='text-primary fw-bold'>Acknowledgments:</span> (if any) should be included sparingly the people, or institutions for supporting or funding the research.
+        
+        <br><br><span class='text-primary fw-bold'>References:</span> In the text, references should be arranged when they are mentioned one after one, first chronologically (the older first then the most recent), and then further sorted alphabetically if necessary.  the English references should be mentioned according to the author’s family name (A, B, C…..etc).
+        All references should be cited within the text. A reference identified by means of an author‘s family name should be followed by the date of the reference in parentheses. In case of one author (Zaid, 2014); in case of two authors (Zaid and Amr, 2014); while in case of more than two authors(Zaid et al., 2014). According the citation of the reference in the text, the year of publication in parentheses, for example:  “Zaid (2014) mentioned that ??????”. It is preferable to write the full title of the reference (not abbreviated), to reduce the citation of the academic books; also the cited references very related with subject and most recent.
+        Examples about reference citation in the list reference according the terms of the journal
+        
+        <br><br><span class='text-success fw-bold'>Reference to a journal publication:</span><br>
+        
+        Mansour, A.; L. Al-Banna; N. Salem; and N. Alsmairat (2014). Disease management of organic tomato under greenhouse conditions in the Jordan Valley. Journal of Crops Protection. 60(1): 48-55.
+        
+        <br><br><span class='text-success fw-bold'>Reference to a scientific conferences and proceeding publication:</span><br>
+        
+        Medini, M.; and M. Al halabi. (2003). Virulence of Mycosphaerella graminicola from Tunisia, Algeria and Canada. Pages 14-44. In: Proceeding of the 6th International Symposium on Septoria and Stagonospora Diseases of Cereals. 8-12th December, 2003, Tunis, Tunisia.
+        
+        <br><br><span class='text-success fw-bold'>Reference to a book:</span><br>
+        
+        Haj, K.; and A. Amer (2013). Virology. Publication Department, Aleppo University.  Aleppo, Syria. 446 Pp.
+        
+        <br><br><span class='text-success fw-bold'>Reference to a chapter in an edited book:</span><br>        
+        
+        Shehab, A., and R.M. Sharif (2011). Rodenticides. In. Zamitty, M.S.S.; I.K. Alnazer and M.B. Ashour (Eds.). Safe Application of pesticides (Pp. 373-396). Dar Wael for Publishing and Distribution. (in Arabic).
+        
+        <br><br><span class='text-success fw-bold'>Reference to institutions or organizations:</span><br>
+        
+        Ministry of Agriculture and Agrarian Reform (2013). Statistic Department, Statistic and International Affairs Directorate, Ministry of Agriculture and Agrarian Reform, Damascus, Syria.
+        
+        <br><br><span class='text-success fw-bold'>Reference to MS’s or PhD’s thesis:</span><br>
+        
+        Ismaeil, M.F. (2012). Characteristics of tomato mosaic virus and tomato spotted wilt virus isolates and evaluation of some tomato cultivars in Syria (PhD theses). Department of Plant Protection, Faculty of Agriculture, Aleppo University, Aleppo, Syria. Pp 133.
+        
+        <br><br><span class='text-success fw-bold'>Tables and figures:</span> should be included sufficient description so that the table or figure is understandable without reading the text of the manuscript. Each table and figure should include a title and be comprehensible without reference to the text. Tables adapted abbreviations or symbols must be clarified in footnote. Each table and figure should be numbered consecutively in Arabic numerals and supplied with a heading and a footnote. The table should be inserted from right to left as the text, and kept to a minimum and be designed to be as simple as possible, clear, and accurate (accuracy rate 300 spot per inch).
+        {% endblocktrans %}
+    </div>
+
+    {% if CURRENT_LANGUAGE == 'en' %}
+        <a href="{% url 'download-guidelines' 2 %}">{% trans "Download SJAR Guidelines" %}</a>
+    {% else %}
+        <a href="{% url 'download-guidelines' 1 %}">{% trans "Download SJAR Guidelines" %}</a>
+    {% endif %}
+</div>
+{% endblock content %}

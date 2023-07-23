@@ -1,0 +1,388 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block head_title %}{% trans "All Authors" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+
+
+{% block content %}
+    <div class="my-3">
+        <div class="boarder">
+            
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#guidelines">{% trans "Review Guidelines" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#home">{% trans "Manuscript details" %}</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#menu1">{% trans "Review Form" %}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#menu2">{% trans "Decission" %}</a>
+                </li>
+            </ul>
+            <div class="tab-content boarder">
+                <div class="tab-pane container active" id="guidelines">
+                    <div class="my-3 p-3"><br>
+                        <h5 class="fw-bold text-center">
+                            {% trans "Review Guidelines" %}
+                        </h5>                       
+                    <hr>
+                    {% blocktrans %}
+                    <br><br><span class='text-success fw-bold'>Reviewers’ responsibilities</span>
+                    <br><br><span class='text-primary fw-bold'>Contribution to editorial decisions</span>
+                    The peer-reviewing process assists the editor and the editorial board in making editorial decisions and may also serve the author in improving the paper.
+                    <br><br><span class='text-primary fw-bold'>Promptness</span>
+                    Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and withdraw from the review process.
+                    <br><br><span class='text-primary fw-bold'>Confidentiality</span>
+                    Any manuscripts received for review must be treated as confidential documents. They must not be disclosed to or discussed with others except as authorized by the editor.
+                    <br><br><span class='text-primary fw-bold'>Standards of objectivity</span>
+                    Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.
+                    <br><br><span class='text-primary fw-bold'>Acknowledgement of sources</span>
+                    Reviewers should identify cases in which relevant published work referred to in the paper has not been cited in the reference section. They should point out whether observations or arguments derived from other publications are accompanied by the respective source. Reviewers will notify the editor of any substantial similarity or overlap between the manuscript under consideration and any other published paper of which they have personal knowledge.
+                    <br><br><span class='text-primary fw-bold'>Disclosure and conflict of interest</span>
+                    Privileged information or ideas obtained through peer review must be kept confidential and not used for personal advantage. Reviewers should not consider manuscripts in which they have conflicts of interest resulting from competitive, وا, or other relationships or connections with any of the authors, companies, or institutions associated with the papers.
+                    {% endblocktrans %}
+                </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <a class="btn btn-dark rounded-0 btnNext"  onclick="goNext()">{% trans "Next" %}</a>
+                        </div>
+                    </div><br>
+                </div>
+                <div class="tab-pane container fade" id="home">
+                    <div class="my-3 p-3" dir="{% if article.ar_en == 'en' %}ltr{% else %}rtl{% endif %}"><br>
+                        <h5 class="fw-bold my-1 text-center">
+                            {{ article.title }}<br>
+                            {{ article.en_title|default_if_none:"" }}
+                        </h5><br>                        
+                        <div class="row p-3 my-3">
+                            <div class="col">
+                                
+                                <div class="fw-bold text-center">
+                                    {% trans "Abstract" %}
+                                </div>                        
+                                <p class="text-justify">{{ article.abstract }}</p><br>
+                                <p class="fw-bold">{{ article.key_words }}</p><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-3 my-3">
+                        <div class="col">
+                            {% if article.no_author_file %}
+                            <a class="link-info" href="{% url 'download_manuscript' article.id article.no_author_file %}">
+                                <i class="h2 text-secondary fa fa-file-word"></i>
+                                {% trans "Manuscript without Author's names" %}</a><br>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row p-3 my-3">
+                        <div class="col">
+                            <h5 class="fw-bold my-1"> {% trans "Reviewer Name" %}:
+                                {{ review.reviewer_id.profiles.name }}<br>
+                            </h5><br>
+                            <b>{% trans "Review Started on" %}:</b> {{ review.review_start_on }} <br>
+                            <b>{% trans "Review Ends on" %}:</b> {{ review.review_ends_on }} <br>
+                            <b>{% trans "Last update" %}:</b> {{ review.last_update }}
+                        </div>
+                        <div class="row text-center p-3">
+                            <div class="col">
+                                <div class="text-primary border-bottom border-primary">
+                                    <h5 class="fw-bold">{% trans "Status" %}</h5>
+                                </div><br>
+                                
+                                <b>{% trans "Current stage" %}:</b> {{ article.current_status }}<br>
+                                <b>{% trans "Received at" %}:</b> {{ article.received_date }}<br>
+                                <b>{% trans "Time in review" %}:</b> {{ article.received_date|timesince }}
+                            </div>                            
+                        </div>
+                        <div class="row p-3">
+                            <div class="col">               
+                                <p><b>{% trans "Scope" %}:</b><br>
+                                    {% for s in article.scope.values %}
+                                        {{ s.scope }}<br>                         
+                                    {% endfor %}
+                                </p>                                
+                            </div>
+                        </div>
+                        <div class="row accordion my-1 p-3" id="detail-accordion">
+                            <div class="col accordion-item text-center">
+                                <h2 class="accordion-header text-center" id="headingOne">
+                                    <h5 class="fw-bold text-primary border-bottom border-primary" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        {% trans 'More Detailes' %}
+                                        <i class="fas fa-angle-down small"></i>
+                                    </h5>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" 
+                                data-bs-parent="#detail-accordion">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <b>{% trans "Language" %}:</b> {{ article.ar_en }}
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <b>{% trans "Country" %}:</b> {{ article.country }}
+                                            </div>                                                                                    
+                                        </div>                
+                                        <br>
+                                        <div class="row" dir="ltr">
+                                            <b>Abstract</b> <br>                                            
+                                            <div class="col text-justify">                                                
+                                                {{ article.en_abstract }}<br>
+                                            </div>
+                                            <div class="text-start fw-bold">
+                                                Keywords: {{ article.en_keyword}}<br>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">                                                
+                                                <b class="">{% trans "References" %}:</b><br>
+                                                <div class="text-justify"></div> {{ article.references|default_if_none:"" }}    
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>                        
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="text-center">
+                            <a class="btn btn-dark rounded-0 btnPrevious"  onclick="goBack()">{% trans "Back" %}</a>
+                            <a class="btn btn-dark rounded-0 btnNext"  onclick="goNext()">{% trans "Next" %}</a>
+                        </div>
+                    </div><br>                    
+              
+                </div>
+                <div class="tab-pane container fade" id="menu1"><br>                    
+                    <form method="post" class="text-center">
+                        {% csrf_token %}
+                        <div hidden>{{ form }}</div>
+                        <div class="row">
+                            <div class="col">
+                                <hr><h2 class="fw-light my-1 text-center" >{% trans 'Evaluation Form' %}</h2><hr>
+                            </div>                            
+                        </div>
+                        <div class="row justify-content-center">
+                            <h6 class="">{% trans "please select score for each element" %}</h6>
+                            <div class="col col-lg-7">
+                                <table class="table table-sm align-middle">
+                                    <tr>
+                                        <td><b>1</b> (<i class="text-danger fw-bold">{% trans "Very Weak" %}</i>)</td>
+                                        <td><b>2</b> (<i class="text-secondary fw-bold">{% trans "Weak" %}</i>)</td>
+                                        <td><b>3</b> (<i class="text-info fw-bold">{% trans "Acceptable" %}</i>)</td>
+                                        <td><b>4</b> (<i class="text-primary fw-bold">{% trans "Good" %}</i>)</td>
+                                        <td><b>5</b> (<i class="text-success fw-bold">{% trans "Very Good" %}</i>)</td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>                            
+                        </div><hr>
+                        
+                        <table class="table table-striped table-hover table-sm align-middle">
+                                <thead>
+                                    <tr role="row" class="small text-center">
+                                        <th>{% trans "Form control" %}</th>
+                                        <th>{% trans "Score 1-5" %}</th>                                        
+                                        <th>{% trans "Notes" %}</th>                                        
+                                    </tr>
+                                </thead>                        
+                                <tbody class="small text-center">                                    
+                                    <tr>
+                                        <td>{% trans "أصالة البحث (حداثته) , Originality (significance of the subject)" %}</td>
+                                        <td>{{ form.q1|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q1_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "وضوح ودقة عنوان البحث ومدى ملاءمته للموضوع (في حال اقتراحكم تعديل العنوان؛ يرجى ذكر ذلك مع المقترحات), Clarity and accuracy of the title (mention the alter title if so in the suggestions)" %}</td>
+                                        <td>{{ form.q2|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q2_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "الوضوح والشمولية والإيجاز في الملخص., Length and clarity of the abstract" %}</td>
+                                        <td>{{ form.q3|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q3_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "وضوح الدراسة المرجعية ومدى ارتباطها بموضوع البحث., The clarity and contribution of the references to the subject" %}</td>
+                                        <td>{{ form.q4|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q4_note|as_crispy_field }}
+                                        </td>                                   
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "وضوح مبررات وهدف تنفيذ البحث., Goals and justifications clarity" %}</td>
+                                        <td>{{ form.q5|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q5_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "ملاءمة المواد والطرائق المستخدمة., Tools and methodology" %}</td>
+                                        <td>{{ form.q6|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q6_note|as_crispy_field }}
+                                        </td>                                   
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "ملاءمة التصميم الإحصائي المستخدم في تنفيذ التجارب والمعالجة الاحصائية للنتائج., Statistical design suitability" %}</td>
+                                        <td>{{ form.q7|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q7_note|as_crispy_field }}
+                                        </td>                                   
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "ملاءمة المصطلحات العلمية والرموز المستخدمة., Utility of scientific abbreviations and terminology" %}</td>
+                                        <td>{{ form.q8|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q8_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "وضوح ودقة النتائج وطرائق عرضها ومعنويتها., Results significance, accuracy, and clarity" %}</td>
+                                        <td>{{ form.q9|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q9_note|as_crispy_field }}
+                                        </td>                                   
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "دقة المناقشة للنتائج وأسلوب تفسيرها وتبيان أهميتها., Discussion significance, accuracy, and clarity" %}</td>
+                                        <td>{{ form.q10|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q10_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "وضوح الجداول، الأشكال، والصور، والرسوم (أرقامها، عناوينها، محتوياتها، ارتباطها بالنص) وضرورتها., The necessity and significance of tables, figures, photos, and graphics (its numbers, titles, contents, and contribution to the subject)" %}</td>
+                                        <td>{{ form.q11|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q11_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "الدقة في استخدام وعرض المراجع (في النص وفي قائمة المراجع) ومدى ارتباطها بالموضوع وحداثتها., The contribution of survey coverage and references that is mentioned in the text and reference list." %}</td>
+                                        <td>{{ form.q12|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q12_note|as_crispy_field }}
+                                        </td>                                   
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "سلامة اللغة والأسلوب في كتابة البحث., Grammar, typesetting, and paper presentation" %}</td>
+                                        <td>{{ form.q13|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q13_note|as_crispy_field }}
+                                        </td>                                    
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "الأمانة العلمية في البحث (نُشر سابقاً كلياً أو جزئياً /بالعربية أو بلغة أخرى، أغفل عمداً دراسات ذات صلة، أورد عمل غيره دون الإشارة), Scientific originality (has been published totally or partially/ in Arabic language or other, ignore in permit other contribution papers, mentioned results not documented)" %}</td>
+                                        <td>{{ form.q14|as_crispy_field }}
+                                        </td>                                        
+                                        <td>{{ form.q14_note|as_crispy_field }}
+                                        </td>                                   
+                                    </tr>
+                                </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-dark rounded-0">{% trans 'Save Form' %}</button>
+                                <button type="reset" class="btn btn-dark rounded-0">{% trans 'Reset' %}</button>
+                            </div>
+                        </div>                        
+                        <br>
+                        <div class="row">
+                            <h4 class="text-success">{% trans "Score" %}: {{ review.score }}</h4>
+                        </div>                        
+                    </form>
+                    <hr>                    
+                    <div class="row">
+                        <div class="text-center">
+                            <a class="btn btn-dark rounded-0 btnPrevious"  onclick="goBack()">{% trans "Back" %}</a>
+                            <a class="btn btn-dark rounded-0 btnNext"  onclick="goNext()">{% trans "Next" %}</a>
+                        </div>                        
+                    </div><br>                    
+                </div>
+                <div class="tab-pane container fade" id="menu2">
+                    <div class="p-3 my-3">
+                        <hr><h2 class="text-center fw-light">{% trans "Review Result" %}</h2><hr><br>
+                        <i class="fw-bold">{{ article.title }}</i>
+                        
+                        <h4 class="text-success text-center">{% trans "Score" %}: {{ review.score }}</h4>
+                        <hr>
+                        <form method="post" enctype="multipart/form-data"> 
+                            {% csrf_token %}
+                            <div hidden>
+                                {{form.q1}}{{form.q1_note}}{{form.q2}}{{form.q2_note}}{{form.q3}}{{form.q3_note}}
+                                {{form.q4}}{{form.q4_note}}{{form.q5}}{{form.q5_note}}{{form.q6}}{{form.q6_note}}
+                                {{form.q7}}{{form.q7_note}}{{form.q8}}{{form.q8_note}}{{form.q9}}{{form.q9_note}}
+                                {{form.q10}}{{form.q10_note}}{{form.q11}}{{form.q11_note}}{{form.q12}}{{form.q12_note}}
+                                {{form.q13}}{{form.q13_note}}{{form.q14}}{{form.q14_note}}
+                            </div>
+                            <div class="">
+                                <h5 class="fw-bold">{% trans "Approval" %}</h5>
+                                {{ form.approval|as_crispy_field }}
+                            </div>
+                            <div class="">
+                                <h5 class="fw-bold">{% trans "Notes to Editor" %}</h5>
+                                {{ form.notes_to_editor|as_crispy_field }}
+                            </div>
+                            <div class="">
+                                <h5 class="fw-bold">{% trans "Notes to Authors" %}</h5>
+                                {{ form.notes_to_author|as_crispy_field }}
+                            </div>
+                            <div class="">
+                                <h5 class="fw-bold">{% trans "Upload Review .docx file" %}</h5>
+                                {{ form.review_file_link|as_crispy_field }}
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <h5 class="fw-bold">{% trans "Done Review?" %} {{ form.done_review|as_crispy_field }}</h5>
+                                </div>
+                                <div class="col"> 
+                                </div>
+                                <div class="col"></div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-dark rounded-0">{% trans "OK" %}</button>
+                                </div>
+                            </div>                            
+                        </form>
+                        <div class="row">
+                            <div class="text-center">
+                                <a class="btn btn-dark rounded-0 btnPrevious" onclick="goBack()">{% trans "Back" %}</a>
+                            </div>
+                        </div>                        
+                    </div>                    
+                </div>
+            </div>
+                    
+        </div>
+    </div>
+    
+    <script>
+        function goNext(){
+            const nextTabLinkEl = $('.nav-tabs .active').closest('li').next('li').find('a')[0];
+            const nextTab = new bootstrap.Tab(nextTabLinkEl);
+            nextTab.show();
+        };
+        function goBack(){
+            const prevTabLinkEl = $('.nav-tabs .active').closest('li').prev('li').find('a')[0];
+            const prevTab = new bootstrap.Tab(prevTabLinkEl);
+            prevTab.show();
+        };
+    </script>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        {{ message.tage }}    
+    {% endfor %}
+
+{% endif %}
+
+<div class="my-3 p-3 text-center">
+    <hr><h3 class="fw-light">{% trans "Invitation Email is sent" %}</h3><hr>
+    <h5 class="my-5">{% trans "Continue Revieweing this Manuscript" %} 
+        <a href="{% url 'article-review' article_id %}">
+            {% trans "Here" %}
+        </a>
+    </h5>
+
+</div>
+
+{% endblock content %}

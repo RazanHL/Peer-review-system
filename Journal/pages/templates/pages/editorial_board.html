@@ -1,0 +1,114 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Editorial Board' %}{% endblock title%}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+{% get_current_language as CURRENT_LANGUAGE %}
+<div class="my-3 p-3">
+    {% if user.profiles.user_type == 'EDITOR' %}
+        <a class="btn btn-dark rounded-0 my-3" href="{% url 'add-editorial-member'%}">{% trans "Add Editorial Member" %}</a>
+    {% endif %}
+    <h2 class="text-center">{% trans "Editorial Board" %}</h2><br>
+    <table class="table table-hover table-sm my-3">
+        <tbody>
+            {% for key,value in journal_editors.items %}
+            {% if value != None %}
+            <tr role="row">
+                <td class="col fw-bold">{% blocktrans with key as key %}{{ key }}{% endblocktrans %}</td>
+                <td class="col">{% if CURRENT_LANGUAGE == 'ar' %}{{ value.arabic_name }}{% else %}{{ value.english_name }}{% endif %}</td>
+                <td class="col">{% if CURRENT_LANGUAGE == 'ar' and value.specification %}{{ value.specification }}{% elif value.en_specification %}{{ value.en_specification }}{% endif %}</td>
+                {% if user.profiles.user_type == 'EDITOR' %}
+                    <td class="col" style="width:15%;">
+                        <a class="btn btn-dark rounded-0" href="{% url 'edit-editorial-member' value.id %}">{% trans "Edit" %}</a>
+                        <a class="btn btn-dark rounded-0" href="{% url 'delete-editorial-member' value.id %}">{% trans "delete" %}</a>
+                    </td>
+                {% endif %}
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table><br>
+    <h2 class="text-center">{% trans "International Editorial Board" %}</h2><br>
+    <table class="table table-hover table-sm my-3 text-start">
+        <tbody>        
+            {% for editor in international_editorial_board|dictsort:'arabic_name' %}
+                <tr role="row">
+                    
+                    <td class="col fw-bold">{% if CURRENT_LANGUAGE == 'ar' %}{{ editor.arabic_name }}{% else %}{{ editor.english_name }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.specification %}{{ editor.specification }}{% elif editor.en_specification %}{{ editor.en_specification }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.work_address %}{{ editor.work_address }}{% elif editor.en_work_address %}{{ editor.en_work_address }}{% endif %}</td>
+
+                    {% if user.profiles.user_type == 'EDITOR' %}
+                        <td class="col" style="width:15%;">
+                            <a class="btn btn-dark rounded-0" href="{% url 'edit-editorial-member' editor.id %}">{% trans "Edit" %}</a>
+                            <a class="btn btn-dark rounded-0" href="{% url 'delete-editorial-member' editor.id %}">{% trans "delete" %}</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+
+    {% if international_reviewers %}
+    <h2 class="text-center">{% trans "International Reviewers" %}</h2><br>
+    <table class="table table-hover table-sm my-3 text-start">
+        <tbody>
+            {% for editor in international_reviewers|dictsort:'arabic_name' %}
+                <tr role="row">   
+                    <td class="col fw-bold">{% if CURRENT_LANGUAGE == 'ar' %}{{ editor.arabic_name }}{% else %}{{ editor.english_name }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.specification %}{{ editor.specification }}{% elif editor.en_specification %}{{ editor.en_specification }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.work_address %}{{ editor.work_address }}{% elif editor.en_work_address %}{{ editor.en_work_address }}{% endif %}</td>
+                    {% if user.profiles.user_type == 'EDITOR' %}
+                        <td class="col" style="width:15%;">
+                            <a class="btn btn-dark rounded-0" href="{% url 'edit-editorial-member' editor.id %}">{% trans "Edit" %}</a>
+                            <a class="btn btn-dark rounded-0" href="{% url 'delete-editorial-member' editor.id %}">{% trans "delete" %}</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+    {% endif %}
+    {% if national_editorial_board %}
+    <h2 class="text-center">{% trans "National Editorial Board" %}</h2><br>
+    <table class="table table-hover table-sm my-3">
+        <tbody>  
+            {% for editor in national_editorial_board|dictsort:'arabic_name' %}
+                <tr role="row">
+                    <td class="col fw-bold">{% if CURRENT_LANGUAGE == 'ar' %}{{ editor.arabic_name }}{% else %}{{ editor.english_name }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.specification %}{{ editor.specification }}{% elif editor.en_specification %}{{ editor.en_specification }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.work_address %}{{ editor.work_address }}{% elif editor.en_work_address %}{{ editor.en_work_address }}{% endif %}</td>
+
+                    {% if user.profiles.user_type == 'EDITOR' %}
+                        <td class="col" style="width:15%;">
+                            <a class="btn btn-dark rounded-0" href="{% url 'edit-editorial-member' editor.id %}">{% trans "Edit" %}</a>
+                            <a class="btn btn-dark rounded-0" href="{% url 'delete-editorial-member' editor.id %}">{% trans "delete" %}</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+    {% endif %}
+    {% if national_reviewers %}
+    <h2 class="text-center">{% trans "National Reviewers" %}</h2><br>
+    <table class="table table-hover table-sm my-3">
+        <tbody>
+            {% for editor in national_reviewers|dictsort:'arabic_name' %}
+                <tr role="row">
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' %}{{ editor.arabic_name }}{% else %}{{ editor.english_name }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.specification %}{{ editor.specification }}{% elif editor.en_specification %}{{ editor.en_specification }}{% endif %}</td>
+                    <td class="col">{% if CURRENT_LANGUAGE == 'ar' and editor.work_address %}{{ editor.work_address }}{% elif editor.en_work_address %}{{ editor.en_work_address }}{% endif %}</td>
+                    {% if user.profiles.user_type == 'EDITOR' %}
+                        <td class="col" styly="width:10%">
+                            <a class="btn btn-dark rounded-0" href="{% url 'edit-editorial-member' editor.id %}">{% trans "Edit" %}</a>
+                            <a class="btn btn-dark rounded-0" href="{% url 'delete-editorial-member' editor.id %}">{% trans "delete" %}</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endblock content %}

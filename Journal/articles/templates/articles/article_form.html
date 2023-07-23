@@ -1,0 +1,118 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{% trans "Add Manuscript" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+<div class="row my-3 p-3">
+    <!-- <h3>{% blocktrans with user.username as user %} Add New Paper {{user}} {% endblocktrans %}</h3><br> -->
+
+    {% if form.errors %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in form.errors.items %}
+                    <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button> -->
+        </div>
+    {% endif %}
+    <div class="form-content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <hr><h3 class="fw-light my-1 text-center" >{% trans "Article Informations:" %}</h3><hr>
+                </div>              
+            </div>
+            <div class="row my-3">
+                <div class="col" aria-required="True">
+                    {{ form.title|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {{ form.en_title|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-6">
+                    {{ form.ar_en|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.country|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {{ form.key_words|as_crispy_field }}
+                </div>
+            </div>
+            
+            <div class="row my-3">
+                <div class="col">
+                    {{ form.abstract|as_crispy_field }}
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col">
+                    <h2 class="fw-light my-1 text-center" >{% trans "Details:" %}</h2>
+                </div>
+                <hr>
+            </div> -->
+            
+            <div class="row my-3">
+                <div class="col">
+                    
+                    {{ form.scope|as_crispy_field }}
+                </div>
+                
+            </div>
+            <!-- <div class="row">
+                <div class="col">
+                    {{ form.author|as_crispy_field }}
+                </div>
+            </div> -->
+            <div class="row my-3">
+                <div class="col">
+                    {{ form.en_keyword|as_crispy_field }}                        
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    {{ form.en_abstract|as_crispy_field }}                        
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col">
+                    {{ form.introduction|as_crispy_field }}
+                </div>
+                
+            </div> -->
+            <div class="row my-3">
+                <div class="col">
+                    {{ form.references|as_crispy_field }}  
+                    <!-- {{ form|crispy }}                         -->
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col text-center"> order_form
+                    {{ order_form.author_id }}
+                    {{ order_form.order }}
+                    {{ order_form.contact }}
+                    <hr><hr> <hr><hr>
+                </div>
+            </div> -->
+            <br>
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark rounded-0">{% trans "Save" %}</button>
+                <button type="reset" class="btn btn-dark rounded-0">{% trans "Reset" %}</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Show Reviewer Publications" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <div class="my-3 p-3">
+        <div class="">
+            <hr><h4 class="fw-light text-center">{% trans 'All Reviewer Publications' %}</h4><hr>
+            <div class="row p-2">
+                <h5>{% trans "Count" %}: {{ all_reviewer_publications.count }}</h5><br>
+                
+                
+                <table class="table table-striped table-hover table-sm table-bordered align-middle">
+                    <thead>
+                        <tr role="row" class="small text-center">
+                            <th></th>
+                            <th>{% trans "User" %}</th>                                        
+                            <th>{% trans "Abstract" %}</th>                                        
+                            <th>{% trans "Scope" %}</th>                            
+                            <th class="col-md-1">{% trans "Actions" %}</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody class="small text-center">
+                        {% for pub in all_reviewer_publications %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>
+                                <b>{{ pub.user_id }}</b>                                
+                             </td>
+                            <td>
+                               {{ pub.abstract }}
+                            </td>
+                            <td class="text-start">
+                                {% for scope in pub.scope.all %}
+                                {{ scope }} <br>
+                                {% endfor %}
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-secondary btn-sm" href="{% url 'update-reviewer-publications' pub.id %}" title="{% trans 'edit' %}">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Modal{{pub.id}}" title="{% trans 'delete' %}">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <!--Modal -->
+                                <div class="modal fade" id="Modal{{pub.id}}" data-bs-backdrop="static" data-bs-keyboard="false" 
+                                tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel2">{% trans "Confirm Deletion" %}</h5>
+                                                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label='{% trans "Close" %}'></button>
+                                            </div>                                
+                                            <div class="modal-body h6">{% blocktrans %}
+                                                Are you sure you want to delete this publication ({{ pub }}) permanintly? <br>
+                                                this action can't be undone!
+                                            
+                                                {% endblocktrans %}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">{% trans "Back" %}</button>
+                                                <a class="btn btn-danger rounded-0" href="{% url 'delete-reviewer-publications' pub.id %}">{% trans "delete permanently" %}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+
+    

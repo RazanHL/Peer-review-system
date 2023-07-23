@@ -1,0 +1,10 @@
+{% load i18n %}{% autoescape off %}
+{% blocktrans with site_name=site.name %}
+Hello from {{ site_name }}!
+{% endblocktrans %}
+{% block content %}{% endblock content %}
+{% blocktrans with site_name=site.name site_domain=site.domain %}
+Best wishes from {{ site_name }}
+{{ site_domain }}
+{% endblocktrans %}
+{% endautoescape %}

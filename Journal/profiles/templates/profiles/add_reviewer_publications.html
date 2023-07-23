@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Set Reviewer" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="my-3 p-3" dir="rtl">
+    <div class="form-content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <hr><h3 class="fw-light my-1 text-center" >{% trans "Add or Update reviewer publication:" %}</h3><hr>
+                </div>              
+            </div>
+            <div class="row">
+                {{ form.user_id|as_crispy_field }}
+            </div>
+            <div class="row">
+                {{ form.abstract|as_crispy_field }}
+            </div>
+            <div class="row">
+                {{ form.scope|as_crispy_field }}
+            </div>            
+            <br>
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark rounded-0">{% trans "Save" %}</button>
+                <button type="reset" class="btn btn-dark rounded-0">{% trans "Reset" %}</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

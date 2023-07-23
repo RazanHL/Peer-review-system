@@ -1,0 +1,174 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Articles Filter" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <main class="my-3">
+        <section class="bg-white p-3">
+            {% if user.profiles.user_type == 'EDITOR' %}
+            <div class="">           
+                <div class="row accordion my-1"  id="accordion">
+                    <div class="col-3">
+                        <a class="w-75 btn btn-danger rounded-0" id="panel-heading" data-bs-toggle="collapse"
+                        data-bs-target="#panel-collapse" aria-expanded="true"
+                        aria-controls="panel-collapse">
+                            {% trans "Filters " %}
+                            <i class="fas fa-angle-down small"></i>
+                        </a>
+        
+                    </div>
+                </div>
+                <div class="row">
+                        <ul id="panel-collapse" class="accordion-collapse collapse"
+                        aria-labelledby="panel-heading">
+                            <form method="get">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        {{ filter.title__icontains|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">                                                
+                                        {{ filter.en_title__icontains|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.current_status|as_crispy_field }}
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        {{ filter.key_words__icontains|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.en_keyword__icontains|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.country__icontains|as_crispy_field }}
+                                    </div>
+        
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        {{ filter.score__lt|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.score__gt|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.received_date__year__gt|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.date_of_editor_decision__year__gt|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.author__username__icontains|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.scope__scope__icontains|as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{ filter.reviewer__name__icontains|as_crispy_field }}
+                                    </div>
+                                </div>
+                                {% if not object_list %}
+                                    <input type="number" name="page" value={{object_list.number}} hidden>
+                                {% else %}
+                                    <input type="number" name="page" value={{object_list.number}} hidden>
+
+                                {% endif %}
+                                <div class="form-row d-flex justify-content-center">
+                                    <button id="filter" class="col-4 btn btn-primary rounded-0" type="submit">{% trans "Filter" %}</button>
+                                </div>
+                            </form>
+                        </ul>
+                </div>
+            </div>
+            {% endif %}
+            <hr>
+            {% if result_counts > 0 %}
+            <h5 class=" my-1">{% trans "Results count" %}: <strong class="text-success">{{ result_counts }}</strong></h5>
+            <br>
+        
+            <table class="table table-striped table-hover table-sm table-bordered align-middle">
+                <thead>
+                    <tr role="row" class="small text-center">
+                        <th></th>
+                        <th class="col-3">{% trans "Title" %}</th>
+                        <th>{% trans "Authors" %}</th>
+                        <th>{% trans "Reviewers" %}</th>
+                        <th>{% trans "Scope" %}</th>
+                        <th>{% trans "Results" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+        
+                <tbody class="small">
+                    {% for a in object_list %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ a.title|capfirst }}</td>                        
+                        <td>{% for aa in a.author.values %}
+                                {{ aa.username }}<br>
+                            {% endfor %}
+                        </td>
+                        <td>{% for aa in a.reviewer.values %}
+                                {{ aa.name }}<br>
+                            {% endfor %}
+                        </td>
+                        <td>{% for aa in a.scope.values %}
+                                {{ aa.scope }}<br>
+                            {% endfor %}
+                        </td>
+                        <td>{{ a.result|default_if_none:"" }}</td>
+                        <td class="small text-center">
+                            <a class="btn btn-primary btn-sm" href="{% url 'article-detailes' a.id %}" title="view">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-info btn-sm" href="{% url 'article-review' a.id %}" title="edit">
+                                <i class="fa fa-edit"></i>
+                            </a>                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if object_list.has_other_pages %}
+                <ul class="pagination d-flex justify-content-center">
+                    {% if object_list.has_previous %}
+                        <li class="page-link">
+                            <a href="{{ object_list.previous_page_number }}?{% for fil, fil_value in filter_items %}&{{ fil }}={{ fil_value }}{% endfor %}"
+                            aria-label="Previous">&laquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="page-link disabled" aria-label="Previous" ><span>&laquo;</span></li>
+                    {% endif %}
+                    {% for i in object_list.adjusted_elided_pages %}
+                        {% if i == object_list.paginator.ELLIPSIS %}
+                            <li class="page-link disabled"> {{ i }} </li>
+        
+                        {% else %}
+                            <a href="{{ i }}?{% for fil, fil_value in filter_items %}&{{ fil }}={{ fil_value }}{% endfor %}"
+                            class="{% if i == object_list.number %}active{% endif %} page-link">
+                                {{ i }}
+                            </a>
+                        {% endif %}
+        
+                    {% endfor %}
+                    {% if object_list.has_next %}
+                        <li><a class="page-link" href="{{ object_list.next_page_number }}?{% for fil, fil_value in filter_items %}&{{ fil }}={{ fil_value }}{% endfor %}"
+                            aria-label="Next">&raquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="page-link disabled" aria-label="Next"><span>&raquo;</span></li>
+                    {% endif %}
+                </ul>
+        
+            {% endif %}
+            {% else %}
+                <h4 class="fw-light">{% trans 'No results Found!' %}</h4><hr>
+            {% endif %}
+        </section>
+    </main>
+
+
+{% endblock content %}

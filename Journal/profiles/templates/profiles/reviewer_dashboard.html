@@ -1,0 +1,158 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+<div class="container p-3 my-3">
+    <div class="row">
+        <div class="col-md-12">
+            <hr><h4 class=" fw-light">{% trans "Review Manuscripts" %}</h4><hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-secondary rounded-0 shadow">
+                <div class="card-body text-center text-secondary">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Invites" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ invites }}</p>
+                        <a href="{% url 'reviewer-invites' %}" class="card-link text-secondary">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-warning rounded-0 shadow">
+                <div class="card-body text-center text-warning">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Under Review" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ under_review }}</p>
+                        <a href="{% url 'reviewer-under-review' %}" class="card-link text-warning">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-secondary rounded-0 shadow">
+                <div class="card-body text-center text-secondary">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Done Review" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ done_review }}</p>
+                            <a href="{% url 'reviewer-done-review' %}" class="card-link text-secondary">{% trans "Show All" %}<i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-info rounded-0 shadow">
+                <div class="card-body text-center text-info">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Last Updated" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ updated_last_week }}</p>
+                        <a href="{% url 'reviewer-recently-edited' %}" class="card-link text-info">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <hr><h4 class="my-3 fw-light">{% trans "Your Manuscripts" %}</h4><hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-secondary rounded-0 shadow">
+                <div class="card-body text-center text-secondary">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Pre-Submitted" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_articles_unsubmitted }}</p>
+                        <a href="{% url 'user-unsubmitted-articles' %}" class="card-link text-secondary">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-warning rounded-0 shadow">
+                <div class="card-body text-center text-warning">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Pre-Review" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_articles_pre_review }}</p>
+                        <a href="{% url 'user-pre-review-articles' %}" class="card-link text-warning">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-secondary rounded-0 shadow">
+                <div class="card-body text-center text-secondary">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Under-Review" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_articles_under_review }}</p>
+                        <a href="{% url 'user-under-review-articles' %}" class="card-link text-secondary">{% trans "Show All" %}<i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-info rounded-0 shadow">
+                <div class="card-body text-center text-info">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Accepted" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_articles_accepted }}</p>
+                        <a href="{% url 'user-accepted-articles' %}" class="card-link text-info">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-info rounded-0 shadow">
+                <div class="card-body text-center text-info">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Rejected" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_articles_rejected }}</p>
+                        <a href="{% url 'user-rejected-articles' %}" class="card-link text-info">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-secondary rounded-0 shadow">
+                <div class="card-body text-center text-secondary">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Pre-Published" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_articles_pre_publish }}</p>
+                        <a href="{% url 'user-pre-publish-articles' %}" class="card-link text-secondary">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-danger rounded-0 shadow">
+                <div class="card-body text-center text-danger">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Published" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_articles_published }}</p>
+                        <a href="{% url 'user-published-articles' %}" class="card-link text-danger">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card m-2 border border-3 border-secondary rounded-0 shadow">
+                <div class="card-body text-center text-secondary">
+                    <div class="">  
+                        <p class="card-title fw-bold">{% trans "Recently Updated" %}</p>
+                        <p class="card-subtitle mb-2 text-muted fw-bold">{{ user_updated_last_week }}</p>
+                        <a href="{% url 'user-recently-updated' %}" class="card-link text-secondary">{% trans "Show All" %} <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Contact Details' %}{% endblock title%}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="my-3 p-3">
+    <h2 class="text-center my-3">{% trans "Contact Details" %}</h2><br>
+    <div class="my-3 p-3 h5">        
+        <div class="col"><b>{% trans "Name" %}:</b> {{ cont.name }}</div><br>         
+        <div class="col"><b>{% trans "E.mail" %}:</b> {{ cont.email }}</div><br>
+        <div class="col"><b>{% trans "Message" %}:</b> {{ cont.message }}</div><br>
+    </div>
+
+</div>
+{% endblock content %}

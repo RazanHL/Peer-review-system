@@ -1,0 +1,22 @@
+
+{% load i18n %}
+{% block content %}{% autoescape off %}
+{% trans 'Dear' %} {{ author.profiles.certificate|default_if_none:"" }} {{ author.profiles.name }}  
+{% blocktrans with article_title=article.title received_at=article.received_date id=article.id %}
+We are glad to inform you that your manuscript titled  
+{{ article_title }}
+Date submitted: {{ received_at }}
+and assigned as {{ id }} is approved to publish in the Syrian Journal of Agricultural Research (SJAR), 
+and we will provide you with the publication document soon. 
+You only have to format the research according to the attached template to prepare it for publication.
+Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR) and look forward to receiving the revised version soon.
+With my sincere regards and greetings of the editorial staff.
+
+Regards
+{{ user }}
+--------------------------
+{% endblocktrans %}
+{% endautoescape %}
+{% endblock %}
+
+

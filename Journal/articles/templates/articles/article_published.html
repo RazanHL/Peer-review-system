@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "Journal Volumes" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+
+{% block content %}
+<div class="my-3">
+    <div class="card-group d-flex justify-content-center">
+        {% for vol, issue, year in volumes reversed %}
+            {% for iss in issue reversed %}
+                <div class=" col-lg-3 col-sm-6 m-3">
+                    <div class="card border border-1 shadow" >
+                        <a href="{% url 'show-volume' year vol iss %}" class="card-link">
+                            <img src="{% static '/image/sjar.png' %}" class="card-img-top" alt="SJAR">
+                            <div class="card-body text-center">
+                                <p class="card-text fw-bold small">{% trans "Volume" %} ({{ vol }}) - {% trans "Essue" %} ({{ iss }})</p>
+                                <p class="card-subtitle">{{ year }}</p>
+                                <!--<p class="card-text"></p> 
+                                <a href="#" class="card-link">show</a>-->
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

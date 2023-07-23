@@ -1,0 +1,124 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+{% block title %}{% trans "Search Results" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <div class="my-3">
+        <div class="row my-1">
+            <div class="col-3">
+                <a class="w-75 btn btn-secondary rounded-0" href="{% url 'create-user-profile' %}"
+                role="button">{% trans "Add new" %}</a>
+            </div>
+            <div class="col"></div>
+            <div class="col-5">
+                <form action="{% url 'search-profiles' 1 %}" method="get" class="d-flex">
+                    <input type="search" name="queryuser" placeholder="Search profiles"
+                    class="form-control me-2" value="{{ queryuser }}">
+                    <button class="btn btn-outline-primary rounded-0" type="submit">{% trans "Search" %}</button>
+                </form>
+
+            </div>
+        </div>
+        <br>
+        {% if  results.count > 0 %}
+        <h4 class="fw-light">{% trans "Search Results Count: " %}<strong class="text-success">{{ results.count }}</strong></h4>
+        <hr>
+        <table class="table table-striped table-hover table-sm table-bordered  datatable align-middle">
+            <thead>
+                <tr role="row" class="small text-center">
+                    <th></th>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Type" %}</th>
+                    <th>{% trans "Certificate" %}</th>
+                    <th>{% trans "Specialist" %}</th>
+                    <th>{% trans "Specific Specialist" %}</th>
+                    <th>{% trans "Email" %}</th>
+                    <th class="col-md-2">{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+
+            <tbody class="small">
+                {% for a in object_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ a.name|capfirst }}</td>
+                    <td>{{ a.user_type }}</td>
+                    <td>{{ a.certificate }}</td>
+                    <td>{{ a.specialist }}</td>
+                    <td>{{ a.specific_specialist }}</td>
+                    <td>{{ a.user.email }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-primary btn-sm" href="{% url 'view-user-profile' a.id %}" title="{% trans 'view' %}">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a class="btn btn-info btn-sm" href="{% url 'update-user-profile' a.id %}" title="{% trans 'edit' %}">
+                            <i class="fa fa-edit"></i>
+                        </a>                        
+                        <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Modal{{a.id}}" title="{% trans 'delete' %}">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                        <!--Modal -->
+                        <div class="modal fade" id="Modal{{a.id}}" data-bs-backdrop="static" data-bs-keyboard="false" 
+                        tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel2">{% trans "Confirm Deletion" %}</h5>
+                                        <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label='{% trans "Close" %}'></button>
+                                    </div>                                    
+                                    <div class="modal-body h6">{% blocktrans %}
+                                        Are you sure you want to delete this user ({{ a }}) permanintly? <br>
+                                        this action can't be undone!                                        
+                                    {% endblocktrans %}</div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">{% trans "Back" %}</button>
+                                        <!-- <button type="submit" class="btn btn-danger">delete permanently</button> -->
+                                        <a class="btn btn-danger rounded-0" href="{% url 'delete-user-profile' a.id %}">{% trans "delete permanently" %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if object_list.has_other_pages %} 
+            <ul class="pagination d-flex justify-content-center">
+                {% if object_list.has_previous %}
+                    <li class="page-link">
+                        <a href="{{ object_list.previous_page_number }}?queryuser={{ queryuser }}"
+                        aria-label="Previous">&laquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-link disabled" aria-label="Previous" ><span>&laquo;</span></li>
+                {% endif %}
+                {% for i in object_list.adjusted_elided_pages %}
+                    {% if i == object_list.paginator.ELLIPSIS %}
+                        <li class="page-link disabled"> {{ i }} </li>
+    
+                    {% else %}
+                        <a href="{{ i }}?queryuser={{ queryuser }}"
+                        class="{% if i == object_list.number %}active{% endif %} page-link">
+                            {{ i }}
+                        </a>
+                    {% endif %}
+    
+                {% endfor %}
+                {% if object_list.has_next %}
+                    <li><a class="page-link" href="{{ object_list.next_page_number }}?queryuser={{ queryuser }}"
+                        aria-label="Next">&raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-link disabled" aria-label="Next"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+    
+        {% endif %}
+        {% else %}
+            <h4 class="fw-light">{% trans 'No results Found!' %}</h4><hr>
+        {% endif %}
+    </div>
+{% endblock content %}

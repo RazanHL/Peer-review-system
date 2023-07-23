@@ -1,0 +1,181 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+{% block content %}
+    <div class="my-3">
+        <div class="row my-1">
+            <div class="col-3">
+                <a class="w-75 btn btn-secondary" href="{% url 'create-user-profile' %}" 
+                role="button">{% trans "Add new" %}</a>
+            </div>
+            <div class="col"></div> hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+            <div class="col-5">
+                <form action="{% url 'search-profiles' 1 %}" method="get" class="d-flex">
+                    <input type="search" name="query" placeholder="Search profiles" 
+                    class="form-control me-2">
+                    <button class="btn btn-outline-primary " type="submit">{% trans "Search" %}</button>
+                </form>
+                
+            </div>        
+        </div>            
+        <div class="row accordion my-1"  id="accordion">
+            <div class="col-3">
+                <a class="w-75 btn btn-danger" id="panel-heading" data-bs-toggle="collapse"
+                data-bs-target="#panel-collapse" aria-expanded="true"
+                aria-controls="panel-collapse">
+                    {% trans 'Filters ' %}
+                    <i class="fas fa-angle-down small"></i>
+                </a>
+
+            </div>
+        </div>
+        <div class="row">
+                <ul id="panel-collapse" class="accordion-collapse collapse"
+                aria-labelledby="panel-heading">
+                    <form method="get">
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{ filter.name__icontains|as_crispy_field }}
+                            </div>
+                            <div class="col-md-4">
+                                <!-- <div id="div_id_name__icontains" class="mb-3">
+                                    <label for="id_name__icontains" class="form-label">
+                                        Name:
+                                    </label>
+                                    <input type="text" name="name__icontains"
+                                    class="textinput form-control" id="id_name__icontains" placeholder="contains">
+                                </div> -->
+                                {{ filter.country__icontains|as_crispy_field }}
+                            </div>
+                            <div class="col-md-4">
+                                <!-- <div id="div_id_user_type" class="mb-3">
+                                    <label for="id_user_type" class="form-label">
+                                        User type
+                                    </label>
+                                    <select name="user_type" class="select form-select" id="id_user_type">
+                                        <option value="" selected="">---------</option>
+                                        <option value="AUTHOR">AUTHOR</option>
+                                        <option value="REVIEWER">REVIEWER</option>
+                                        <option value="EDITOR">EDITOR</option>
+                                        <option value="PUBLISHER">PUBLISHER</option>
+                                    </select>
+                            </div> -->
+                                {{ filter.user_type|as_crispy_field }}
+                            </div>
+                            <!-- <div class="col-md-4">
+                                <div id="div_id_country__icontains" class="mb-3">
+                                    <label for="id_country__icontains" class="form-label">
+                                        Country contains
+                                    </label>
+                                <input type="text" name="country__icontains" class="textinput form-control" id="id_country__icontains">
+
+                            </div>
+                            </div>-->
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ filter.certificate__icontains|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ filter.specialist__icontains|as_crispy_field }}
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ filter.work_address__icontains|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ filter.specific_specialist__icontains|as_crispy_field }}
+                            </div>
+                        </div>
+                        <!-- {{ filter|crispy }} -->
+                        <div class="form-row d-flex justify-content-center">
+                            <button id="filter" class="col-4 btn btn-primary" type="submit">{% trans "Filter" %}</button>
+                        </div>
+
+                            <!-- <input type="submit" /> -->
+                    </form>
+                </ul>
+        </div>
+    </div>
+    <hr>
+    <h5 class=" my-1">{% trans "Results count" %}: <strong class="text-success">{{ result_counts }}</strong></h5>
+    <br>
+
+    <table class="table table-striped table-hover table-sm table-bordered datatable align-middle"
+    id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" 
+    style="border-collapse: collapse !important">
+        <thead>
+            <tr role="row" class="small text-center">
+                <th>#</th>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Type" %}</th>
+                <th>{% trans "Certificate" %}</th>
+                <th>{% trans "Specialist" %}</th>
+                <th>{% trans "Specific Specialist" %}</th>
+                <th>{% trans "Email" %}</th>
+                <th class="col-md-2">{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+
+        <tbody class="small">
+            {% for a in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ a.name|capfirst }}</td>
+                <td>{{ a.user_type }}</td>
+                <td>{{ a.certificate }}</td>
+                <td>{{ a.specialist }}</td>
+                <td>{{ a.specific_specialist }}</td>
+                <td>{{ a.user.email }}</td>
+                <td class="small text-center">
+                    <a class="btn btn-primary btn-sm" href="{% url 'view-user-profile' a.id %}" title="view">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a class="btn btn-info btn-sm" href="{% url 'update-user-profile' a.id %}" title="edit">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'delete-user-profile' a.id %}" title="delete">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if object_list.has_other_pages %}
+        <ul class="pagination d-flex justify-content-center">
+            {% if object_list.has_previous %}
+                <li class="page-link">
+                    <a href="{{ object_list.previous_page_number }}?{% for fil, fil_value in filter_items %}&{{ fil }}={{ fil_value }}{% endfor %}"
+                    aria-label="Previous">&laquo;</a>
+                </li>
+            {% else %}
+                <li class="page-link disabled" aria-label="Previous" ><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in object_list.adjusted_elided_pages %}
+                {% if i == object_list.paginator.ELLIPSIS %}
+                    <li class="page-link disabled"> {{ i }} </li>
+
+                {% else %}
+                    <a href="{{ i }}?{% for fil, fil_value in filter_items %}&{{ fil }}={{ fil_value }}{% endfor %}"
+                    class="{% if i == object_list.number %}active{% endif %} page-link">
+                        {{ i }}
+                    </a>
+                {% endif %}
+
+            {% endfor %}
+            {% if object_list.has_next %}
+                <li><a class="page-link" href="{{ object_list.next_page_number }}?{% for fil, fil_value in filter_items %}&{{ fil }}={{ fil_value }}{% endfor %}"
+                    aria-label="Next">&raquo;</a>
+                </li>
+            {% else %}
+                <li class="page-link disabled" aria-label="Next"><span>&raquo;</span></li>
+            {% endif %}
+        </ul>
+
+    {% endif %}
+
+{% endblock content %}

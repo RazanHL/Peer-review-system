@@ -1,0 +1,163 @@
+{% load static %}
+{% load i18n %}
+<div class="col-lg-3">
+    <aside id="leftsidebar" class="text-center">
+        <nav id="nav">
+          <div class="navbar-nav">
+            {% if user.is_authenticated %}
+            <p class="nav-item">              
+                <p class="brand-text text-info fw-light">{{ user.email }}</p>              
+            </p>
+            <li class="nav-item">
+                <div class="fw-bold nav-link border border-info">{% trans 'Your Role is: ' %} {{ user.profiles.user_type }}</div>
+                <br>
+                <a href="{% if user.profiles.user_type == 'EDITOR' %}
+                  {% url 'editor-dashboard' %}
+                {% elif user.profiles.user_type == 'REVIEWER' %}
+                  {% url 'reviewer-dashboard' %}
+                {% else %}
+                  {% url 'author-dashboard' %}
+                {% endif %}" class="nav-link">
+                    <i class="nav-icon fas fa-th text-info"></i>
+                    <p>
+                      {% trans "Dashboard" %}
+                    </p>
+                  </a>
+            </li>            
+              <li class="nav-item">
+                <a href="{% url 'update-user-profile' user.id %}" class="nav-link">
+                    <i class="nav-icon fas fa-edit text-info"></i>
+                    <p>
+                      {% trans "Edit my profile" %}
+                    </p>
+                  </a>
+              </li>
+            {% endif %}
+            {% if user.is_authenticated and user.profiles.user_type == 'EDITOR' %}
+              <li class="nav-item">
+                <a href="{% url 'filter-profiles' 1 %}" class="nav-link">
+                    <i class="nav-icon fas fa-cogs text-info"></i>
+                    <p>
+                      {% trans "Manage Users" %}
+                    </p>
+                  </a>
+              </li>
+            {% endif %}
+            
+            
+              <li class="nav-item">
+                <a href="{% url 'published-articles' %}" class="nav-link">
+                    <i class="nav-icon fas fa-book text-info"></i>
+                    <p>
+                      {% trans "Published Articles" %}
+                    </p>
+                  </a>
+              </li>
+          
+            {% if user.is_authenticated and user.profiles.user_type == 'EDITOR' %}
+              <li class="nav-item accordion border border-2" id="accordion2" style="background-color: rgb(85, 90, 90);">
+                  <div class="h6 text-info fw-bold">
+                      <!-- <i class="nav-icon fas fa-folder"></i> -->
+                      <p class="" id="p2">
+                          <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#panel2" 
+                          aria-expanded="true" aria-controls="panel2">
+                              {% trans "Manage Articles" %}
+                              <i class="right fas fa-angle-down small"></i>
+                          </a>  
+                      </p>
+                  </div>
+                  <div id="panel2" class="accordion-collapse collapse" aria-labelledby="p2">                    
+                    <p class="nav-item">
+                      <a href="{% url 'filter-articles' 1 %}" class="nav-link">
+                        <i class="far fa fa-filter nav-icon text-info"></i>
+                        {% trans "Filter Articles" %}
+                      </a><hr>
+                    </p>
+                      <p class="nav-item">
+                        <a href="{% url 'unsubmitted-articles' %}" class="nav-link">
+                          <i class="far fa fa-edit nav-icon text-info"></i>
+                          {% trans "Pre-Submitted Articles" %}
+                        </a><hr>
+                      </p>
+                      <p class="nav-item">
+                        <a href="{% url 'pre-review-articles' %}" class="nav-link">
+                          <i class="far fa fa-share-square nav-icon text-info"></i>
+                          {% trans "Pre-Review Articles" %}
+                        </a><hr>
+                      </p>
+                      <p class="nav-item">
+                        <a href="{% url 'under-review-articles' %}" class="nav-link">
+                          <i class="far fa fa-comments nav-icon text-info"></i>
+                          {% trans "Under-Review Articles" %}
+                        </a><hr>
+                      </p>
+                      <p class="nav-item">
+                        <a href="{% url 'accepted-articles' %}" class="nav-link">
+                          <i class="far fa fa-thumbs-up nav-icon text-info"></i>
+                          {% trans "Accepted Articles" %}
+                        </a><hr>
+                      </p>
+                      <p class="nav-item">
+                        <a href="{% url 'pre-publish-articles' %}" class="nav-link">
+                          <i class="far fa fa-list nav-icon text-info"></i>
+                          {% trans "Pre-Publish Articles" %}
+                        </a><hr>
+                      </p>
+                      <p class="nav-item">
+                          <a href="{% url 'rejected-articles' %}" class="nav-link">
+                            <i class="far fa fa-thumbs-down text-info"></i>
+                            {% trans "Rejected Articles" %}
+                          </a>
+                      </p>
+                    </div>
+              </li>
+            {% endif %}
+            
+            <li class="nav-item">
+              <a href="{% url 'submit-article' %}" class="nav-link">
+                  <i class="nav-icon fas fa-edit text-info"></i>
+                  <p>
+                    {% trans "Add Submission" %}
+                  </p>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="{% url 'submit-article' %}">Add submission</a> -->
+              <!-- <a class="nav-link" href="#">Editorial tools</a> -->
+              <a class="nav-link" href="{% url 'editorial-board' %}"></span>
+                <i class="nav-icon fas fa-users text-info"></i>
+                <p>{% trans "Editorial Board" %}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'publication-ethics' %}">
+                <i class="nav-icon fas fa-check-square text-info"></i>
+                <p>{% trans "Publication Ethics" %}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'guidelines' %}">
+                <i class="nav-icon fas fa-compass text-info"></i>
+                <p>{% trans "Guidelines" %}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'copyright-form' %}">
+                <i class="nav-icon fas fa-copyright text-info"></i>
+                <p>{% trans "Copyright Form" %}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact-us' %}">
+                <i class="nav-icon fas fa-phone text-info"></i>
+                <p>{% trans "Contact Us" %}</p>
+              </a>                             
+            </li>
+            
+          </div>
+          
+        </nav>
+    </aside>
+</div>
+    

@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Under-Review Manuscripts" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+<div class="my-3 p-3" dir="rtl">
+    <div class="card shadow">
+        <h5 class="p-3 card-header fw-light shadow text-center">{% trans 'Under-Review Manuscripts: Count' %} ({{ under_review.count }})</h5>
+        <div class="m-3 p-3">
+        {% for article in under_review %}       
+            <a href="{% url 'article-detailes' article.id %}">
+                <h5 class="">
+                    {{ article.title }}
+                </h5>
+            </a><br>
+            <div class="">
+                {% for auth in article.author.all %}
+                    <strong>{{ auth.profiles.name }}, </strong>
+                {% endfor %}
+            </div><br>
+            <div class="text-center">
+                <h5 class="fw-light">{% trans "Status" %}</h5>
+                <b>{% trans "Current Stage" %}:</b> {{ article.current_status }}<br>
+                <b>{% trans "Received at" %}:</b> {{ article.received_date }}<br>
+                <b>{% trans "Time in Review" %}:</b> {{ article.received_date|timesince }}
+            </div>
+            <hr>            
+            {% empty %}
+            <h5 class="text-center"> {% trans "No Under-Review Manuscripts Yet" %}! </h5>
+            
+        {% endfor %}
+        </div>            
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Update Editorial Board' %}{% endblock title%}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="my-3 p-3">
+    <h2 class="text-center my-3">{% trans "Update Editorial Board" %}</h2><br>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col">
+                {{ ed_form.arabic_name|as_crispy_field }}
+            </div>
+            <div class="col">
+                {{ ed_form.english_name|as_crispy_field }}
+            </div>
+            <div class="col">
+                {{ ed_form.job_title|as_crispy_field }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {{ ed_form.specification|as_crispy_field }}
+            </div>
+            <div class="col">
+                {{ ed_form.en_specification|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ ed_form.work_address|as_crispy_field }}
+            </div>
+            <div class="col">
+                {{ ed_form.en_work_address|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark rounded-0">{% trans 'Save Changes' %}</button><span>   </span>
+            <button type="reset" class="btn btn-dark rounded-0">{% trans 'Reset' %}</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% load i18n %}
+{% block content %}{% autoescape off %}
+{% trans 'Dear' %} {{ author.profiles.certificate|default_if_none:"" }} {{ author.profiles.name }}  
+{% blocktrans with site_name=site.name rticle_title=article.title received_at=article.received_date id=article.id %}
+Your manuscript titled  
+{{ article_title }}
+Date submitted: {{ received_at }}
+and assigned as {{ id }} has now been evaluated by members of the editorial board. 
+While we certainly find merit in your paper, a number of points of criticism were raised and we 
+therefore regret to inform you that your manuscript is not acceptable for publication in its 
+present form. 
+If you feel that you can adequately address the criticisms outlined in the reviewer reports below, 
+we would be willing to reconsider a thoroughly revised version of your manuscript.
+
+If you decide to resubmit your manuscript, please provide point-by-point answers to the reviewer 
+criticisms in your next email.
+Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR) and look forward to receiving the revised version soon.
+
+Regards
+{{ user }}
+--------------------------
+Editor-in-Chief comments: 
+{% endblocktrans %}
+{{ article.notes_to_author }}
+-------------------------
+{% for rev in review %}
+{% trans 'Reviewer' %} {{ forloop.counter }} {% trans 'comments' %}:
+{{ rev.notes_to_author }}
+-------------------------
+{% endfor %}
+
+{% endautoescape %}
+{% endblock %}
+
+

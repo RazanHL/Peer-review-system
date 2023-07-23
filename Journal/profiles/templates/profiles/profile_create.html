@@ -1,0 +1,142 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Create Profile" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <div class="row my-3 p-3">
+        {% if user_form.errors or profile_form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in user_form.errors.items %}
+                        <strong>{{ value }}</strong>
+                    {% endfor %}
+                    {% for key, value in profile_form.errors.items %}
+                        <strong>{{ value }}</strong>
+                    {% endfor %}
+                </div>
+                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+        {% endif %}
+        <h3 class="fw-bold mb-3 text-center">{% trans "Add New User" %}</h3>
+        <div class="form-content">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <h3 class="fw-light my-1 text-center" >{% trans 'Personal Informations:' %}</h3>
+                    </div>
+                    <hr>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ user_form.username|as_crispy_field }}                        
+                    </div>
+                    <div class="col-md-4">
+                        {{ profile_form.name|as_crispy_field }}                        
+                    </div>
+                    <div class="col-md-4">
+                        {{ profile_form.en_name|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    {% if user.profiles.user_type == 'EDITOR' %}
+                    <div class="col">
+                        {{ profile_form.user_type|as_crispy_field }}                        
+                    </div>
+                    {% endif %}
+                    <div class="col">
+                        {{ user_form.password1|as_crispy_field }}                        
+                    </div>
+                    <div class="col">
+                        {{ user_form.password2|as_crispy_field }}                        
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.bio|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3 class="fw-light my-1 text-center" >{% trans 'Contact Informations' %}:</h3>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ user_form.email|as_crispy_field }}                        
+                    </div>
+                    <div class="col-md-6">
+                        {{ profile_form.email2|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.country|as_crispy_field }}                       
+                    </div>
+                    <div class="col">
+                        {{ profile_form.phone|as_crispy_field }}                        
+                    </div>
+                    <div class="col>
+                        {{ profile_form.phone2|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.address|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.work_address|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.en_work_address|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3 class="fw-light my-1 text-center" >{% trans 'Major Informations:' %}</h3>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.certificate|as_crispy_field }}                        
+                    </div>
+                    <div class="col">
+                        {{ profile_form.en_certificate|as_crispy_field }}                        
+                    </div>
+                    <div class="col">
+                        {{ profile_form.specialist|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.specific_specialist|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ profile_form.publications_count|as_crispy_field }}                        
+                    </div>
+                </div>
+
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-dark rounded-0">{% trans 'Save' %}</button><span>   </span>
+                    <button type="reset" class="btn btn-dark rounded-0">{% trans 'Reset' %}</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+{% endblock content %}

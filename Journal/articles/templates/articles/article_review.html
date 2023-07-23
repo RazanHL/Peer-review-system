@@ -1,0 +1,815 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Manuscript Review" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <div class="my-3">
+        <div class="boarder">
+            
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#home">{% trans "Manuscript details" %}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#menu1">{% trans "Pre Review" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu2">{% trans "Assign Reviewers" %}</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#decision">{% trans "Decision" %}</a>
+                </li>
+            </ul>
+            <div class="tab-content boarder">
+                <div class="tab-pane container active" id="home">
+                    <div class="my-3 p-3" dir="{% if article.ar_en == 'en' %}ltr{% else %}rtl{% endif %}"><br>
+                        <h5 class="fw-bold my-1 text-center">
+                            {{ article.title }}<br>
+                            {{ article.en_title|default_if_none:"" }}
+                        </h5><br>
+                        <div class="row p-3">
+                            <div class="col">
+                                <div class="text-center">
+                                    {% for name in article.author.all %}
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <strong>{{ name.profiles.name }}</strong>
+                                            </div>
+                                            <div class="col">
+                                                <a class="btn btn-primary btn-sm" href="{% url 'email-author' name.id article.id %}" title="{% trans 'Receipt Confirmation' %}">
+                                                    <i class="fa fa-envelope"></i>
+                                                </a>
+                                            </div>
+                                        </div><hr>
+                                    {% endfor %}
+                                </div>
+                                <div>
+                                    {% for inst in institute %}
+                                        ({{ forloop.counter }}) {{ inst }} <br>
+                                    {% endfor %}
+                                </div>
+                                <div class="fw-bold text-center">
+                                    {% if article.ar_en == 'en' %} Abstract {% else %} الملخص {% endif %}
+                                </div>                        
+                                <div class="text-justify">{{ article.abstract }}</div><br>
+                                <div class="fw-bold">{% if article.ar_en == 'en' %} Keywords: {% else %} الكلمات المفتاحية: {% endif %} {{ article.key_words }}</div><br>
+                            </div>
+                        </div><br>
+                    </div>
+                    <div>
+                        <div class="row p-3">
+                            <div class="col">
+                                {% if article.file_link %}
+                                <a class="link-info" href="{% url 'download_manuscript' article.id article.file_link %}">
+                                    <i class="h2 text-secondary fa fa-file-word"></i>
+                                    <span class="">{% trans 'Full Manuscript' %}</span>
+                                </a><br>
+                                {% endif %}
+                            </div>  
+                            <div class="col">
+                                {% if article.revised_pdf_link %}
+                                <a class="link-info" href="{% url 'download_manuscript' article.id article.revised_pdf_link %}">
+                                    <i class="h2 text-secondary fa fa-file-pdf"></i>
+                                    <span class="">{% trans 'Revised PDF' %}</span>
+                                </a><br>
+                                {% endif %}
+                            </div>
+                            <div class="col">
+                                {% if article.no_author_file %}
+                                <a class="link-info" href="{% url 'download_manuscript' article.id article.no_author_file %}">
+                                    <i class="h2 text-secondary fa fa-file-word"></i>
+                                    {% trans "Manuscript without Author's names" %}</a><br>
+                                {% endif %}
+                            </div>
+                            <div class="col">
+                                {% if article.copyright_file_link %}
+                                <a class="link-info" href="{% url 'download_manuscript' article.id article.copyright_file_link %}">
+                                    <i class="h2 text-secondary fa fa-file-word"></i>
+                                    {% trans 'Copyrighting File' %}</a><br>
+                                {% endif %}
+                            </div>
+                        </div><br>
+                        <div class="row text-center p-3">
+                            <div class="col">
+                                <div class="h5 text-primary border-bottom border-primary">
+                                    <h5 class="fw-bold">{% trans "Status" %}</h5>
+                                </div><br>
+                                
+                                <b>{% trans "Current stage" %}:</b> {{ article.current_status }}<br> <!-- release_date|date:"Y-m-d"  value|add:"2" -->
+                                <b>{% trans "Received at" %}:</b> {{ article.received_date }}<br>
+                                <b>{% trans "Time in review" %}:</b> {{ article.received_date|timesince }}
+                            </div>                            
+                        </div>
+                        <div class="row p-3">
+                            <div class="col">               
+                                <b>{% trans "Scope" %}:</b><br>
+                                {% for s in article.scope.values %}
+                                    {{ s.scope }}<br>                     
+                                {% endfor %}
+                                
+                                <div ><b>{% trans "Reviewers" %}: </b><br>
+                                    {% for rev in article.reviewer.values %}
+                                        {{ rev.name }}<br>                            
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" accordion my-1 p-3"  id="detail-accordionMore">
+                            <div class="col accordion-item text-center">
+                                <h2 class="accordion-header text-center" id="headingOneOne">
+                                    <h5 class="h5 fw-bold text-primary border-bottom border-primary" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapseOneOne" aria-expanded="true" aria-controls="collapseOneOne">
+                                        {% trans 'More Detailes' %}
+                                        <i class="fas fa-angle-down small"></i>
+                                    </h5>
+                                </h2>
+                                <div id="collapseOneOne" class="accordion-collapse collapse" aria-labelledby="headingOneOne" 
+                                data-bs-parent="#detail-accordionMore">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <b>{% trans "Language" %}:</b> {{ article.ar_en|default_if_none:"" }}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <b>{% trans "Result" %}:</b> {{ article.result|default_if_none:"" }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <b>{% trans "Country" %}:</b> {{ article.country|default_if_none:"" }}
+                                            </div><br>
+                                            <div class="col-md-6">                                                
+                                                <b>{% trans "Score" %}:</b> {{ article.score|default_if_none:"" }}
+                                            </div>                                        
+                                        </div>                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <b>{% trans "Volume" %}:</b> {{ article.volume|default_if_none:"" }}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <b>{% trans "Date of editor decision" %}:</b> {{ article.date_of_editor_decision|default_if_none:"" }} 
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <b>{% trans "Issue" %}:</b> {{ article.issue|default_if_none:"" }}
+                                            </div>
+                                            <div class="col">
+                                                <b>{% trans "Last update" %}:</b> {{ article.updated_at }}
+                                            </div>                                            
+                                        </div><br>
+                                        <div class="row" dir="ltr">                                            
+                                            <div class="col">
+                                                <div class="text-center">
+                                                    <b>Abstract</b><br>
+                                                    <div class="text-justify" >
+                                                        {{ article.en_abstract|default_if_none:"" }}
+                                                    </div>
+                                                </div><br>
+                                                <div class="text-start fw-bold">Keywords: {{ article.en_keyword|default_if_none:"" }}</div><br><br>
+                                            </div>                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                
+                                                <b class="">{% trans "References" %}:</b><br>
+                                                <div class="text-justify"></div> {{ article.references|default_if_none:"" }}    
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <a class="btn btn-secondary rounded-0" href="{% url 'article-update' article.id %}" title="edit"> 
+                                {% trans "edit manuscript" %}
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="delete">
+                                {% trans "delete manuscript" %}
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+                    </div><hr>
+                    <div class="row">
+                        <div class="text-center">
+                            <a class="btn btn-dark rounded-0 btnNext" onclick="goNext()">{% trans "Next" %}</a>
+                        </div>
+                    </div><br>
+                    
+              
+                </div>
+                <div class="tab-pane container fade p-3" id="menu1"><br>
+                    <div class="row ">                        
+                        <hr><h4 class="fw-bold text-center">{% trans "Plagiarism Check" %}</h4><br><br><hr>
+                        <h6 class="text-secondary">
+                            {% blocktrans %}
+                                Online free tool to check plagiarism rate of a Manuscript<br>
+                            {% endblocktrans %}
+                        </h6>
+                        <div class="text-center">
+                            <a href="https://my.plagramme.com/myfiles" class="btn btn-primary rounded-0">my.plagramme</a>    
+                        </div>
+                    </div><br><br>
+
+                    <div class="row">                        
+                        <hr><h4 class="fw-bold text-center">{% trans "Scope Prediction" %}</h4><br><br><hr>
+                        <div class="text-center">
+                            <a href="{% url 'scope-prediction' article.id %}" class="btn btn-primary rounded-0"> <!--  -->
+                                <i>BERT</i> {% trans "Classifier" %}
+                            </a>
+                        </div>                        
+                        <h6 class="text-secondary">
+                            {% blocktrans %}
+                            Deep Learning Model to classifying a manuscript according to its topics<br>
+                            This model follows Multi-Label classification method, with means that it can predict the major and minor subject of each manuscript.<br>
+                            This model is specific to this journal, as it was trained to classify according to this journal's specific topics.
+                            {% endblocktrans %}
+                            <div class="text-danger"></div>
+                            
+                        </h6>
+                        <div class="text-center">
+                            <a href="{% url 'article-update' article.id %}" class="btn btn-primary rounded-0">
+                                {% trans "Set scope" %}
+                            </a>
+                            <!-- {% if prediction_result %}
+                                <h4 class="fw-light my-1 text-center">{% trans "Scope Prediction Results" %}:</h4><br>
+                                {% for result in prediction_result %}
+                                    {% trans "Scope" %}:{{ result }}
+                                {% empty %}
+                                    {% trans "No results found" %}!
+                                {% endfor %}
+                            {% endif %} -->
+                        </div>                        
+                    </div><br><br>
+                    <div class="row">                        
+                        <hr><h4 class="fw-bold text-center">{% trans "Quality Evaluation" %}</h4><br><br><hr>
+                        <h6 class="text-secondary">
+                            {% blocktrans %}
+                            Machine Learning tool to estimate the overall quality of a manuscript according to statistical features including:<br>
+                            References quality: Number of references, Latest, Oldest, Median reference .. <br>
+                            <u>Paper quality:</u> Number of (figures, tables, charts), English/Arabic ratio, Words count, sentences length .. and more.
+                            {% endblocktrans %}
+                        </h6>
+                        <div class="text-center">
+                            <a href="{% url 'quality-prediction' article.id %}" class="btn btn-primary rounded-0">{% trans "Evaluate" %}</a><br>
+                            
+                        </div>                      
+                    </div><br><br>
+                    <div class="row">
+                        <hr><h4 class="fw-bold text-center">{% trans "Final Decision Prediction" %}</h4><br><br><hr>
+                        <h6 class="text-secondary">
+                            {% blocktrans %}
+                            Machine Learning tool to predict the final decision to accept or reject a manuscript according to the results of text analysis<br>
+                            The complete text of the manuscript is passed through the analysis process of several steps to generate the final decision.
+                            {% endblocktrans %}
+                        </h6>
+                        <div class="text-center">
+                            <a href="{% url 'decision-prediction' article.id %}" class="btn btn-primary rounded-0">{% trans "Predict" %}</a><br>
+                        </div>                            
+                    </div><hr> <br><br>                   
+                    <div class="row">
+                        <div class="text-center">
+                            <a class="btn btn-dark rounded-0 btnPrevious" onclick="goBack()">{% trans "Back" %}</a>
+                            <a class="btn btn-dark rounded-0 btnNext" onclick="goNext()">{% trans "Next" %}</a>
+                        </div>                        
+                    </div><br>
+                    
+                </div>
+                <div class="tab-pane container fade" id="menu2">
+                    <div class="p-3"><br>
+                        <hr><h4 class="fw-light my-1 text-center">{% trans "Reviewers Recommender System" %}:</h4><hr><br><br>
+                        <div class="row">                            
+                            <div class="col">
+                                <div></div>
+                                {% blocktrans %}
+                                Provides top 10 reviewer recommendations (from the jurnal's current reviewers list) to review a manuscript, according to many-steps process. 
+                                It includes text empedding using semantic methods, and calculating similarities between the manuscript and journal reviewer's previous publications.
+                                {% endblocktrans %}<br>
+                                <a class="btn btn-secondary rounded-0" href="{% url 'recommender-system' article.id %}">{% trans "Get Recommendations" %}</a> <!-- url 'recommender-system' article.id --> 
+                            </div><br>
+                            <!-- <div class="col-4">
+                                <input name="top_n" class="form-control" type="text" value=10>
+                            </div> -->
+                        </div><br>
+                        <div class="row">
+                            <div class="col">
+                                <div>{% trans "Additional Recommendations" %}</div>
+                                {% blocktrans %}
+                                Provides top 10 reviewer recommendations (of authors how have previously published in this journal in similar topics) to review a manuscript according to many-steps process, 
+                                It includes text empedding using semantic methods, and calculating similarities between the manuscript and journal previous publications.
+                                {% endblocktrans %}<br>
+                                <a class="btn btn-secondary rounded-0" href="">{% trans "Get Extra Recommendations" %}</a> <!--url 'plus-recommender-system' article.id --> 
+                            </div>
+                            <!-- <div class="col-4">
+                                <input name="plus_top_n" class="form-control" type="text" value=10>
+                            </div> -->
+                            <br><br>                                                      
+                        </div>
+                        <hr><h4 class="fw-light my-1 text-center">{% trans "Search Database" %}:</h4><hr><br>
+                        <div class="row">
+                            <div class="col">
+                                <a href="{% url 'filter-reviewers' article.id 1 %}" class="btn btn-primary rounded-0">{% trans "Search for Reviewers" %}</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h5>{% trans "Count" %}: {{ review_count }}</h5><br>
+                            
+                            
+                            <table class="table table-striped table-hover table-sm table-bordered align-middle">
+                                <thead>
+                                    <tr role="row" class="small text-center">
+                                        <th></th>
+                                        <th>{% trans "Name" %}</th>                                        
+                                        <th>{% trans "Review history" %}</th>
+                                        <th>{% trans "Review Status" %}</th>
+                                        <th class="col-md-2">{% trans "Actions" %}</th>
+                                    </tr>
+                                </thead>
+                        
+                                <tbody class="small text-center">
+                                    {% for x,y in rr %}
+                                    {% if review %}
+                                    {% for a in review %}
+                                    {% if x == a.reviewer_id %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td><b>{{ a.reviewer_id.profiles.name }}</b><br>
+                                            {% if a.reviewer_id.profiles.certificate %}{{ a.reviewer_id.profiles.certificate }}<br>{% endif %}
+                                            {% if a.reviewer_id.profiles.specialist %}{{ a.reviewer_id.profiles.specialist }}<br>{% endif %}
+                                            {% if a.reviewer_id.profiles.specific_specialist  %}{{ a.reviewer_id.profiles.specific_specialist }}<br>{% endif %}
+                                            {% if a.reviewer_id.email %}{{ a.reviewer_id.email }}{% endif %}
+                                        </td>
+                                        <td class="text-start">
+                                            {% if y > 0 %}
+                                                <b>{% trans "Number of Current Reviews" %}:</b> {{y}}
+                                            {% endif %}<br>
+                                            <b>{% trans "Invited" %}:</b> {{ a.invited }}
+                                            
+                                            {% if a.invited_at %}
+                                            <div><b>{% trans "Invited at" %}:</b> {{ a.invited_at }}</div>
+                                            <div><b>{% trans "Invitation Expire at" %}:</b> {{ a.invitation_expire_on }}</div>
+                                                {% if today > a.invitation_expire_on and a.replay == None %}
+                                                    <div class="text-danger fw-bold">{% trans "Expired with no replay" %}!</div>
+                                                {% elif a.replay and a.replay == 'ACCEPT' %}
+                                                    <div class="text-success fw-bold">{% trans "Invitation Accepted" %}!</div>
+                                                {% elif a.replay and a.replay == 'REJECT' %}
+                                                    <div class="text-danger fw-bold">{% trans "Invitation Rejected" %}!</div>
+                                                {% else %} 
+                                                    <div class="text-primary fw-bold">{% trans "Pending Response" %}</div>
+                                                {% endif %}
+                                            {% endif %}
+                                            
+                                        </td>
+                                        <td class="text-start">
+                                            {% if a.review_start_on %}
+                                                <b>{% trans "Review Starts on" %}:</b> {{ a.review_start_on }} <br>
+                                                <b>{% trans "Review Ends on" %}:</b> {{ a.review_ends_on }}<br>
+                                                {% if today > a.review_ends_on %}
+                                                    <div class="text-danger fw-bold">{% trans "Late" %}!!</div>
+                                                {% endif %}<br>
+                                                <a class="btn btn-info btn-sm" href="{% url 'reviewing' a.reviewer_id.id article.id %}" title="View Review Process">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            {% endif %}
+                                            {% if a.notes_to_editor %}
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal{{a.id}}" title="Notes to Editor">
+                                                    <i class="fa fa-comment"></i>
+                                                </button>
+                                                
+                                                <div class="modal fade" id="Modal{{a.id}}" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ModalLabel">{% trans "Notes to Editor" %}</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            {{ a.notes_to_editor }}
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            <div class='fw-bold text-success'>{% if a.done_review == True %} {% trans "Review done" %}!</div>
+                                            {% endif %}
+                                        </td>
+                                        <td class="small text-center">
+                                            <a class="btn btn-success btn-sm" href="{% url 'invite' a.reviewer_id.id article.id %}" title="{% trans 'Invite' %}">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                            
+                                            <a class="btn btn-danger btn-sm" href="{% url 'remove-reviewer' a.reviewer_id.id article.id %}" title="{% trans 'Remove from List' %}">
+                                                <i class="fa fa-minus-square"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="text-center">
+                                <a class="btn btn-dark rounded-0 btnPrevious" onclick="goBack()">{% trans "Back" %}</a>
+                                <a class="btn btn-dark rounded-0 btnNext" onclick="goNext()">{% trans "Next" %}</a>
+                            </div>                        
+                        </div><br>
+                                               
+                    </div>                    
+                </div>
+                <div class="tab-pane container fade" id="decision">
+                    <div class="my-3 p-3">
+                        <hr><h4 class="fw-light my-1 text-center">{% trans "Final Decision" %}</h4><hr>
+                        <div class="row">
+                            <table class="table table-striped table-hover table-sm table-bordered align-middle">
+                                <thead>
+                                    <tr role="row" class="small text-center">
+                                        <th></th>
+                                        <th>{% trans "Name" %}</th>                                        
+                                        <th>{% trans "Review Starts on" %}</th>
+                                        <th>{% trans "Review Ends on" %}</th>
+                                        <th>{% trans "Notes to Editor" %}</th>
+                                        <th>{% trans "Notes to Authors" %}</th>
+                                        <th>{% trans "Score" %}</th>
+                                        <th>{% trans "Result" %}</th>
+                                        <th>{% trans "Done Review" %}</th>
+                                        <th>{% trans "Last Update" %}</th>
+                                    </tr>
+                                </thead>
+                        
+                                <tbody class="small text-center">
+                                   
+                                    {% for a in review %}
+                                    {% if a.review_start_on %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td><b>{{ a.reviewer_id.profiles.name }}</b><br>
+                                            {% if a.reviewer_id.profiles.certificate %}{{ a.reviewer_id.profiles.certificate }}<br>{% endif %}
+                                            {% if a.reviewer_id.profiles.specialist %}{{ a.reviewer_id.profiles.specialist }}<br>{% endif %}
+                                            {% if a.reviewer_id.profiles.specific_specialist  %}{{ a.reviewer_id.profiles.specific_specialist }}<br>{% endif %}
+                                            {% if a.reviewer_id.email %}{{ a.reviewer_id.email }}{% endif %}
+                                        </td>
+                                        <td class="text-start">                                            
+                                            {{ a.review_start_on }}
+                                        </td>
+                                        <td class="text-start">
+                                           {{ a.review_ends_on }}
+                                            {% if today > a.review_ends_on %}
+                                                <div class="text-danger fw-bold">{% trans "Late" %}!!</div>
+                                            {% endif %}
+                                            <a class="btn btn-info btn-sm" href="{% url 'reviewing' a.reviewer_id.id article.id %}" title="View Review Process">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </td>
+                                        <td>  
+                                            {% if a.notes_to_editor %}
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal{{a.id}}editor" title="Notes to Editor">
+                                                    <i class="fa fa-comment"></i>
+                                                </button>
+                                                
+                                                <div class="modal fade" id="Modal{{a.id}}editor" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ModalLabel">{% trans "Notes to Editor" %}</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            {{ a.notes_to_editor }}
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if a.notes_to_author %}
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal{{a.id}}author" title="Notes to Authors">
+                                                    <i class="fa fa-comment"></i>
+                                                </button>
+                                                
+                                                <div class="modal fade" id="Modal{{a.id}}author" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ModalLabel">{% trans "Notes to Authors" %}</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            {{ a.notes_to_author }}
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <b>{{ a.score }}</b>
+                                        </td>
+                                        <td>
+                                            {{ a.approval }}
+                                        </td>
+                                        <td>
+                                            <b>{{ a.done_review }}</b><br>
+                                            {% if a.review_file_link  %}
+                                            <a class="link-info" href="{% url 'download-review-file' a.article_id.id a.reviewer_id a.review_file_link %}">
+                                                <i class="text-secondary fa fa-file-word"></i>
+                                                <span class="">{% trans 'Review File' %}</span>
+                                            </a><br>
+                                            {% endif %}
+                                        </td>
+                                        <td class="small text-center">
+                                            <b>{{ a.last_update }}</b>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row" hidden>
+                                    {{ decision_form.ar_en }}
+                                    {{ decision_form.country}}
+                                    {{ decision_form.received_date }}
+                                    {{ decision_form.title }}
+                                    {{ decision_form.en_title }}
+                                    {{ decision_form.abstract }}
+                                    {{ decision_form.en_abstract }}
+                                    {{ decision_form.key_words }}
+                                    {{ decision_form.en_keyword }}
+                                    {{ decision_form.introduction }}
+                                    {{ decision_form.references }}
+                                    {{ decision_form.file_link }}
+                                    {{ decision_form.no_author_file }}
+                                    {{ decision_form.copyright_file_link }}
+                                    {{ decision_form.scope }}
+                                    {{ decision_form.author }}
+                                    {{ decision_form.reviewer }}
+
+                                </div>
+                                <div class="row">
+                                    {{ decision_form.result|as_crispy_field }}
+                                </div>
+                                <div class="row">
+                                    {{ decision_form.score|as_crispy_field }}
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ decision_form.current_status|as_crispy_field }}
+                                    </div>
+                                    <div class="col">
+                                        {{ decision_form.from_page|as_crispy_field }}
+                                    </div>
+                                    <div class="col">
+                                        {{ decision_form.to_page|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        {{ decision_form.volume|as_crispy_field }}
+                                    </div>
+                                    <div class="col">
+                                        {{ decision_form.issue|as_crispy_field }}
+                                    </div>
+                                    <div class="col">
+                                        {{ decision_form.date_of_editor_decision|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {{ decision_form.revised_pdf_link|as_crispy_field }}
+                                </div>
+                                <div class="row">
+                                    {{ decision_form.notes_to_author|as_crispy_field }}
+                                </div>                                
+                                <div class="row rounded-0">
+                                    
+                                    <!-- <div class="accordion accordion-flush" id="accordionFlushExample1">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header text-center" id="flush-headingOneOne">
+                                                <button class="btn btn-info rounded-0 collapsed" type="button" data-bs-toggle="collapse" 
+                                                data-bs-target="#flush-collapseOneOne" aria-expanded="false" aria-controls="flush-collapseOneOne">
+                                                    {% trans "Show Current Volume-Issue" %}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseOneOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOneOne" 
+                                            data-bs-parent="#accordionFlushExample1">
+                                            <div class="accordion accordion-flush" id="volume-issue">
+                                                {% for ye,vol,iss in issue reversed %}
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="{{ vol }}">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                                            data-bs-target="#vol-iss{{ vol }}" aria-expanded="false" aria-controls="vol-iss{{ vol }}">
+                                                            {{ vol }} - {{ ye }}
+                                                            </button>
+                                                        </h2>
+                                                        <div id="vol-iss{{ vol }}" class="accordion-collapse collapse" aria-labelledby="{{ vol }}" 
+                                                        data-bs-parent="#volume-issue">
+                                                            <div class="accordion-body">
+                                                                <table class="table table-hover table-sm align-middle">
+                                                                    <thead>
+                                                                        <tr role="row" class="small text-center">
+                                                                            <th>{% trans "Issue" %}</th>
+                                                                            <th>{% trans "Detailes" %}</th>                                        
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="small text-center">
+                                                                        {% for i in iss %}                                                                            
+                                                                            <tr role="row" class="small text-center">
+                                                                                <td>{{ i }}</td>
+                                                                                <td>
+                                                                                    <a href="{% url 'show-volume' ye vol i %}" class="btn btn-dark rounded-0"> 
+                                                                                    
+                                                                                    {% trans "Show Detailes" %} </a>
+                                                                                </td>
+                                                                                                                       
+                                                                            </tr>                                                                            
+                                                                        {% endfor %}
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                                
+                                            </div>
+
+
+                                            </div>
+                                        </div>                                        
+                                    </div> -->
+                                                                                             
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col"><!-- named_formsets.ordered_authors -->
+                                        {% with named_formsets as formset %}  
+                                        {{ formset.management_form }}
+                                        <script type="text/html" id="images-template">   // id="inlineformsetname-template"
+                                            <tr id="images-__prefix__" class= hide_all>  // id="inlineformsetname-__prefix__"
+                                                {% for fields in formset.empty_form.hidden_fields %}
+                                                    {{ fields }}
+                                                {% endfor %}
+                                            
+                                                {% for fields in formset.empty_form.visible_fields %}
+                                                    <td>{{fields}}</td>
+                                                {% endfor %}
+                                            </tr>
+                                        </script>
+                                
+                                        <div class="table-responsive mt-4">
+                                            <div class="">
+                                                <h4 class="fw-light my-1 text-center">{% trans "Author's Order" %}</h4><hr>
+                                            </div>
+                                            <table class="table ">
+                                                <thead class="text-secondary">
+                                                    <th>{% trans 'Author' %}</th>
+                                                    <th>{% trans 'E.mail' %}</th>
+                                                    <th>{% trans 'Order' %}</th>
+                                                    <th>{% trans 'Contact' %}</th>
+                                                    <th>{% trans 'Send Mail' %}</th>
+                                                </thead>
+                                                <tbody >  <!-- id="item-inlineformsetname" -->
+                                                    <!-- formset non forms errors -->
+                                                    {% for error in formset.non_form_errors %}
+                                                        <span>{{ error }}</span>
+                                                    {% endfor %}
+                                                    {% for formss in formset %}
+                                                        {{ formss.management_form }}
+                                                        <tr>  <!-- id="inlineformsetname-counter" -->
+                                                            {{ formss.id }}
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                {{ formss.author_id|as_crispy_field }}
+                                                            </td>
+                                                            <td>
+                                                                {{ formss.email|as_crispy_field }}
+                                                            </td>
+                                                            <td>
+                                                                {{ formss.order|as_crispy_field }}
+                                                            </td>
+                                                            <td>
+                                                                {{ formss.contact|as_crispy_field }}
+                                                            </td>
+                                                            <td class="small text-center">
+                                                                <a class="btn btn-success btn-sm" href="{% url 'email-author' formss.author_id.value article.id %}" title="{% trans 'Invite' %}">
+                                                                    <i class="fa fa-envelope"></i>
+                                                                </a>
+                                                            </td>
+
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% endwith %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-dark rounded-0">{% trans 'OK' %}</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row text-center">
+                                
+                                
+                            </div>   
+                        </div><hr>
+                        <div class="row text-center">
+                            <div class="col">
+                                <a class="btn btn-dark rounded-0 btnPrevious" onclick="goBack()" >{% trans "Back" %}</a>
+                            </div>
+                        </div>                        
+                    </div>                    
+                </div>
+            </div>
+                    
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" 
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{% trans "Confirm Deletion" %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label='{% trans "Close" %}'></button>
+                </div>
+                
+                    <div class="modal-body">{% blocktrans %}
+                        Are you sure you want to delete this manuscript permanintly?
+                        this action can't be undone!
+                    
+                {% endblocktrans %}</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">{% trans "Back" %}</button>
+                    <!-- <button type="submit" class="btn btn-danger">delete permanently</button> -->
+                    <a class="btn btn-danger rounded-0" href="{% url 'article-delete' article.id %}">{% trans "delete permanently" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+
+    <script>
+        function goNext(){
+            const nextTabLinkEl = $('.nav-tabs .active').closest('li').next('li').find('a')[0];
+            const nextTab = new bootstrap.Tab(nextTabLinkEl);
+            nextTab.show();
+        };
+        function goBack(){
+            const prevTabLinkEl = $('.nav-tabs .active').closest('li').prev('li').find('a')[0];
+            const prevTab = new bootstrap.Tab(prevTabLinkEl);
+            prevTab.show();
+        };
+
+
+        $('.btnNext').click(function() {
+        const nextTabLinkEl = $('.nav-tabs .active').closest('li').next('li').find('a')[0];
+        const nextTab = new bootstrap.Tab(nextTabLinkEl);
+        nextTab.show();
+        });
+
+        $('.btnPrevious').click(function() {
+        const prevTabLinkEl = $('.nav-tabs .active').closest('li').prev('li').find('a')[0];
+        const prevTab = new bootstrap.Tab(prevTabLinkEl);
+        prevTab.show();
+        });
+
+        // $(document).ready(function() {
+        // // when user clicks add more btn of images
+        // $('.add-images').click(function(ev) {
+        // ev.preventDefault();
+        // var count = $('#item-images').children().length;
+        // var tmplMarkup = $('#images-template').html();
+        // var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+        // $('#item-images').append(compiledTmpl);
+
+        // // update form count
+        // $('#id_images-TOTAL_FORMS').attr('value', count+1);
+        // });
+        // });
+    </script>
+{% endblock content %}
+
+
+    

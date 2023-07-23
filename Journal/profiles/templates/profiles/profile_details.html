@@ -1,0 +1,145 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Profile" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <div class="p-3 my-3">
+        <div class="row my-1">
+            <div class="row my-3 p-3">
+                <h3 class="fw-bold mb-3 text-center">{{ user.profiles.name }} {% trans "Profile" %}</h3>
+                <div class="row">
+                    <div class="col">
+                        <hr><h3 class="fw-light my-3 text-center" >{% trans 'Personal Informations:' %}</h3><hr>
+                    </div>                    
+                </div>                
+                <div class="row my-3">
+                    <div class="col-md-4"> 
+                        <h5 class="fw-bold text-secondary">{% trans "ID" %}: </h5>
+                        {{ user_object.id }}                        
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-secondary">{% trans "Name" %}: </h5>
+                        {{ user_object.name }}                        
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-secondary">{% trans "Name (English)" %}: </h5>
+                        {{ user_object.en_name|default_if_none:'' }}                        
+                    </div>                    
+                </div><hr>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "bio" %}:</h5><br>
+                        {{ user_object.bio|default_if_none:'' }}
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <hr><h3 class="fw-light my-1 text-center" >{% trans 'Contact Informations:' %}</h3><hr>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-secondary">{% trans "Email" %}: </h5>
+                        {{ user_object.user.email }}                        
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-secondary">{% trans "Email2" %}: </h5>
+                        {{ user_object.email2|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-secondary">{% trans "Country" %}: </h5>
+                        {{ user_object.country|default_if_none:'' }}                       
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-secondary">{% trans "Phone" %}: </h5>
+                        {{ user_object.phone|default_if_none:'' }}                        
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-secondary">{% trans "Phone2" %}: </h5>
+                        {{ uuser_objectser.phone2|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "Address " %}: </h5>
+                        {{ user_object.address|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "Institution" %}: </h5>
+                        {{ user_object.work_address|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "Institution (English)" %}: </h5>
+                        {{ user_object.en_work_address|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <hr><h3 class="fw-light my-1 text-center">{% trans 'Major Informations:' %}</h3><hr>
+                    </div>                    
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-secondary">{% trans "Certificate" %}: </h5>
+                        {{ user_object.certificate|default_if_none:'' }}                        
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-secondary">{% trans "Certificate (English)" %}: </h5>
+                        {{ user_object.en_certificate|default_if_none:'' }}                        
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-secondary">{% trans "Specialist" %}: </h5>
+                        {{ user_object.specialist|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "Specific Specialist" %}: </h5>
+                        {{ user_object.specific_specialist|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "Publications Count" %}: </h5>
+                        {{ user_object.publications_count|default_if_none:'' }}                        
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "Publications" %}: </h5>
+                        <ol>
+                        {% for p in publications %}
+                            <li class="fw-bold"><a href="{% url 'article-detailes' p.id %}">{{ p }}</a></li>
+                        {% endfor %} 
+                        </ol>             
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <h5 class="fw-bold text-secondary">{% trans "Reviews" %}: </h5>
+                        <ol>
+                        {% for p in reviews %}
+                            <li class="fw-bold"><a href="{% url 'article-detailes' p.id %}">{{ p }}</a> </li>
+                        {% endfor %} 
+                        </ol>             
+                    </div>
+                </div>
+                <div class="row my-3 text-secondary">
+                    <div class="col text-center">
+                        <b>{% trans "Profile Created at" %}:</b> {{ user_object.created_at }}<br>
+                        <b>{% trans "Profile Updated at" %}:</b> {{ user_object.updated_at }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+{% endblock content %}

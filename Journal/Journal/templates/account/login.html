@@ -1,0 +1,60 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+    <div class="my-3 p-3">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 p-3 rounded mt-0 mb-3">
+                        <div class="card-header d-flex justify-content-center">
+                            <h1 class="fw-light my-1 text-center">{% trans "Sign In" %}</h1>
+                        </div>
+
+                        <!-- {% if form.errors %}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <div id="form_errors">
+                                    {% for key, value in form.errors.items %}
+                                        <strong>{{ value }}</strong>
+                                    {% endfor %}
+                                </div>
+                                
+                            </div>
+                        {% endif %} -->
+                        <div class="card-body">
+                            <div class ="d-flex justify-content-center">
+                                <a href="{% provider_login_url 'google' %}" class="btn btn-link btn-lg active">Sign in with Google</a>
+                            </div>
+                            <hr>
+                            <p class="text-center"><strong>OR</strong></p>
+                            <hr>
+                            <form class="login" method="POST" action="{% url 'account_login' %}">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                {% endif %}
+
+                                <div class="form-row d-flex justify-content-center">
+                                    <button id="login" class="col-12 btn btn-dark" type="submit">{% trans "Sign In" %}</button>    
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="small">
+                                {% trans "Don't have an account yet? Go to " %}
+                                <a href="{% url 'account_signup' %}">{% trans "signup" %}</a><br>
+                                <a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                            </div>
+                        </div>
+                    </div>                   
+                </div>               
+            </div>
+        </div>
+    </div>
+{% endblock content %}

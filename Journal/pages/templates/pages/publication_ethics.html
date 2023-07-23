@@ -1,0 +1,57 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Publication Ethics' %}{% endblock title%}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+<div class="my-3 p-3">
+    <h2 class="text-center my-3">{% trans "Publication Ethics" %}</h2><br>
+    <div class="text-justify fs-5">
+        {% blocktrans %}<br>
+        <span class='text-success fw-bold'>Publication Ethics</span>
+        <br>Our publication ethics and publication malpractice statement are mainly based on the Code of Conduct and Best-Practice Guidelines for Journal Editors (Committee on Publication Ethics, 2011).
+        <br><br><span class='text-success fw-bold'>Editors’ responsibilities</span><br>
+        <br><span class='text-primary fw-bold'>Publication decisions</span><br>
+        The editor is responsible for deciding which of the papers submitted to the journal will be published. The editor will evaluate manuscripts without regard to the authors’ race, gender, sexual orientation, religious belief, ethnic origin, citizenship, or political philosophy. The decision will be based on the paper’s importance, originality and clarity, and the study’s validity and its relevance to the journal’s scope. Current legal requirements regarding libel, copyright infringement, and plagiarism should also be considered.
+        <br><br><span class='text-primary fw-bold'>Confidentiality</span><br>
+        The editor and any editorial staff must not disclose any information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, other editorial advisers, and the publisher, as appropriate.
+        <br><br><span class='text-primary fw-bold'>Disclosure and conflicts of interest</span><br>
+        Unpublished materials disclosed in a submitted paper will not be used by the editor or the members of the editorial board for their own research purposes without the author’s explicit written consent.
+        <br><br><span class='text-success fw-bold'>Reviewers’ responsibilities</span>
+        <br><br><span class='text-primary fw-bold'>Contribution to editorial decisions</span>
+        The peer-reviewing process assists the editor and the editorial board in making editorial decisions and may also serve the author in improving the paper.
+        <br><br><span class='text-primary fw-bold'>Promptness</span>
+        Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and withdraw from the review process.
+        <br><br><span class='text-primary fw-bold'>Confidentiality</span>
+        Any manuscripts received for review must be treated as confidential documents. They must not be disclosed to or discussed with others except as authorized by the editor.
+        <br><br><span class='text-primary fw-bold'>Standards of objectivity</span>
+        Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.
+        <br><br><span class='text-primary fw-bold'>Acknowledgement of sources</span>
+        Reviewers should identify cases in which relevant published work referred to in the paper has not been cited in the reference section. They should point out whether observations or arguments derived from other publications are accompanied by the respective source. Reviewers will notify the editor of any substantial similarity or overlap between the manuscript under consideration and any other published paper of which they have personal knowledge.
+        <br><br><span class='text-primary fw-bold'>Disclosure and conflict of interest</span>
+        Privileged information or ideas obtained through peer review must be kept confidential and not used for personal advantage. Reviewers should not consider manuscripts in which they have conflicts of interest resulting from competitive, وا, or other relationships or connections with any of the authors, companies, or institutions associated with the papers.
+        <br><br><span class='text-success fw-bold'>Authors’ duties</span>
+        <br><br><span class='text-primary fw-bold'>Reporting standards</span>
+        Authors of original research reports should present an accurate account of the work performed as well as an objective discussion of its significance. Underlying data should be represented accurately in the paper. A paper should contain sufficient detail and references to permit others to replicate the work. Fraudulent or knowingly inaccurate statements constitute unethical behavior and are unacceptable.
+        <br><br><span class='text-primary fw-bold'>Data access and retention</span>
+        Authors could be asked to provide the raw data of their study together with the paper for editorial review and should be prepared to make the data publicly available if practicable. In any event, authors should ensure accessibility of such data to other competent professionals for at least ten years after publication (preferably via an institutional or subject-based data repository or other data center), provided that the confidentiality of the participants can be protected and legal rights concerning proprietary data do not preclude their release.
+        <br><br><span class='text-primary fw-bold'>Originality, plagiarism and acknowledgement of sources</span>
+        Authors will submit only entirely original works, and will appropriately cite or quote the work and/or words of others. Publications that have been influential in determining the nature of the reported work should also be cited.
+        <br><br><span class='text-primary fw-bold'>Multiple, redundant or concurrent publication</span>
+        In general, papers describing essentially the same research should not be published in more than one journal. Submitting the same paper to more than one journal constitutes unethical publishing behavior and is unacceptable.
+        <br>Manuscripts which have been published as copyrighted material elsewhere cannot be submitted. In addition, manuscripts under review by the journal should not be resubmitted to copyrighted publications. However, by submitting a manuscript, the author(s) retain the rights to the published material. In case of publication they permit the use of their work under a CC-BY license [http://creativecommons.org/licenses/by/3.0/], which allows others to copy, distribute and transmit the work as well as to adapt the work and to make commercial use of it.
+        <br><br><span class='text-primary fw-bold'>Authorship of the paper</span>
+        Authorship should be limited to those who have made a significant contribution to the conception, design, execution, or interpretation of the reported study. All those who have made significant contributions should be listed as co-authors.
+        <br>The corresponding author ensures that all contributing co-authors and no uninvolved persons are included in the author list. The corresponding author will also verify that all co-authors have approved the final version of the paper and have agreed to its submission for publication.
+        <br><br><span class='text-primary fw-bold'>Disclosure and conflicts of interest</span>
+        <br>All authors should include a statement disclosing any financial or other substantive conflicts of interest that may be construed to influence the results or interpretation of their manuscript. All sources of financial support for the project should be disclosed.
+        <br><br><span class='text-primary fw-bold'>Fundamental errors in published works</span>
+        <br>When an author discovers a significant error or inaccuracy in his/her own published work, it is the author’s obligation to promptly notify the journal editor or publisher and to cooperate with the editor to retract or correct the paper in form of an erratum.
+        <br><br><span class='text-success fw-bold'>References</span>
+        {% endblocktrans %}
+        <br>Committee on Publication Ethics (COPE). (2011, March 7). Code of Conduct and Best-Practice Guidelines for Journal Editors. Retrieved from
+        <br>http://publicationethics.org/files/Code_of_conduct_for_journal_editors_Mar11.pdf
+
+        
+    </div>
+</div>
+{% endblock content %}

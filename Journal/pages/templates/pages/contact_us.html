@@ -1,0 +1,85 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Contact US' %}{% endblock title%}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="my-3 p-3">
+    <hr><h3 class="text-center my-3 fw-light">{% trans "Contact Us" %}</h3><hr>
+    <div class="h6 text-center">
+        {% trans "Address: Hejazz station, Damascus, Syria" %}.<br>
+        {% trans "Phone" %}: + 963-11-2270142<br>
+        {% trans "E.mail" %}: sjargcsar@gmail.com<br>
+    </div><br>
+    <h4 class="text-center my-3">{% trans "Or Contact Us Directly" %}</h4><br>
+    <form method="post" class="my-3 p-3">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col">
+                {{ contact_form.name|as_crispy_field }}
+            </div>
+            <div class="col">
+                {{ contact_form.email|as_crispy_field }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {{ contact_form.subject|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ contact_form.message|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark rounded-0">{% trans 'Send' %}</button><span>   </span>
+            <button type="reset" class="btn btn-dark rounded-0">{% trans 'Reset' %}</button>
+        </div>
+    </form>
+    {% if user.profiles.user_type == 'EDITOR' %}
+    <div class="row">
+        <div class="accordion" id="accordion3">
+            <div class="btn btn-primary rounded-0">
+                <div class="text-center fw-bold" id="p3">
+                    <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#panel3" 
+                    aria-expanded="true" aria-controls="panel3">
+                        {% trans "Show all Messages" %}: {{ all_messages.count }}
+                        <i class="right fas fa-angle-down small"></i>
+                    </a>  
+                </div>
+            </div><br><br>
+            <div id="panel3" class="accordion-collapse collapse bg-light" aria-labelledby="p3">
+                <table class="table table-striped table-hover table-sm table-bordered align-middle">
+                    <thead>
+                        <tr class="small text-center">
+                            <th>#</th>
+                            <th>{% trans "Name" %}</th>
+                            <th>{% trans "E.mail" %}</th>
+                            <th>{% trans "Subject" %}</th>
+                            <th>{% trans "Message" %}</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="small">
+                        {% for cont_message in all_messages %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ cont_message.name }}</td>
+                            <td>{{ cont_message.email }}</td>
+                            <td>{{ cont_message.subject }}</td>
+                            <td class="text-break">{{ cont_message.message }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    {% endif %}
+</div>
+{% endblock content %}

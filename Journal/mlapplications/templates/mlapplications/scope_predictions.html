@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Scope Prediction" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+
+{% block content %}
+<div class="p-3 my-3">
+    <hr><h4 class="fw-light my-1 text-center">{% trans "Predicted Subject with Reliability ratio is" %}:</h4>
+    <hr><br>
+    {% for pred in predictions %}        
+        <h5 class="fw-bold text-center text-success"> {{ pred|join:": "|escape }} %</h5> 
+    
+    {% endfor %}    
+</div>
+{% endblock content %}

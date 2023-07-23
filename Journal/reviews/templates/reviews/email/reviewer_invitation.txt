@@ -1,0 +1,33 @@
+{% extends "reviews/email/_base_message.txt" %}
+{% load i18n %}
+{% block content %}{% autoescape off %}
+
+{% trans 'Manuscript title' %}: {% if article.ar_en == 'ar' %}{{ article.title }}{% else %}{{ article.en_title }}{% endif %}
+{% trans 'Date submitted' %}: {{ article.received_date }}
+
+{% trans 'Dear' %} {% if article.ar_en == 'ar' %}{{ rev_id.profiles.certificate|default_if_none:"" }} {{ rev_id.profiles.name }}{% else %}{{ rev_id.profiles.en_certificate }} {{ rev_id.profiles.en_name }}{% endif %}  
+{% blocktrans with site_name=site.name site_domain=site.domain rev=rev_id.profiles.name %}
+The above manuscript has been submitted to the {{ site_name }}. Given your expertise in this field, I am kindly asking if you would be willing to review this manuscript.
+It is the policy of the journal to ensure that the submission process is quick and efficient and, therefore, we schedule only 15 days for the reviewing process. 
+If you agree to review this manuscript, we assume that you accept this condition and have the available time to complete the task within the stipulated time. It would greatly assist us if you could respond as soon as possible.
+Please click the link below and then agree or decline to review this manuscript.
+I do hope that the journal can take advantage of your expertise.
+Sincerely,
+{% endblocktrans %}
+{{ user }}
+-------------------------
+
+{% trans 'ABSTRACT' %}: {{ article.abstract }}
+-------------------------
+
+{% trans 'Click the link and then agree or decline to review' %}.
+http://{{ site.domain }}/reviews/invite-response/{{ rev_id.id }}/{{ article.id }}
+
+-------------------------
+
+
+
+{% endautoescape %}
+{% endblock %}
+
+

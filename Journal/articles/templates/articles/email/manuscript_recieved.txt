@@ -1,0 +1,19 @@
+{% load i18n %}
+{% block content %}{% autoescape off %}
+{% trans 'Dear' %} {{ author.profiles.certificate|default_if_none:"" }} {{ author.profiles.name }}  
+{% blocktrans with article_title=article.title received_at=article.received_date id=article.id %}
+Respectfully, We received your valuable manuscript titled  
+{{ article_title }}
+Date submitted: {{ received_at }}
+and assigned as {{ id }}. Please quote your manuscript number (manuscript code) in all correspondence emails regarding this manuscript (Please write manuscript code into the Subject Toolbar menu in your next emails). 
+Your manuscript is supmitted to peer review process, we will send you reviewer's comments as soon as possible.
+Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR). We are looking forward and welcome to your other manuscripts.
+
+Regards
+{{ user }}
+--------------------------
+{% endblocktrans %}
+{% endautoescape %}
+{% endblock %}
+
+

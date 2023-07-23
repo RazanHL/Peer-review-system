@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block head_title %}{% trans "All Authors" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+
+
+{% block content %}
+    <div class="my-3 p-3 text-center">
+        <hr><h3 class="fw-light">{% trans "Agree or decline to review manuscript intitled" %}:</h3><br>
+            <i class="h4 fw-bold">{{ article.title }}</i>
+        <hr>
+        <form method="post" class="my-5"> 
+            {% csrf_token %} 
+            
+            <div class="form-check form-check-inline text-center">
+                <input class="form-check-input" type="radio" name="replay" 
+                id="inlineRadio1" value="ACCEPT">
+                <label class="form-check-label text-success fw-bold" for="inlineRadio1">{% trans 'ACCEPT' %}</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="replay" 
+                id="inlineRadio2" value="REJECT">
+                <label class="form-check-label text-danger fw-bold" for="inlineRadio2">{% trans 'REJECT' %}</label>
+            </div><hr>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">{% trans "Notes to Editor" %}</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="notes_to_editor" rows="6">
+
+                </textarea>
+            </div>
+            <button type="submit" class="btn btn-dark text-center rounded-0">{% trans "OK" %}</button>
+        </form>
+        
+    </div>
+{% endblock content %}

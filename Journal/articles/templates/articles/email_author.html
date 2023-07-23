@@ -1,0 +1,58 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Email Authors" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+{% if messages %}
+  {% for message in messages %}
+      {{ message.tage }}
+      
+  {% endfor %}
+
+{% endif %}
+<div class="p-3 my-3">
+  <form method="post" action=""><!--novalidate--> 
+    {% csrf_token %} 
+    <div class="mb-3">
+        
+        <label for="exampleFormControlInput1" class="form-label">{% trans "Receipt email address" %}</label>
+        <input type="email" class="form-control" name="email" id="exampleFormControlInput1" 
+        placeholder="Receipt email address" value="{{ author.email }}" required>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputSubject" class="form-label">{% trans "Subject" %}</label>
+      <input type="text" class="form-control" name="subject" id="exampleInputSubject" 
+      value="{% if article.result == 'approve' %}{% trans 'Approve manuscript (Without return)' %}
+      {% elif article.result == 'Revise_manuscript' %}{% trans 'Revise manuscript (With return)' %}
+      {% elif article.result == 'reject' %}{% trans 'Reject manuscript (major revisions)' %}
+      {% else %}{% trans 'Manuscript Received' %}
+      {% endif %}" required>
+    </div>
+    <div class="mb-3">
+        <label for="attachFile" class="form-label">{% trans "Attachment" %}</label>
+        <input type="file" class="form-control" name="attach" id="attachFile">
+      </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">{% trans "Message" %}</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="10" required>
+        
+        {% if article.result == 'approve' %}
+            {% include 'articles/email/email_author_accept.txt' %}
+        {% elif article.result == 'Revise_manuscript' %}
+            {% include 'articles/email/email_author_revise.txt' %}
+        {% elif article.result == 'reject' %}
+            {% include 'articles/email/email_author_reject.txt' %}
+        {% else %}
+          {% include 'articles/email/manuscript_recieved.txt' %}
+        {% endif %}
+
+      </textarea>
+    </div>
+    <button type="submit" class="btn btn-dark rounded-0">{% trans "Send" %}</button>
+      
+  </form>
+</div>
+
+
+{% endblock content %}

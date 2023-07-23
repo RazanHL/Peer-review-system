@@ -1,0 +1,43 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Home Page" %}{% endblock title%}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <div class="container">
+        <div class="p-3 my-3">
+            
+            <hr><h2 class=" fw-light text-center">{% trans "Welcome to Syrian Journal of Agricultural Research SJAR" %}</h2>
+            <hr class="mb-4">
+            <div class="">
+                <strong><h4>{% trans 'Goals and vision' %}</h4></strong>
+                <div class="text-justify" >
+                    {% trans 'The Syrian Journal of Agricultural Research, established in 2014, is a peer-reviewed scientific journal with six issues per year, issued by the General Commesion for Scientific Agricultural Research, Syrian Arab Republic.' %}
+                </div>
+                <strong><h4>{% trans 'The journal publishes scientific papers in all fields of agricultural sciences.' %}</h4></strong>
+              
+                {% trans 'Crop Production' %}<br> 
+                {% trans 'Horticulture' %}<br>
+                {% trans 'Environmental Siences' %}<br>
+                {% trans 'Agriculture Biotechnology' %}<br>
+                {% trans 'Agricultural Economics' %}<br>
+                {% trans 'Irrigation and Drainage' %}<br>
+                {% trans 'Food Technology' %}<br>
+                {% trans 'Soil and Natural Resources' %}<br>
+                {% trans 'Livestock Production' %}<br>
+                {% trans 'Plant Protection' %}<br>
+                <strong><h4>{% trans 'Research published by the journal' %}</h4></strong>
+                <div class="text-justify" >
+                    {% trans 'The journal welcomes the receipt of original research manuscripts that meet the scientific quality standards, whether it is a long research (8-12 pages), a short research (2-4 pages), or a short communication (one page).' %}
+                </div>
+                <strong><h4>{% trans 'Access to the journal' %}</h4></strong>
+                <div class="text-justify" >
+                    {% trans 'The Syrian Journal of Agricultural Research is freely available to all, and the full abstracts and articles published in the journal can be accessed easily and without any restrictions.' %}
+                </div>
+                <strong><h4>{% trans 'Publication fees' %}</h4></strong>
+                {% trans 'Articles are peer-reviewed and published in the journal for free without any fees.' %}
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock content %}

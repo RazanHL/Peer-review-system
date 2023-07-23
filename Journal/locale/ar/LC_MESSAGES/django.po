@@ -1,0 +1,3403 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-18 22:35+0300\n"
+"PO-Revision-Date: 2023-07-19 22:50+0300\n"
+"Last-Translator:   <en.er.mk.kr.razanhallak@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: .\Journal\settings.py:150 .\articles\forms.py:18
+msgid "Arabic"
+msgstr "العربية"
+
+#: .\Journal\settings.py:151 .\articles\forms.py:19
+msgid "English"
+msgstr "الإنكليزية"
+
+#: .\Journal\templates\_base.html:36
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\Journal\templates\_base.html:47
+#, python-format
+msgid " Hi %(user)s! "
+msgstr "مرحباً %(user)s!"
+
+#: .\Journal\templates\_base.html:51 .\profiles\models.py:48
+#: .\profiles\templates\profiles\profile_details.html:3
+#: .\profiles\templates\profiles\profile_details.html:9
+msgid "Profile"
+msgstr "الملف التعريفي"
+
+#: .\Journal\templates\_base.html:54
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\Journal\templates\_base.html:58
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+#: .\Journal\templates\_base.html:61
+msgid "Sign up"
+msgstr "حساب جديد"
+
+#: .\Journal\templates\_base.html:121
+msgid "Mark All as Read"
+msgstr "تعيين الكل كمقروء"
+
+#: .\Journal\templates\_base.html:127
+msgid "Search Articles"
+msgstr "بحث في المقالات"
+
+#: .\Journal\templates\_base.html:129
+#: .\profiles\templates\profiles\delete__filter_users.html:16
+#: .\profiles\templates\profiles\profile_filter.html:19
+#: .\profiles\templates\profiles\search_result.html:19
+#: .\profiles\templates\profiles\show_reviewers_table.html:19
+msgid "Search"
+msgstr "بحث"
+
+#: .\Journal\templates\_sidebar.html:12
+msgid "Your Role is: "
+msgstr "صلاحياتك في الموقع:"
+
+#: .\Journal\templates\_sidebar.html:23
+#: .\profiles\templates\profiles\author_dashboard.html:4
+#: .\profiles\templates\profiles\editor_dashboard.html:5
+#: .\profiles\templates\profiles\reviewer_dashboard.html:4
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#: .\Journal\templates\_sidebar.html:31
+msgid "Edit my profile"
+msgstr "تعديل ملفي التعريفي"
+
+#: .\Journal\templates\_sidebar.html:41
+msgid "Manage Users"
+msgstr "إدارة المستخدمين"
+
+#: .\Journal\templates\_sidebar.html:52
+msgid "Published Articles"
+msgstr "المقالات المنشورة"
+
+#: .\Journal\templates\_sidebar.html:64
+msgid "Manage Articles"
+msgstr "إدارة المقالات"
+
+#: .\Journal\templates\_sidebar.html:73
+msgid "Filter Articles"
+msgstr "فلترة المقالات"
+
+#: .\Journal\templates\_sidebar.html:79
+msgid "Pre-Submitted Articles"
+msgstr "المقالات مرسلة أولياً"
+
+#: .\Journal\templates\_sidebar.html:85
+msgid "Pre-Review Articles"
+msgstr "المقالات قيد المراجعة الأولية"
+
+#: .\Journal\templates\_sidebar.html:91
+msgid "Under-Review Articles"
+msgstr "المقالات قيد المراجعة"
+
+#: .\Journal\templates\_sidebar.html:97
+msgid "Accepted Articles"
+msgstr "المقالات المقبولة"
+
+#: .\Journal\templates\_sidebar.html:103
+msgid "Pre-Publish Articles"
+msgstr "المقالات قيد النشر"
+
+#: .\Journal\templates\_sidebar.html:109
+#: .\articles\templates\articles\delete_article_list.html:85
+msgid "Rejected Articles"
+msgstr "المقالات المرفوضة"
+
+#: .\Journal\templates\_sidebar.html:120
+msgid "Add Submission"
+msgstr "إضافة بحث جديد"
+
+#: .\Journal\templates\_sidebar.html:130
+#: .\pages\templates\pages\editorial_board.html:3
+#: .\pages\templates\pages\editorial_board.html:11
+msgid "Editorial Board"
+msgstr "هيئة التحرير"
+
+#: .\Journal\templates\_sidebar.html:136
+#: .\pages\templates\pages\publication_ethics.html:3
+#: .\pages\templates\pages\publication_ethics.html:7
+msgid "Publication Ethics"
+msgstr "أخلاقيات النشر"
+
+#: .\Journal\templates\_sidebar.html:142
+#: .\pages\templates\pages\guidelines.html:3
+#: .\pages\templates\pages\guidelines.html:8
+msgid "Guidelines"
+msgstr "تعليمات النشر"
+
+#: .\Journal\templates\_sidebar.html:148
+#: .\pages\templates\pages\copyright_form.html:3
+#: .\pages\templates\pages\copyright_form.html:10
+msgid "Copyright Form"
+msgstr "استمارة إيداع بحث"
+
+#: .\Journal\templates\_sidebar.html:154
+#: .\pages\templates\pages\contact_us.html:8
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: .\Journal\templates\account\account_inactive.html:5
+#: .\Journal\templates\account\account_inactive.html:8
+msgid "Account Inactive"
+msgstr "الحساب غير مفعل"
+
+#: .\Journal\templates\account\account_inactive.html:10
+msgid "This account is inactive."
+msgstr "هذا الحساب غير مفعل"
+
+#: .\Journal\templates\account\email.html:5
+#: .\Journal\templates\account\email.html:15
+msgid "E-mail Addresses"
+msgstr "عناوين البريد الالكتروني"
+
+#: .\Journal\templates\account\email.html:21
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "إن عناوين البريد الالكتروني التالية مرتبطة بحسابك:"
+
+#: .\Journal\templates\account\email.html:34
+msgid "Verified"
+msgstr "تم التحقق"
+
+#: .\Journal\templates\account\email.html:36
+msgid "Unverified"
+msgstr "لم يتم التحقق"
+
+#: .\Journal\templates\account\email.html:38
+msgid "Primary"
+msgstr "أهمية قصوى"
+
+#: .\Journal\templates\account\email.html:44
+msgid "Make Primary"
+msgstr "تحديد الأهمية"
+
+#: .\Journal\templates\account\email.html:45
+msgid "Re-send Verification"
+msgstr "إعادة إرسال رمز التفعيل"
+
+#: .\Journal\templates\account\email.html:46
+msgid "Remove"
+msgstr "إزالة"
+
+#: .\Journal\templates\account\email.html:53
+msgid "Warning:"
+msgstr "تحذير"
+
+#: .\Journal\templates\account\email.html:53
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, "
+"etc."
+msgstr ""
+"ليس لديك أية عناوين بريد الكتروني حالياً. يرجى إضافة عنوان بريدك الالكتروني "
+"لتتمكن من استلام الإشعارات، وإعادة تعيين كلمة المرور، إلخ"
+
+#: .\Journal\templates\account\email.html:58
+msgid "Add E-mail Address"
+msgstr "إضافة عنوان البريد الالكتروني"
+
+#: .\Journal\templates\account\email.html:64
+msgid "Add E-mail"
+msgstr "إضافة بريد الكتروني"
+
+#: .\Journal\templates\account\email.html:81
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "هل أنت متأكد من إزالة عناوين البريد الالكتروني المحددة؟"
+
+#: .\Journal\templates\account\email\account_already_exists_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this e-mail because you or someone else tried to signup for an\n"
+"account using e-mail address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that e-mail address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+msgstr ""
+"تم إرسال هذا البريد الإلكتروني إليك بناءً على طلبك بإنشاء حساب في موقعنا باستخدام عنوان البريد الإلكتروني:\n"
+"%(email)s\n"
+"لكن تبين أن هذا العنوان يتبع لأحد الحسابات المسجلة في الموقع. في حال نسيت كلمة المرور ، يرجى استخدام إجراء نسيت كلمة المرور لاسترداد الحساب الخاص بك:\n"
+"%(password_reset_url)s"
+
+#: .\Journal\templates\account\email\account_already_exists_subject.txt:3
+msgid "Account Already Exists"
+msgstr "الحساب موجود مسبقاً"
+
+#: .\Journal\templates\account\email\base_message.txt:2
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr "مرحباً من %(site_name)s!"
+
+#: .\Journal\templates\account\email\base_message.txt:6
+#, python-format
+msgid ""
+"\n"
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s\n"
+msgstr ""
+"\n"
+"شكراً لاستخدامك %(site_name)s!\n"
+"%(site_domain)s\n"
+
+#: .\Journal\templates\account\email\email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"You're receiving this e-mail because user %(user_display)s has given your e-mail address to register an account on %(site_domain)s.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s"
+msgstr ""
+"تم إرسال هذا البريد الالكتروني لأن المستخدم  %(user_display)s قد استخدم عنوانك لتسجيل حساب في موقع  %(site_domain)s.\n"
+"لتأكيد الاستخدام إذهب إلى %(activate_url)s"
+
+#: .\Journal\templates\account\email\email_confirmation_subject.txt:3
+msgid "Please Confirm Your Sign Up"
+msgstr "يرجى تأكيد إنشاء حسابك"
+
+#: .\Journal\templates\account\email\password_reset_key_message.txt:4
+msgid ""
+"You're receiving this e-mail because you or someone else has requested a password for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
+msgstr ""
+"تم إرسال هذا البريد الإلكتروني إليك بناءً على طلبك لإعادة تعيين كلمة مرور حسابك.\n"
+"إذا لم تكن أنت من طلب إعادة تعيين كلمة المرور فتجاهل هذه الرسالة. \n"
+"أو اضغط على الرابط التالي لإعادة التعيين."
+
+#: .\Journal\templates\account\email\password_reset_key_message.txt:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "في حال أنك نسيت، اسم المستخدم الخاص بك هو %(username)s."
+
+#: .\Journal\templates\account\email\password_reset_key_subject.txt:3
+#: .\Journal\templates\account\email\unknown_account_subject.txt:3
+msgid "Password Reset E-mail"
+msgstr "البريد الإلكتروني لتعديل كلمة المرور"
+
+#: .\Journal\templates\account\email\unknown_account_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this e-mail because you or someone else has requested a\n"
+"password for your user account. However, we do not have any record of a user\n"
+"with email %(email)s in our database.\n"
+"\n"
+"This mail can be safely ignored if you did not request a password reset.\n"
+"\n"
+"If it was you, you can sign up for an account using the link below."
+msgstr ""
+"تم إرسال هذا البريد الإلكتروني إليك بناءً على طلبك لإعادة تعيين كلمة مرور حسابك. لكننا لم نجد أي حساب مستخدم يحمل عنوان البريد الإلكتروني  %(email)s في قواعد بياناتنا.\n"
+"إذا لم تكن أنت من طلب إعادة تعيين كلمة المرور فتجاهل هذه الرسالة. \n"
+"أو سجل حساب جديد عبر الرابط التالي."
+
+#: .\Journal\templates\account\email_confirm.html:6
+#: .\Journal\templates\account\email_confirm.html:11
+#: .\Journal\templates\account\email_confirm.html:32
+msgid "Confirm E-mail Address"
+msgstr "تأكيد عنوان البريد الإلكتروني"
+
+#: .\Journal\templates\account\email_confirm.html:15
+#: .\Journal\templates\account\email_confirm.html:38
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"يرجى تأكيد أن <a href=\"mailto:%(email)s\">%(email)s</a> هو عنوان بريد "
+"إلكتروني للمستخدم %(user_display)s."
+
+#: .\Journal\templates\account\email_confirm.html:21
+#: .\Journal\templates\account\email_confirm.html:42
+msgid "Confirm"
+msgstr "تأكيد"
+
+#: .\Journal\templates\account\email_confirm.html:26
+#: .\Journal\templates\account\email_confirm.html:49
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"إن رابط تأكيد البريد اللأكتروني هذا منتهي الصلاحية أو غير فعال.\n"
+"يرجى <a href=\"%(email_url)s\"> إعادة طلبرابط جديد </a>. "
+
+#: .\Journal\templates\account\login.html:7
+#: .\Journal\templates\account\login.html:16
+#: .\Journal\templates\account\login.html:44
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+#: .\Journal\templates\account\login.html:50
+msgid "Don't have an account yet? Go to "
+msgstr "ليس لديك حساب بعد؟ أنشىء جديد"
+
+#: .\Journal\templates\account\login.html:51
+msgid "signup"
+msgstr "إنشاء حساب"
+
+#: .\Journal\templates\account\login.html:52
+#: .\Journal\templates\account\password_change.html:26
+msgid "Forgot Password?"
+msgstr "نسيت كلمة المرور؟"
+
+#: .\Journal\templates\account\logout.html:5
+#: .\Journal\templates\account\logout.html:15
+#: .\Journal\templates\account\logout.html:28
+msgid "Sign Out"
+msgstr "تسجيل خروج"
+
+#: .\Journal\templates\account\logout.html:19
+msgid "Are you sure you want to sign out?"
+msgstr "هل أنت متأكد من تسجيل الخروج؟"
+
+#: .\Journal\templates\account\messages\cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary e-mail address (%(email)s)."
+msgstr "لا يمكنك إزالة بريدك الإلكتروني الأساسي (%(email)s)."
+
+#: .\Journal\templates\account\messages\email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation e-mail sent to %(email)s."
+msgstr "تم إرسال بريد إلكتروني تأكيدي إلى %(email)s."
+
+#: .\Journal\templates\account\messages\email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr "تم تأكيد %(email)s."
+
+#: .\Journal\templates\account\messages\email_deleted.txt:2
+#, python-format
+msgid "Removed e-mail address %(email)s."
+msgstr "تم إزالة عنوان البريد الإلكتروني %(email)s."
+
+#: .\Journal\templates\account\messages\logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr "تم تسجيل دخولك بنجاح %(name)s."
+
+#: .\Journal\templates\account\messages\logged_out.txt:2
+msgid "You have signed out."
+msgstr "تم تسجيل الخروج."
+
+#: .\Journal\templates\account\messages\password_changed.txt:2
+msgid "Password successfully changed."
+msgstr "تم تغيير كلمة المرور بنجاح."
+
+#: .\Journal\templates\account\messages\password_set.txt:2
+msgid "Password successfully set."
+msgstr "تم تعيين كلمة المرور بنجاح."
+
+#: .\Journal\templates\account\messages\primary_email_set.txt:2
+msgid "Primary e-mail address set."
+msgstr "تم تعيين عنوان البريد الإلكتروني الرئيسي."
+
+#: .\Journal\templates\account\messages\unverified_primary_email.txt:2
+msgid "Your primary e-mail address must be verified."
+msgstr "يجب التحقق من عنوان بريدك الإلكتروني الرئيسي."
+
+#: .\Journal\templates\account\password_change.html:5
+#: .\Journal\templates\account\password_change.html:14
+#: .\Journal\templates\account\password_change.html:23
+#: .\Journal\templates\account\password_reset_from_key.html:5
+#: .\Journal\templates\account\password_reset_from_key.html:14
+#: .\Journal\templates\account\password_reset_from_key_done.html:4
+#: .\profiles\templates\profiles\profile_update.html:128
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
+
+#: .\Journal\templates\account\password_reset.html:7
+#: .\Journal\templates\account\password_reset.html:16
+#: .\Journal\templates\account\password_reset_done.html:6
+#: .\Journal\templates\account\password_reset_done.html:9
+msgid "Password Reset"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: .\Journal\templates\account\password_reset.html:24
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you"
+" an e-mail allowing you to reset it."
+msgstr ""
+"هل نسيت كلمة المرور؟ أدخل عنوان بريدك الإلكتروني في الأسفل، وسنرسل لك رسالة "
+"لإعادة تعيين كلمة المرور."
+
+#: .\Journal\templates\account\password_reset.html:31
+msgid "Reset My Password"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: .\Journal\templates\account\password_reset.html:39
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+"يرجى التواصل معنا في حال كان لديك أية مشكلة في إعادة تعيين كلمة المرور."
+
+#: .\Journal\templates\account\password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes."
+msgstr ""
+"لقد أرسلنا لك رسالة بريد إلكتروني. في حال لم تستلمها يرجى التأكد من صندوق الوارد غير الهام.\n"
+"وفي حال عدم استلامها خلال عدة دقائق، يرجى التواصل معنا"
+
+#: .\Journal\templates\account\password_reset_from_key.html:14
+msgid "Bad Token"
+msgstr "رمز خاطئ"
+
+#: .\Journal\templates\account\password_reset_from_key.html:20
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
+msgstr ""
+"إن رابط إعادة تعيين كلمة المرور غير صالح، ربما لأنه مستخدم سابقاً.\n"
+"يرجى طلب <a href=\"%(passwd_reset_url)s\"> إعادة تعيين جديد</a>."
+
+#: .\Journal\templates\account\password_reset_from_key.html:27
+msgid "change password"
+msgstr "تغيير كلمة المرور"
+
+#: .\Journal\templates\account\password_reset_from_key_done.html:7
+msgid "Your password is now changed."
+msgstr "تم تغيير كلمة المرور"
+
+#: .\Journal\templates\account\password_set.html:6
+#: .\Journal\templates\account\password_set.html:15
+#: .\Journal\templates\account\password_set.html:25
+msgid "Set Password"
+msgstr "تعيين كلمة المرور"
+
+#: .\Journal\templates\account\signup.html:6
+msgid "Signup"
+msgstr "إشتراك"
+
+#: .\Journal\templates\account\signup.html:16
+msgid "Create Account"
+msgstr "إنشاء حساب جديد"
+
+#: .\Journal\templates\account\signup.html:55
+msgid "Sign Up"
+msgstr "إشتراك"
+
+#: .\Journal\templates\account\signup.html:62
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr "هل لديك حساب؟ يرجى <a href=\"%(login_url)s\">تسجيل الدخول</a>."
+
+#: .\Journal\templates\account\signup_closed.html:5
+#: .\Journal\templates\account\signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr "الإشتراك مغلق"
+
+#: .\Journal\templates\account\signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "عذراً، التسجيل مغلق حالياً."
+
+#: .\Journal\templates\account\snippets\already_logged_in.html:5
+#: .\articles\templates\articles\article_review.html:235
+msgid "Note"
+msgstr "ملاحظة"
+
+#: .\Journal\templates\account\snippets\already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "تم تسجيل دخولك  %(user_display)s."
+
+#: .\Journal\templates\account\verification_sent.html:5
+#: .\Journal\templates\account\verification_sent.html:8
+#: .\Journal\templates\account\verified_email_required.html:5
+#: .\Journal\templates\account\verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr "التحقق من عنوان البريد الإلكتروني"
+
+#: .\Journal\templates\account\verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification e-mail in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification e-mail within a few minutes."
+msgstr ""
+"لقد أرسلنا إليك رسالة تحقق عبر البريد الإلكتروني. يرجى الضغط على الرابط "
+"المرسل لإنهاء عملية التسجيل. إذا لم تجد االرسالة الخاصة بالتحقق في صندوق "
+"الوارد الرئيسي الخاص بك، فتحقق من مجلد البريد العشوائي. يرجى الاتصال بنا إذا"
+" لم تتلق رسالة التحقق الإلكترونية في غضون بضع دقائق."
+
+#: .\Journal\templates\account\verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"    you are who you claim to be. For this purpose, we require that you\n"
+"    verify ownership of your e-mail address. "
+msgstr ""
+"يتطلب الوصول إلى هذا الجزء من الموقع التحقق من هويتك. لهذا الغرض، نطلب منك "
+"تحقق من ملكية عنوان البريد الإلكتروني الخاص بك."
+
+#: .\Journal\templates\account\verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"    verification. Please click on the link inside that e-mail. If you do not see the verification e-mail in your main inbox, check your spam folder. Otherwise\n"
+"    contact us if you do not receive it within a few minutes."
+msgstr ""
+"لقد أرسلنا لك رسالة تحقق عبر البريد الإلكتروني. الرجاء الضغط على الرابط "
+"الموجود داخل هذه الرسالة. إذا لم تجد الرسالة الخاصة بالتحقق في صندوق الوارد "
+"الرئيسي الخاص بك ، فتحقق من مجلد البريد العشوائي. خلاف ذلك اتصل بنا إذا لم "
+"تستلمها في غضون بضع دقائق."
+
+#: .\Journal\templates\account\verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
+"e-mail address</a>."
+msgstr ""
+"<strong>ملاحظة:</strong> يمكنك <a href=\"%(email_url)s\"تغيير عنوان بريدك "
+"الإلكتروني</a>."
+
+#: .\Journal\templates\home.html:3
+msgid "Home Page"
+msgstr "الرئيسية"
+
+#: .\Journal\templates\home.html:9
+msgid "Welcome to Syrian Journal of Agricultural Research SJAR"
+msgstr "مرحباً في المجلة السورية للبحوث الزراعية SJAR"
+
+#: .\Journal\templates\home.html:12
+msgid "Goals and vision"
+msgstr "الأهداف والرؤية"
+
+#: .\Journal\templates\home.html:14
+msgid ""
+"The Syrian Journal of Agricultural Research, established in 2014, is a peer-"
+"reviewed scientific journal with six issues per year, issued by the General "
+"Commesion for Scientific Agricultural Research, Syrian Arab Republic."
+msgstr ""
+"المجلة السورية للبحوث الزراعية، أنشأت في عام 2014، وهي مجلة علمية محكمة لها "
+"ستة إصدارات في السنة، تصدرها الهيئة العامة للبحوث العلمية الزراعية،  "
+"الجمهورية العربية السورية. "
+
+#: .\Journal\templates\home.html:16
+msgid ""
+"The journal publishes scientific papers in all fields of agricultural "
+"sciences."
+msgstr "تنشر المجلة بحوثاً علمية في جميع مجالات العلوم الزراعية"
+
+#: .\Journal\templates\home.html:18
+msgid "Crop Production"
+msgstr "المحاصيل الحقلية"
+
+#: .\Journal\templates\home.html:19
+msgid "Horticulture"
+msgstr "البستنة"
+
+#: .\Journal\templates\home.html:20
+msgid "Environmental Siences"
+msgstr "البيئة والحراج"
+
+#: .\Journal\templates\home.html:21
+msgid "Agriculture Biotechnology"
+msgstr "التقانات الحيوية"
+
+#: .\Journal\templates\home.html:22
+msgid "Agricultural Economics"
+msgstr "الإقتصاد الزراعي"
+
+#: .\Journal\templates\home.html:23
+msgid "Irrigation and Drainage"
+msgstr "الري والصرف"
+
+#: .\Journal\templates\home.html:24
+msgid "Food Technology"
+msgstr "تكنولوجيا الأغذية"
+
+#: .\Journal\templates\home.html:25
+msgid "Soil and Natural Resources"
+msgstr "التربة والموارد الطبيعية"
+
+#: .\Journal\templates\home.html:26
+msgid "Livestock Production"
+msgstr "الإنتاج الحيواني"
+
+#: .\Journal\templates\home.html:27
+msgid "Plant Protection"
+msgstr "وقاية النبات"
+
+#: .\Journal\templates\home.html:28
+msgid "Research published by the journal"
+msgstr "البحوث التي تنشرها المجلة"
+
+#: .\Journal\templates\home.html:30
+msgid ""
+"The journal welcomes the receipt of original research manuscripts that meet "
+"the scientific quality standards, whether it is a long research (8-12 "
+"pages), a short research (2-4 pages), or a short communication (one page)."
+msgstr ""
+"ترحب المجلة بتسلم مخطوطات بحوث أصيلة تحقق معايير الجودة العلمية، من بحوث "
+"طويلة (8-12 صفحة)، أو قصيرة (2-4 صفحات)، أو الاتصال القصير (صفحة واحدة)."
+
+#: .\Journal\templates\home.html:32
+msgid "Access to the journal"
+msgstr "الدخول الى المجلة"
+
+#: .\Journal\templates\home.html:34
+msgid ""
+"The Syrian Journal of Agricultural Research is freely available to all, and "
+"the full abstracts and articles published in the journal can be accessed "
+"easily and without any restrictions."
+msgstr ""
+"المجلة السورية للبحوث الزراعية متاحة للجميع مجاناً ويمكن الوصول الى الملخصات"
+" والمقالات الكاملة المنشورة في المجلة بسهولة وبدون أي قيود."
+
+#: .\Journal\templates\home.html:36
+msgid "Publication fees"
+msgstr "رسوم النشر في المجلة"
+
+#: .\Journal\templates\home.html:37
+msgid ""
+"Articles are peer-reviewed and published in the journal for free without any"
+" fees."
+msgstr "يتم تحكيم المقالات ونشرها في المجلة مجاناً بدون أية رسوم."
+
+#: .\Journal\urls.py:7
+msgid "admin/"
+msgstr ""
+
+#: .\articles\forms.py:13 .\articles\forms.py:88
+msgid "Approve this article"
+msgstr "قبول هذه المقالة"
+
+#: .\articles\forms.py:14 .\articles\forms.py:89
+msgid ""
+"this article need further revision after complying with required "
+"modifications"
+msgstr "تحتاج هذه المقالة المزيد من المراجعة بعد التقيد بالتعديلات المطلوبة"
+
+#: .\articles\forms.py:15 .\articles\forms.py:90
+msgid "Reject this article and send it back to the author with your comment"
+msgstr "رفض هذا البحث وإعادته للمؤلف مع الملاحظات"
+
+#: .\articles\forms.py:22 .\articles\models.py:50
+#: .\articles\templates\articles\article_review.html:133
+#: .\reviews\templates\reviews\reviewing.html:125
+msgid "Language"
+msgstr "اللغة"
+
+#: .\articles\forms.py:25 .\articles\models.py:51
+#: .\articles\templates\articles\article_review.html:141
+#: .\profiles\models.py:27
+#: .\profiles\templates\profiles\profile_details.html:52
+#: .\reviews\templates\reviews\reviewing.html:131
+msgid "Country"
+msgstr "البلد"
+
+#: .\articles\forms.py:29 .\articles\forms.py:44 .\articles\forms.py:126
+#: .\articles\templates\articles\article_review.html:107
+#: .\articles\templates\articles\article_review.html:245
+#: .\articles\templates\articles\delete_article_list.html:38
+#: .\articles\templates\articles\filter_articles.html:99
+#: .\articles\templates\articles\search_article_result.html:19
+#: .\profiles\templates\profiles\set_reviewer_publications.html:20
+#: .\profiles\templates\profiles\show_reviewers_table.html:36
+#: .\reviews\templates\reviews\reviewing.html:104
+msgid "Scope"
+msgstr "الموضوع"
+
+#: .\articles\forms.py:43
+#: .\articles\templates\articles\filter_articles.html:97
+#: .\articles\templates\articles\search_article_result.html:18
+msgid "Authors"
+msgstr "المؤلفين"
+
+#: .\articles\forms.py:45
+#: .\articles\templates\articles\article_review.html:112
+#: .\articles\templates\articles\article_update.html:147
+#: .\articles\templates\articles\filter_articles.html:98
+msgid "Reviewers"
+msgstr "المحكمين"
+
+#: .\articles\models.py:43
+msgid "scope"
+msgstr "الموضوع"
+
+#: .\articles\models.py:52
+msgid "Received Date"
+msgstr "تاريخ الإستلام"
+
+#: .\articles\models.py:53
+#: .\articles\templates\articles\article_review.html:144
+#: .\articles\templates\articles\article_review.html:443
+#: .\reviews\models.py:56 .\reviews\templates\reviews\reviewing.html:307
+#: .\reviews\templates\reviews\reviewing.html:323
+msgid "Score"
+msgstr "العلامة"
+
+#: .\articles\models.py:54
+msgid "Current Status"
+msgstr "المرحلة الحالية"
+
+#: .\articles\models.py:55
+#: .\articles\templates\articles\article_published.html:17
+#: .\articles\templates\articles\article_review.html:149
+#: .\articles\templates\articles\delete_article_list.html:45
+msgid "Volume"
+msgstr "المجلد"
+
+#: .\articles\models.py:56
+#: .\articles\templates\articles\article_review.html:157
+#: .\articles\templates\articles\article_review.html:625
+#: .\articles\templates\articles\delete_article_list.html:46
+msgid "Issue"
+msgstr "العدد"
+
+#: .\articles\models.py:57
+#: .\articles\templates\articles\article_review.html:136
+#: .\articles\templates\articles\article_review.html:444
+msgid "Result"
+msgstr "النتيجة"
+
+#: .\articles\models.py:58
+msgid "Date of Editorial Decision"
+msgstr "تاريخ إصدار قرار التحرير"
+
+#: .\articles\models.py:59
+msgid "Arabic Title"
+msgstr "العنوان (عربي)"
+
+#: .\articles\models.py:60
+msgid "English Title"
+msgstr "العنوان (إنكليزي)"
+
+#: .\articles\models.py:61
+msgid "Arabic Abstract"
+msgstr "الملخص العربي"
+
+#: .\articles\models.py:62
+msgid "Arabic Keywords"
+msgstr "الكلمات المفتاحية (عربي)"
+
+#: .\articles\models.py:63
+msgid "English Abstract"
+msgstr "الملخص الإنكليزي"
+
+#: .\articles\models.py:64
+msgid "English Keyword"
+msgstr "الكلمات المفتاحية (إنكليزي)"
+
+#: .\articles\models.py:65
+msgid "Introduction"
+msgstr "نص المقالة"
+
+#: .\articles\models.py:66
+#: .\articles\templates\articles\article_review.html:177
+#: .\reviews\templates\reviews\reviewing.html:146
+msgid "References"
+msgstr "المراجع"
+
+#: .\articles\models.py:67
+msgid "Manuscript File"
+msgstr "ملف البحث"
+
+#: .\articles\models.py:68
+msgid "Manuscript File without Authors"
+msgstr "ملف البحث دون أسماء المؤلفين"
+
+#: .\articles\models.py:69
+msgid "Copyright File"
+msgstr "ملف حقوق النشر"
+
+#: .\articles\models.py:70
+#: .\articles\templates\articles\article_detail.html:116
+#: .\articles\templates\articles\article_review.html:75
+msgid "Revised PDF"
+msgstr "الملف النهائي PDF"
+
+#: .\articles\models.py:92
+msgid "From Page"
+msgstr "من الصفحة"
+
+#: .\articles\models.py:93
+msgid "To Page"
+msgstr "إلى الصفحة"
+
+#: .\articles\models.py:94 .\profiles\models.py:38
+msgid "Updated at"
+msgstr "آخر تحديث في"
+
+#: .\articles\models.py:95
+msgid "Notes to Author"
+msgstr "ملاحظات للمؤلفين"
+
+#: .\articles\models.py:136
+#: .\articles\templates\articles\article_review.html:352
+#: .\articles\templates\articles\filter_reviewers.html:107
+msgid "Number of Current Reviews"
+msgstr "عدد المراجعات الحالية"
+
+#: .\articles\models.py:137
+#: .\profiles\templates\profiles\set_reviewer_publications.html:19
+#: .\profiles\templates\profiles\show_reviewers_table.html:35
+#: .\reviews\templates\reviews\reviewing.html:66
+msgid "Abstract"
+msgstr "الملخص"
+
+#: .\articles\models.py:143
+#: .\articles\templates\articles\article_review.html:680
+#: .\pages\templates\pages\contact_details.html:11
+#: .\pages\templates\pages\contact_us.html:12
+#: .\pages\templates\pages\contact_us.html:61
+msgid "E.mail"
+msgstr "البريد الالكتروني"
+
+#: .\articles\models.py:144
+msgid "order"
+msgstr "الترتيب"
+
+#: .\articles\models.py:145
+msgid "contact"
+msgstr "للتواصل"
+
+#: .\articles\templates\articles\accepted_articles.html:3
+msgid "Accepted Manuscripts"
+msgstr "الأبحاث المقبولة"
+
+#: .\articles\templates\articles\accepted_articles.html:8
+msgid "Accepted Manuscripts: Count"
+msgstr "الأبحاث المقبولة: عددها"
+
+#: .\articles\templates\articles\accepted_articles.html:22
+#: .\articles\templates\articles\article_review.html:97
+#: .\articles\templates\articles\pre_publish_articles.html:22
+#: .\articles\templates\articles\pre_review_articles.html:22
+#: .\articles\templates\articles\recently_updated.html:22
+#: .\articles\templates\articles\rejected_articles.html:22
+#: .\articles\templates\articles\reviewer_done_review.html:22
+#: .\articles\templates\articles\reviewer_invites.html:22
+#: .\articles\templates\articles\reviewer_recently_updated.html:22
+#: .\articles\templates\articles\reviewer_under_review.html:22
+#: .\articles\templates\articles\under_review_articles.html:22
+#: .\articles\templates\articles\unsubmitted_articles.html:23
+#: .\articles\templates\articles\user_published_articles.html:22
+#: .\reviews\templates\reviews\reviewing.html:94
+msgid "Status"
+msgstr "الوضع الحالي"
+
+#: .\articles\templates\articles\accepted_articles.html:23
+#: .\articles\templates\articles\pre_publish_articles.html:23
+#: .\articles\templates\articles\pre_review_articles.html:23
+#: .\articles\templates\articles\recently_updated.html:23
+#: .\articles\templates\articles\rejected_articles.html:23
+#: .\articles\templates\articles\reviewer_done_review.html:23
+#: .\articles\templates\articles\reviewer_invites.html:23
+#: .\articles\templates\articles\reviewer_recently_updated.html:23
+#: .\articles\templates\articles\reviewer_under_review.html:23
+#: .\articles\templates\articles\under_review_articles.html:23
+#: .\articles\templates\articles\unsubmitted_articles.html:24
+#: .\articles\templates\articles\user_published_articles.html:23
+msgid "Current Stage"
+msgstr "المرحلة الحالية"
+
+#: .\articles\templates\articles\accepted_articles.html:24
+#: .\articles\templates\articles\article_review.html:101
+#: .\articles\templates\articles\pre_publish_articles.html:24
+#: .\articles\templates\articles\pre_review_articles.html:24
+#: .\articles\templates\articles\recently_updated.html:24
+#: .\articles\templates\articles\rejected_articles.html:24
+#: .\articles\templates\articles\reviewer_done_review.html:24
+#: .\articles\templates\articles\reviewer_invites.html:24
+#: .\articles\templates\articles\reviewer_recently_updated.html:24
+#: .\articles\templates\articles\reviewer_under_review.html:24
+#: .\articles\templates\articles\under_review_articles.html:24
+#: .\articles\templates\articles\unsubmitted_articles.html:25
+#: .\articles\templates\articles\user_published_articles.html:24
+#: .\reviews\templates\reviews\reviewing.html:98
+msgid "Received at"
+msgstr "تم استلام البحث في"
+
+#: .\articles\templates\articles\accepted_articles.html:25
+#: .\articles\templates\articles\pre_publish_articles.html:25
+#: .\articles\templates\articles\pre_review_articles.html:25
+#: .\articles\templates\articles\recently_updated.html:25
+#: .\articles\templates\articles\rejected_articles.html:25
+#: .\articles\templates\articles\reviewer_done_review.html:25
+#: .\articles\templates\articles\reviewer_invites.html:25
+#: .\articles\templates\articles\reviewer_recently_updated.html:25
+#: .\articles\templates\articles\reviewer_under_review.html:25
+#: .\articles\templates\articles\under_review_articles.html:25
+#: .\articles\templates\articles\unsubmitted_articles.html:26
+#: .\articles\templates\articles\user_published_articles.html:25
+msgid "Time in Review"
+msgstr "البحث قيد المراجعة منذ"
+
+#: .\articles\templates\articles\accepted_articles.html:29
+msgid "No Accepted Manuscripts Yet"
+msgstr "لا يوجد مقالات في مرحلة القبول بعد"
+
+#: .\articles\templates\articles\article_detail.html:5
+msgid "Article Detailes"
+msgstr "تفاصيل المقالة"
+
+#: .\articles\templates\articles\article_detail.html:126
+#: .\articles\templates\articles\article_review.html:67
+msgid "Full Manuscript"
+msgstr "المقالة كاملة"
+
+#: .\articles\templates\articles\article_detail.html:134
+#: .\articles\templates\articles\article_review.html:83
+#: .\reviews\templates\reviews\reviewing.html:78
+msgid "Manuscript without Author's names"
+msgstr "البحث دون أسماء المؤلفين"
+
+#: .\articles\templates\articles\article_detail.html:141
+#: .\articles\templates\articles\article_review.html:90
+msgid "Copyrighting File"
+msgstr "ملف حقوق النشر"
+
+#: .\articles\templates\articles\article_detail.html:150
+msgid "Go to Review Page"
+msgstr "مراجعة البحث"
+
+#: .\articles\templates\articles\article_detail.html:154
+msgid "Edit Manuscript"
+msgstr "تعديل البحث"
+
+#: .\articles\templates\articles\article_detail.html:161
+msgid "received at:"
+msgstr "تم الاستلام في"
+
+#: .\articles\templates\articles\article_detail.html:163
+msgid "accepted at:"
+msgstr "تم القبول في"
+
+#: .\articles\templates\articles\article_files.html:5
+msgid "Article Files"
+msgstr "ملفات المقالة"
+
+#: .\articles\templates\articles\article_files.html:13
+msgid "Article Files:"
+msgstr "ملفات المقالة:"
+
+#: .\articles\templates\articles\article_files.html:43
+#: .\articles\templates\articles\article_update.html:232
+#: .\pages\templates\pages\update_editorial_board.html:42
+#: .\profiles\templates\profiles\profile_update.html:136
+msgid "Save Changes"
+msgstr "حفظ"
+
+#: .\articles\templates\articles\article_files.html:44
+#: .\articles\templates\articles\article_form.html:112
+#: .\articles\templates\articles\article_update.html:233
+#: .\pages\templates\pages\contact_us.html:40
+#: .\pages\templates\pages\update_editorial_board.html:43
+#: .\profiles\templates\profiles\add_reviewer_publications.html:28
+#: .\profiles\templates\profiles\profile_create.html:136
+#: .\profiles\templates\profiles\profile_update.html:137
+#: .\reviews\templates\reviews\reviewing.html:302
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+#: .\articles\templates\articles\article_form.html:5
+msgid "Add Manuscript"
+msgstr "إضافة بحث جديد"
+
+#: .\articles\templates\articles\article_form.html:9
+#, python-format
+msgid " Add New Paper %(user)s "
+msgstr "أضف بحث جديد %(user)s"
+
+#: .\articles\templates\articles\article_form.html:28
+msgid "Article Informations:"
+msgstr "معلومات المقالة:"
+
+#: .\articles\templates\articles\article_form.html:62
+msgid "Details:"
+msgstr "التفاصيل:"
+
+#: .\articles\templates\articles\article_form.html:111
+#: .\profiles\templates\profiles\add_reviewer_publications.html:27
+#: .\profiles\templates\profiles\profile_create.html:135
+msgid "Save"
+msgstr "حفظ"
+
+#: .\articles\templates\articles\article_published.html:4
+msgid "Journal Volumes"
+msgstr "مجلدات المجلة"
+
+#: .\articles\templates\articles\article_published.html:17
+msgid "Essue"
+msgstr "العدد"
+
+#: .\articles\templates\articles\article_review.html:4
+msgid "Manuscript Review"
+msgstr "مراجعة البحث"
+
+#: .\articles\templates\articles\article_review.html:12
+#: .\reviews\templates\reviews\reviewing.html:17
+msgid "Manuscript details"
+msgstr "تفاصيل البحث"
+
+#: .\articles\templates\articles\article_review.html:15
+msgid "Pre Review"
+msgstr "مراجعة أولية"
+
+#: .\articles\templates\articles\article_review.html:18
+msgid "Assign Reviewers"
+msgstr "تعيين محكم"
+
+#: .\articles\templates\articles\article_review.html:21
+msgid "Decision"
+msgstr "القرار"
+
+#: .\articles\templates\articles\article_review.html:41
+msgid "Receipt Confirmation"
+msgstr "تأكيد الاستلام"
+
+#: .\articles\templates\articles\article_review.html:100
+#: .\reviews\templates\reviews\reviewing.html:97
+msgid "Current stage"
+msgstr "المرحلة الحالية"
+
+#: .\articles\templates\articles\article_review.html:102
+#: .\reviews\templates\reviews\reviewing.html:99
+msgid "Time in review"
+msgstr "البحث قيد المراجعة منذ"
+
+#: .\articles\templates\articles\article_review.html:124
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:48
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:49
+#: .\reviews\templates\reviews\reviewing.html:116
+msgid "More Detailes"
+msgstr "تفاصيل إضافية"
+
+#: .\articles\templates\articles\article_review.html:152
+msgid "Date of editor decision"
+msgstr "تاريخ إصدار قرار التحرير"
+
+#: .\articles\templates\articles\article_review.html:160
+#: .\reviews\templates\reviews\reviewing.html:89
+msgid "Last update"
+msgstr "آخر تحديث"
+
+#: .\articles\templates\articles\article_review.html:192
+msgid "edit manuscript"
+msgstr "تعديل البحث"
+
+#: .\articles\templates\articles\article_review.html:196
+msgid "delete manuscript"
+msgstr "حذف البحث"
+
+#: .\articles\templates\articles\article_review.html:203
+#: .\articles\templates\articles\article_review.html:281
+#: .\articles\templates\articles\article_review.html:424
+#: .\reviews\templates\reviews\reviewing.html:51
+#: .\reviews\templates\reviews\reviewing.html:160
+#: .\reviews\templates\reviews\reviewing.html:314
+msgid "Next"
+msgstr "التالي"
+
+#: .\articles\templates\articles\article_review.html:211
+msgid "Plagiarism Check"
+msgstr "كشف الاستلال"
+
+#: .\articles\templates\articles\article_review.html:213
+msgid ""
+"\n"
+"                                Online free tool to check plagiarism rate of a Manuscript<br>\n"
+"                            "
+msgstr ""
+"\n"
+"أداة مجانية عبر الإنترنت للتحقق من معدل الاستلال في البحث"
+
+#: .\articles\templates\articles\article_review.html:223
+#: .\mlapplications\templates\mlapplications\scope_predictions.html:4
+msgid "Scope Prediction"
+msgstr "التنبؤ بالموضوع"
+
+#: .\articles\templates\articles\article_review.html:226
+msgid "Classifier"
+msgstr "المصنف"
+
+#: .\articles\templates\articles\article_review.html:230
+msgid ""
+"\n"
+"                            Deep Learning Model to classifying a manuscript according to its topics<br>\n"
+"                            This model follows Multi-Label classification method, with means that it can predict the major and minor subject of each manuscript.<br>\n"
+"                            This model is specific to this journal, as it was trained to classify according to this journal's specific topics.\n"
+"                            "
+msgstr ""
+"\n"
+"نموذج التعلم العميق لتصنيف بحث حسب موضوعاته <br> يتبع هذا النموذج طريقة التصنيف Multi-Label ، مما يعني أنه يمكنه التنبؤ بالموضوع الرئيسي والثانوي لكل بحث. <br> هذا النموذج خاص بهذه المجلة حيث تم تدريبه على التصنيف حسب الموضوعات المحددة التي تنشر فيها هذه المجلة."
+
+#: .\articles\templates\articles\article_review.html:240
+msgid "Set scope"
+msgstr "تعيين الموضوع"
+
+#: .\articles\templates\articles\article_review.html:243
+msgid "Scope Prediction Results"
+msgstr "نتائج التنبؤ بالموضوع"
+
+#: .\articles\templates\articles\article_review.html:247
+msgid "No results found"
+msgstr "لم يتم العثور على نتائج"
+
+#: .\articles\templates\articles\article_review.html:253
+msgid "Quality Evaluation"
+msgstr "التنبؤ بجودة البحث"
+
+#: .\articles\templates\articles\article_review.html:255
+msgid ""
+"\n"
+"                            Machine Learning tool to estimate the overall quality of a manuscript according to statistical features including:<br>\n"
+"                            References quality: Number of references, Latest, Oldest, Median reference .. <br>\n"
+"                            <u>Paper quality:</u> Number of (figures, tables, charts), English/Arabic ratio, Words count, sentences length .. and more.\n"
+"                            "
+msgstr ""
+"\n"
+"أداة التعلم الآلي لتقدير الجودة الإجمالية لبحث ما وفقاً للخصائص الإحصائية بما في ذلك: <br>  جودة المراجع:  عدد المراجع ، الأحدث ، الأقدم ، الوسيط .. <br> جودة النص: عدد (الأشكال ، الجداول ،الرسوم البيانية) ، نسبة اللغة الإنجليزية / العربية ، عدد الكلمات ، طول الجمل .. والمزيد."
+
+#: .\articles\templates\articles\article_review.html:262
+msgid "Evaluate"
+msgstr "تقييم"
+
+#: .\articles\templates\articles\article_review.html:267
+msgid "Final Decision Prediction"
+msgstr "التنبؤ بالقرار النهائي"
+
+#: .\articles\templates\articles\article_review.html:269
+msgid ""
+"\n"
+"                            Machine Learning tool to predict the final decision to accept or reject a manuscript according to the results of text analysis<br>\n"
+"                            The complete text of the manuscript is passed through the analysis process of several steps to generate the final decision.\n"
+"                            "
+msgstr ""
+"\n"
+"أداة التعلم الآلي للتنبؤ بالقرار النهائي لقبول أو رفض بحث ما وفقاً لنتائج تحليل النص <br> يتم تحليل النص الكامل للبحث من خلال عدة خطوات للتوصل إلى القرار النهائي."
+
+#: .\articles\templates\articles\article_review.html:275
+msgid "Predict"
+msgstr "تنبؤ"
+
+#: .\articles\templates\articles\article_review.html:280
+#: .\articles\templates\articles\article_review.html:423
+#: .\articles\templates\articles\article_review.html:736
+#: .\articles\templates\articles\article_review.html:762
+#: .\profiles\templates\profiles\profile_filter.html:149
+#: .\profiles\templates\profiles\search_result.html:76
+#: .\profiles\templates\profiles\set_reviewer_publications.html:63
+#: .\profiles\templates\profiles\show_reviewers_table.html:74
+#: .\reviews\templates\reviews\reviewing.html:159
+#: .\reviews\templates\reviews\reviewing.html:313
+#: .\reviews\templates\reviews\reviewing.html:361
+msgid "Back"
+msgstr "تراجع"
+
+#: .\articles\templates\articles\article_review.html:288
+msgid "Reviewers Recommender System"
+msgstr "نظام التوصية بالمحكمين"
+
+#: .\articles\templates\articles\article_review.html:292
+msgid ""
+"\n"
+"                                Provides top 10 reviewer recommendations (from the jurnal's current reviewers list) to review a manuscript, according to many-steps process. \n"
+"                                It includes text empedding using semantic methods, and calculating similarities between the manuscript and journal reviewer's previous publications.\n"
+"                                "
+msgstr ""
+"\n"
+"يقدم أفضل 10 توصيات بالمراجعين (من قائمة المراجعين الحاليين في المجلة) لمراجعة بحث ما، وذلك عبر عملية متعددة الخطوات. ويشمل تضمين النص باستخدام الأساليب الدلالية، وحساب نسب التشابه بين البحث والمنشورات السابقة لمراجعي المجلة."
+
+#: .\articles\templates\articles\article_review.html:296
+msgid "Get Recommendations"
+msgstr "اقتراح"
+
+#: .\articles\templates\articles\article_review.html:304
+msgid "Additional Recommendations"
+msgstr "اقتراحات إضافية"
+
+#: .\articles\templates\articles\article_review.html:305
+msgid ""
+"\n"
+"                                Provides top 10 reviewer recommendations (of authors how have previously published in this journal in similar topics) to review a manuscript according to many-steps process, \n"
+"                                It includes text empedding using semantic methods, and calculating similarities between the manuscript and journal previous publications.\n"
+"                                "
+msgstr ""
+"\n"
+"يقدم أفضل 10 توصيات بالمراجعين (من ضمن المؤلفين الذين سبق لهم النشر في هذه المجلة في مواضيع مماثلة) لمراجعة بحث ما عبر عملية متعددة الخطوات، ويشمل تضمين النص باستخدام الأساليب الدلالية، وحساب نسب التشابه بين البحث والمنشورات السابقة في المجلة."
+
+#: .\articles\templates\articles\article_review.html:309
+msgid "Get Extra Recommendations"
+msgstr "توصيات إضافية"
+
+#: .\articles\templates\articles\article_review.html:316
+msgid "Search Database"
+msgstr "البحث في قاعدة البيانات"
+
+#: .\articles\templates\articles\article_review.html:319
+msgid "Search for Reviewers"
+msgstr "بحث عن محكمين"
+
+#: .\articles\templates\articles\article_review.html:323
+#: .\profiles\templates\profiles\set_reviewer_publications.html:11
+msgid "Count"
+msgstr "مجموع"
+
+#: .\articles\templates\articles\article_review.html:330
+#: .\articles\templates\articles\article_review.html:438
+#: .\articles\templates\articles\article_update.html:104
+#: .\articles\templates\articles\article_update.html:152
+#: .\articles\templates\articles\filter_reviewers.html:83 .\pages\forms.py:28
+#: .\pages\templates\pages\contact_details.html:10
+#: .\pages\templates\pages\contact_us.html:60 .\profiles\models.py:19
+#: .\profiles\templates\profiles\delete__filter_users.html:113
+#: .\profiles\templates\profiles\delete_all_authors.html:27
+#: .\profiles\templates\profiles\profile_details.html:21
+#: .\profiles\templates\profiles\profile_filter.html:100
+#: .\profiles\templates\profiles\search_result.html:32
+msgid "Name"
+msgstr "الاسم"
+
+#: .\articles\templates\articles\article_review.html:331
+msgid "Review history"
+msgstr "سجل المراجعات"
+
+#: .\articles\templates\articles\article_review.html:332
+msgid "Review Status"
+msgstr "حالة المراجعات"
+
+#: .\articles\templates\articles\article_review.html:333
+#: .\articles\templates\articles\article_update.html:108
+#: .\articles\templates\articles\article_update.html:157
+#: .\articles\templates\articles\filter_articles.html:101
+#: .\articles\templates\articles\filter_reviewers.html:86
+#: .\articles\templates\articles\search_article_result.html:21
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:31
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:31
+#: .\profiles\templates\profiles\delete__filter_users.html:119
+#: .\profiles\templates\profiles\delete_all_authors.html:32
+#: .\profiles\templates\profiles\profile_filter.html:106
+#: .\profiles\templates\profiles\search_result.html:38
+#: .\profiles\templates\profiles\set_reviewer_publications.html:21
+#: .\profiles\templates\profiles\show_reviewers_table.html:37
+msgid "Actions"
+msgstr "العمليات"
+
+#: .\articles\templates\articles\article_review.html:354
+#: .\reviews\models.py:20
+msgid "Invited"
+msgstr "دعوة"
+
+#: .\articles\templates\articles\article_review.html:357
+#: .\reviews\models.py:21
+msgid "Invited at"
+msgstr "تمت الدعوة منذ"
+
+#: .\articles\templates\articles\article_review.html:358
+msgid "Invitation Expire at"
+msgstr "تنتهي الدعوة عند"
+
+#: .\articles\templates\articles\article_review.html:360
+msgid "Expired with no replay"
+msgstr "لا إجابة على الدعوة"
+
+#: .\articles\templates\articles\article_review.html:362
+msgid "Invitation Accepted"
+msgstr "تم قبول الدعوة"
+
+#: .\articles\templates\articles\article_review.html:364
+msgid "Invitation Rejected"
+msgstr "تم رفض الدعوة"
+
+#: .\articles\templates\articles\article_review.html:366
+msgid "Pending Response"
+msgstr "في انتظار الرد"
+
+#: .\articles\templates\articles\article_review.html:373
+#: .\articles\templates\articles\article_review.html:439
+msgid "Review Starts on"
+msgstr "بدأت المراجعة في"
+
+#: .\articles\templates\articles\article_review.html:374
+#: .\articles\templates\articles\article_review.html:440
+#: .\reviews\models.py:25 .\reviews\templates\reviews\reviewing.html:88
+msgid "Review Ends on"
+msgstr "تنتهي المراجعة في"
+
+#: .\articles\templates\articles\article_review.html:376
+#: .\articles\templates\articles\article_review.html:468
+msgid "Late"
+msgstr "متأخر"
+
+#: .\articles\templates\articles\article_review.html:391
+#: .\articles\templates\articles\article_review.html:441
+#: .\articles\templates\articles\article_review.html:484
+#: .\reviews\models.py:26 .\reviews\templates\reviews\invite_response.html:27
+#: .\reviews\templates\reviews\reviewing.html:333
+msgid "Notes to Editor"
+msgstr "ملاحظات للمحرر"
+
+#: .\articles\templates\articles\article_review.html:401
+msgid "Review done"
+msgstr "إنتهت المراجعة"
+
+#: .\articles\templates\articles\article_review.html:405
+#: .\articles\templates\articles\article_review.html:710
+msgid "Invite"
+msgstr "دعوة"
+
+#: .\articles\templates\articles\article_review.html:409
+#: .\articles\templates\articles\filter_reviewers.html:115
+msgid "Remove from List"
+msgstr "إزالة من القائمة"
+
+#: .\articles\templates\articles\article_review.html:432
+msgid "Final Decision"
+msgstr "القرار النهائي"
+
+#: .\articles\templates\articles\article_review.html:442
+#: .\articles\templates\articles\article_review.html:505
+#: .\reviews\models.py:27 .\reviews\templates\reviews\reviewing.html:337
+msgid "Notes to Authors"
+msgstr "ملاحظات للمؤلفين"
+
+#: .\articles\templates\articles\article_review.html:445
+#: .\profiles\templates\profiles\reviewer_dashboard.html:40
+#: .\reviews\models.py:58
+msgid "Done Review"
+msgstr "إنتهت المراجعة"
+
+#: .\articles\templates\articles\article_review.html:446
+#: .\reviews\models.py:57
+msgid "Last Update"
+msgstr "آخر تحديث"
+
+#: .\articles\templates\articles\article_review.html:527
+#: .\reviews\models.py:59
+msgid "Review File"
+msgstr "ملف التقييم"
+
+#: .\articles\templates\articles\article_review.html:605
+msgid "Show Current Volume-Issue"
+msgstr "عرض العدد الحالي"
+
+#: .\articles\templates\articles\article_review.html:626
+msgid "Detailes"
+msgstr "التفاصيل"
+
+#: .\articles\templates\articles\article_review.html:636
+msgid "Show Detailes"
+msgstr "عرض التفاصيل"
+
+#: .\articles\templates\articles\article_review.html:675
+msgid "Author's Order"
+msgstr "ترتيب المؤلفين"
+
+#: .\articles\templates\articles\article_review.html:679
+msgid "Author"
+msgstr "المؤلفين"
+
+#: .\articles\templates\articles\article_review.html:681
+msgid "Order"
+msgstr "الترتيب"
+
+#: .\articles\templates\articles\article_review.html:682
+msgid "Contact"
+msgstr "للتواصل"
+
+#: .\articles\templates\articles\article_review.html:683
+msgid "Send Mail"
+msgstr "إرسال"
+
+#: .\articles\templates\articles\article_review.html:725
+#: .\reviews\templates\reviews\invite_response.html:32
+#: .\reviews\templates\reviews\reviewing.html:355
+msgid "OK"
+msgstr "تم"
+
+#: .\articles\templates\articles\article_review.html:752
+#: .\profiles\templates\profiles\profile_filter.html:139
+#: .\profiles\templates\profiles\search_result.html:68
+#: .\profiles\templates\profiles\set_reviewer_publications.html:53
+#: .\profiles\templates\profiles\show_reviewers_table.html:64
+msgid "Confirm Deletion"
+msgstr "تأكيد الحذف"
+
+#: .\articles\templates\articles\article_review.html:753
+#: .\profiles\templates\profiles\profile_filter.html:140
+#: .\profiles\templates\profiles\search_result.html:69
+#: .\profiles\templates\profiles\set_reviewer_publications.html:54
+#: .\profiles\templates\profiles\show_reviewers_table.html:65
+msgid "Close"
+msgstr "إغلاق"
+
+#: .\articles\templates\articles\article_review.html:756
+msgid ""
+"\n"
+"                        Are you sure you want to delete this manuscript permanintly?\n"
+"                        this action can't be undone!\n"
+"                    \n"
+"                "
+msgstr ""
+"\n"
+"هل أنت متأكد من حذف هذا البحث نهائياً؟\n"
+"لا يمكن التراجع عن هذه الخطوة!"
+
+#: .\articles\templates\articles\article_review.html:764
+#: .\profiles\templates\profiles\profile_filter.html:150
+#: .\profiles\templates\profiles\search_result.html:78
+#: .\profiles\templates\profiles\set_reviewer_publications.html:64
+#: .\profiles\templates\profiles\show_reviewers_table.html:75
+msgid "delete permanently"
+msgstr "حذف نهائي"
+
+#: .\articles\templates\articles\article_update.html:4
+msgid "Update Article"
+msgstr "تحديث المقالة"
+
+#: .\articles\templates\articles\article_update.html:13
+msgid "Update Manuscript information:"
+msgstr "تحديث معلومات المقالة:"
+
+#: .\articles\templates\articles\article_update.html:100
+msgid "authors"
+msgstr "المؤلفين"
+
+#: .\articles\templates\articles\article_update.html:105
+#: .\articles\templates\articles\article_update.html:154
+#: .\profiles\models.py:28
+#: .\profiles\templates\profiles\delete__filter_users.html:115
+#: .\profiles\templates\profiles\delete_all_authors.html:28
+#: .\profiles\templates\profiles\profile_details.html:89
+#: .\profiles\templates\profiles\profile_filter.html:102
+#: .\profiles\templates\profiles\search_result.html:34
+msgid "Certificate"
+msgstr "الدرجة العلمية"
+
+#: .\articles\templates\articles\article_update.html:106
+#: .\articles\templates\articles\article_update.html:155
+#: .\articles\templates\articles\filter_reviewers.html:84
+#: .\profiles\models.py:30
+#: .\profiles\templates\profiles\delete__filter_users.html:116
+#: .\profiles\templates\profiles\delete_all_authors.html:29
+#: .\profiles\templates\profiles\profile_details.html:97
+#: .\profiles\templates\profiles\profile_filter.html:103
+#: .\profiles\templates\profiles\search_result.html:35
+msgid "Specialist"
+msgstr "الاختصاص"
+
+#: .\articles\templates\articles\article_update.html:107
+#: .\articles\templates\articles\article_update.html:156 .\pages\forms.py:29
+#: .\profiles\templates\profiles\delete__filter_users.html:118
+#: .\profiles\templates\profiles\delete_all_authors.html:31
+#: .\profiles\templates\profiles\profile_details.html:42
+#: .\profiles\templates\profiles\profile_filter.html:105
+#: .\profiles\templates\profiles\search_result.html:37
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+#: .\articles\templates\articles\article_update.html:132
+msgid "Add Authors"
+msgstr "إضافة مؤلفين"
+
+#: .\articles\templates\articles\article_update.html:137
+#: .\articles\templates\articles\article_update.html:185
+#: .\articles\templates\articles\filter_reviewers.html:13
+#: .\profiles\templates\profiles\delete__filter_users.html:9
+#: .\profiles\templates\profiles\profile_filter.html:12
+#: .\profiles\templates\profiles\search_result.html:12
+#: .\profiles\templates\profiles\show_reviewers_table.html:12
+msgid "Add new"
+msgstr "إضافة جديد"
+
+#: .\articles\templates\articles\article_update.html:153
+#: .\profiles\templates\profiles\delete__filter_users.html:114
+#: .\profiles\templates\profiles\profile_filter.html:101
+#: .\profiles\templates\profiles\search_result.html:33
+msgid "Type"
+msgstr "النمط"
+
+#: .\articles\templates\articles\article_update.html:180
+msgid "Add Reviewers"
+msgstr "إضافة محكمين"
+
+#: .\articles\templates\articles\article_update.html:195
+msgid "Full text:"
+msgstr "النص الكامل"
+
+#: .\articles\templates\articles\delete_article_list.html:6
+msgid "article list"
+msgstr "قائمة المقالات"
+
+#: .\articles\templates\articles\delete_article_list.html:12
+msgid "Pending Articles"
+msgstr "المقالات قيد الانتظار"
+
+#: .\articles\templates\articles\delete_article_list.html:28
+msgid "Created"
+msgstr "تم الإنشاء منذ"
+
+#: .\articles\templates\articles\delete_article_list.html:28
+msgid "ago"
+msgstr ""
+
+#: .\articles\templates\articles\delete_article_list.html:56
+msgid "Accepted Articles for publishing"
+msgstr "المقالات المقبولة للنشر"
+
+#: .\articles\templates\articles\email\email_author_accept.txt:4
+#: .\articles\templates\articles\email\email_author_reject.txt:3
+#: .\articles\templates\articles\email\email_author_revise.txt:3
+#: .\articles\templates\articles\email\manuscript_recieved.txt:3
+#: .\reviews\templates\reviews\email\reviewer_invitation.txt:8
+msgid "Dear"
+msgstr "عزيزي"
+
+#: .\articles\templates\articles\email\email_author_accept.txt:5
+#, python-format
+msgid ""
+"\n"
+"We are glad to inform you that your manuscript titled  \n"
+"%(article_title)s\n"
+"Date submitted: %(received_at)s\n"
+"and assigned as %(id)s is approved to publish in the Syrian Journal of Agricultural Research (SJAR), \n"
+"and we will provide you with the publication document soon. \n"
+"You only have to format the research according to the attached template to prepare it for publication.\n"
+"Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR) and look forward to receiving the revised version soon.\n"
+"With my sincere regards and greetings of the editorial staff.\n"
+"\n"
+"Regards\n"
+"%(user)s\n"
+"--------------------------\n"
+msgstr ""
+"\n"
+"يسعدنا إخبارك أن بحثك المعنون %(article_title)s\n"
+"المرسل بتاريخ:%(received_at)s\n"
+"والمعين بالرقم: %(id)s قد قبل للنشر في المجلة السورية للبحوث الزراعية (SJAR)، وسنرسل لك وثيقة النشر قريباً. \n"
+"يرجى تنسيق البحث وفقاً للنموذج المرفق لتجهيزه للنشر. \n"
+"شكراً جزيلاً لنشركم في المجلة السورية للبحوث الزراعية (SJAR) ونتطلع إلى تلقي النسخة المعدلة قريباً. \n"
+"مع خالص تحياتي وتحيات هيئة التحرير.\n"
+"\n"
+"كل الاحترام\n"
+"%(user)s\n"
+"--------------------------\n"
+
+#: .\articles\templates\articles\email\email_author_reject.txt:4
+#, python-format
+msgid ""
+"\n"
+"Your manuscript titled  \n"
+"%(article_title)s\n"
+"Date submitted: %(received_at)s\n"
+"and assigned as %(id)s has now been evaluated by members of the editorial board. \n"
+"While we certainly find merit in your paper, a number of points of criticism were raised and we \n"
+"therefore regret to inform you that your manuscript is not acceptable for publication in its \n"
+"present form. \n"
+"If you feel that you can adequately address the criticisms outlined in the reviewer reports below, \n"
+"we would be willing to reconsider a thoroughly revised version of your manuscript.\n"
+"\n"
+"If you decide to resubmit your manuscript, please provide point-by-point answers to the reviewer \n"
+"criticisms in your next email.\n"
+"Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR) and look forward to receiving the revised version soon.\n"
+"\n"
+"Regards\n"
+"%(user)s\n"
+"--------------------------\n"
+"Editor-in-Chief comments: \n"
+msgstr ""
+"\n"
+"إن بحثك المعنون %(article_title)s\n"
+"المرسل بتاريخ: %(received_at)s \n"
+"والمعين بالرقم: %(id)s تم تقييمه من قبل محكمي المجلة والذين قدموا بعض الانتقادات للبحث، ونحن نقدر جهودك المبذولة في هذا البحث لكننا نأسف لإبلاغك بأن بحثك غير مقبولة للنشر بالشكل الحالي. \n"
+"إذا كنت ترغب بمعالجة الانتقادات الموضحة في تقارير المراجعين أدناه بشكل مناسب، سنكون على استعداد لإعادة النظر في النسخة المنقحة من بحثك. \n"
+"إذا قررت إعادة تقديم بحثك، فيرجى تقديم إجابات وافية على جميع نقاط الانتقادات في رسالتك التالية. \n"
+"شكراً جزيلاً لنشركم في المجلة السورية للبحوث الزراعية (SJAR) ونتطلع إلى تلقي النسخة المعدلة قريباً.\n"
+"\n"
+"كل الاحترام\n"
+"%(user)s\n"
+"--------------------------\n"
+"\n"
+"ملاحظات رئيس التحرير:\n"
+
+#: .\articles\templates\articles\email\email_author_reject.txt:27
+#: .\articles\templates\articles\email\email_author_revise.txt:25
+msgid "Reviewer"
+msgstr "المحكم"
+
+#: .\articles\templates\articles\email\email_author_reject.txt:27
+#: .\articles\templates\articles\email\email_author_revise.txt:25
+msgid "comments"
+msgstr "الملاحظات"
+
+#: .\articles\templates\articles\email\email_author_revise.txt:4
+#, python-format
+msgid ""
+"\n"
+"Your manuscript titled  \n"
+"%(article_title)s\n"
+"Date submitted: %(received_at)s\n"
+"and assigned as %(id)s has now been evaluated by members of the editorial board.\n"
+"please see the correction hints as mentioned by the reviewers/expert(s) for the necessary changes \n"
+"that you have to take in consideraton in your paper. \n"
+"Please see attached files and provide point-by-point answers to the reviewers\n"
+"criticisms in your replay email and send us the revised paper as soon as possible.\n"
+"Kindly include your manuscript number and address in all your future correspondence with us.\n"
+"We attached our journal guidelines to be followed.\n"
+"Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR) and look forward to receiving the revised version soon.\n"
+"\n"
+"Regards\n"
+"%(user)s\n"
+"--------------------------\n"
+"Editor-in-Chief comments: "
+msgstr ""
+"\n"
+"إن بحثك المعنون %(article_title)s\n"
+"المرسل بتاريخ: %(received_at)s \n"
+"والمعين بالرقم: %(id)s تم تقييمه من قبل محكمي المجلة \n"
+"يرجى الاطلاع على التصحيحات المطلوبة من قبل المحكمين وإجراء التغيرات اللازمة في بحثك. \n"
+"يرجى الاطلاع على الملفات المرفقة وتقديم إجابات وافية للمحكمين على جميع نقاط الانتقاد في رسالتك التالية وإرسال الورقة المنقحة إلينا في أقرب وقت ممكن. يرجى تضمين رقم البحث والعنوان في جميع مراسلاتك المستقبلية معنا. \n"
+"يرجى اتباع الإرشادات المرفقة. \n"
+"شكراً جزيلاً لنشركم في المجلة السورية للبحوث الزراعية (SJAR) ونتطلع إلى تلقي النسخة المعدلة قريباً.\n"
+"\n"
+"كل الاحترام\n"
+"%(user)s\n"
+"--------------------------\n"
+"\n"
+"ملاحظات رئيس التحرير:"
+
+#: .\articles\templates\articles\email\manuscript_recieved.txt:4
+#, python-format
+msgid ""
+"\n"
+"Respectfully, We received your valuable manuscript titled  \n"
+"%(article_title)s\n"
+"Date submitted: %(received_at)s\n"
+"and assigned as %(id)s. Please quote your manuscript number (manuscript code) in all correspondence emails regarding this manuscript (Please write manuscript code into the Subject Toolbar menu in your next emails). \n"
+"Your manuscript is supmitted to peer review process, we will send you reviewer's comments as soon as possible.\n"
+"Thank you very much for publishing in Syrian Journal of Agricultural Research (SJAR). We are looking forward and welcome to your other manuscripts.\n"
+"\n"
+"Regards\n"
+"%(user)s\n"
+"--------------------------\n"
+msgstr ""
+"\n"
+"يسرنا تلقي بحثك المعنون %(article_title)s\n"
+"المرسل بتاريخ: %(received_at)s \n"
+"والمعين بالرقم: %(id)s\n"
+"يرجى ذكر رقم البحث في جميع رسائل البريد الإلكتروني الخاصة بهذا البحث لاحقاً (يرجى كتابة رقم البحث في قائمة شريط أدوات الموضوع في رسائل البريد الإلكتروني التالية). \n"
+"بدأ تقييم بحثك أولياً لتجهيزه لعملية التحكيم من قبل مختصين، وسوف نرسل لك ملاحظات المحكمين في أقرب وقت ممكن. \n"
+"شكراً جزيلاً لنشركم في المجلة السورية للبحوث الزراعية (SJAR). ونرحب بنشر أبحاثكم الأخرى في مجلتنا.\n"
+"\n"
+"كل الاحترام\n"
+"%(user)s\n"
+"--------------------------\n"
+
+#: .\articles\templates\articles\email_author.html:4
+msgid "Email Authors"
+msgstr "مراسلة المؤلف عبر البريد الالكتروني"
+
+#: .\articles\templates\articles\email_author.html:19
+#: .\reviews\templates\reviews\invite_reviewer.html:29
+msgid "Receipt email address"
+msgstr "عنوان البريد الالكتروني المرسل إليه"
+
+#: .\articles\templates\articles\email_author.html:24 .\pages\forms.py:30
+#: .\pages\templates\pages\contact_us.html:62
+#: .\reviews\templates\reviews\invite_reviewer.html:34
+msgid "Subject"
+msgstr "الموضوع"
+
+#: .\articles\templates\articles\email_author.html:26
+msgid "Approve manuscript (Without return)"
+msgstr "قبول البحث (دون عودة)"
+
+#: .\articles\templates\articles\email_author.html:27
+msgid "Revise manuscript (With return)"
+msgstr "مراجعة البحث (مع عودة)"
+
+#: .\articles\templates\articles\email_author.html:28
+msgid "Reject manuscript (major revisions)"
+msgstr "رفض البحث (اعتراضات رئيسية)"
+
+#: .\articles\templates\articles\email_author.html:29
+msgid "Manuscript Received"
+msgstr "تم استلام البحث"
+
+#: .\articles\templates\articles\email_author.html:33
+msgid "Attachment"
+msgstr "المرفقات"
+
+#: .\articles\templates\articles\email_author.html:37 .\pages\forms.py:31
+#: .\pages\templates\pages\contact_details.html:12
+#: .\pages\templates\pages\contact_us.html:63
+#: .\reviews\templates\reviews\invite_reviewer.html:39
+msgid "Message"
+msgstr "الرسالة"
+
+#: .\articles\templates\articles\email_author.html:52
+#: .\pages\templates\pages\contact_us.html:39
+#: .\reviews\templates\reviews\invite_reviewer.html:46
+msgid "Send"
+msgstr "إرسال"
+
+#: .\articles\templates\articles\filter_articles.html:4
+msgid "Articles Filter"
+msgstr "فلترة المقالات"
+
+#: .\articles\templates\articles\filter_articles.html:16
+#: .\articles\templates\articles\filter_reviewers.html:23
+#: .\profiles\templates\profiles\delete__filter_users.html:26
+#: .\profiles\templates\profiles\profile_filter.html:36
+msgid "Filters "
+msgstr "الفلاتر"
+
+#: .\articles\templates\articles\filter_articles.html:80
+#: .\articles\templates\articles\filter_reviewers.html:69
+#: .\profiles\templates\profiles\delete__filter_users.html:95
+#: .\profiles\templates\profiles\profile_filter.html:84
+msgid "Filter"
+msgstr "فلترة"
+
+#: .\articles\templates\articles\filter_articles.html:89
+#: .\articles\templates\articles\filter_reviewers.html:76
+#: .\profiles\templates\profiles\delete__filter_users.html:104
+#: .\profiles\templates\profiles\profile_filter.html:93
+msgid "Results count"
+msgstr "عدد النتائج"
+
+#: .\articles\templates\articles\filter_articles.html:96
+#: .\articles\templates\articles\search_article_result.html:17
+msgid "Title"
+msgstr "العنوان"
+
+#: .\articles\templates\articles\filter_articles.html:100
+#: .\articles\templates\articles\search_article_result.html:20
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:22
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:22
+msgid "Results"
+msgstr "النتائج"
+
+#: .\articles\templates\articles\filter_articles.html:168
+#: .\articles\templates\articles\search_article_result.html:85
+#: .\profiles\templates\profiles\search_result.html:121
+msgid "No results Found!"
+msgstr "لا يوجد نتائج!"
+
+#: .\articles\templates\articles\filter_reviewers.html:4
+msgid "Reviewers Filter"
+msgstr "فلترة المحكمين"
+
+#: .\articles\templates\articles\filter_reviewers.html:85
+msgid "Review History"
+msgstr "سجل المراجعات"
+
+#: .\articles\templates\articles\filter_reviewers.html:108
+msgid "Number of Sent Invitations"
+msgstr "عدد دعوات التحكيم المرسلة"
+
+#: .\articles\templates\articles\filter_reviewers.html:109
+msgid "Number of Done Reviews"
+msgstr "عدد المراجعات المنتهية"
+
+#: .\articles\templates\articles\filter_reviewers.html:120
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:66
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:67
+msgid "Add to List"
+msgstr "إضافة إلى القائمة"
+
+#: .\articles\templates\articles\filter_reviewers.html:163
+msgid "Back to Review"
+msgstr "عودة إلى المراجعة"
+
+#: .\articles\templates\articles\pre_publish_articles.html:3
+msgid "Pre-Publish Manuscripts"
+msgstr "المقالات في مرحلة التجهيز للنشر"
+
+#: .\articles\templates\articles\pre_publish_articles.html:8
+msgid "Pre-Publish Manuscripts: Count"
+msgstr "المقالات في مرحلة التجهيز للنشر: عدد"
+
+#: .\articles\templates\articles\pre_publish_articles.html:29
+msgid "No Pre-Publish Manuscripts Yet"
+msgstr "لا يوجد مقالات في مرحلة التجهيزللنشر بعد"
+
+#: .\articles\templates\articles\pre_review_articles.html:3
+msgid "Pre-Review Manuscripts"
+msgstr "المقالات قيد المراجعة الأولية"
+
+#: .\articles\templates\articles\pre_review_articles.html:8
+msgid "Pre-Review Manuscripts: Count"
+msgstr "المقالات قيد المراجعة الأولية: عدد"
+
+#: .\articles\templates\articles\pre_review_articles.html:29
+msgid "No Pre-Review Manuscripts Yet"
+msgstr "لا يوجد مقالات قيد المراجعة الأولية بعد"
+
+#: .\articles\templates\articles\recently_updated.html:3
+#: .\articles\templates\articles\reviewer_recently_updated.html:3
+msgid "Recently Updated Manuscripts"
+msgstr "المقلات المعدلة مؤخراً"
+
+#: .\articles\templates\articles\recently_updated.html:8
+msgid "Recently Updated Manuscripts: Count"
+msgstr "المقلات المعدلة مؤخراً: عدد"
+
+#: .\articles\templates\articles\recently_updated.html:29
+#: .\articles\templates\articles\reviewer_recently_updated.html:29
+msgid "No Recently Updated Manuscripts Yet"
+msgstr "لا يوجد مقلات معدلة مؤخراً بعد"
+
+#: .\articles\templates\articles\rejected_articles.html:3
+msgid "Rejected Manuscripts"
+msgstr "المقالات المرفوضة"
+
+#: .\articles\templates\articles\rejected_articles.html:8
+msgid "Rejected Manuscripts: Count"
+msgstr "المقالات المرفوضة: عدد"
+
+#: .\articles\templates\articles\rejected_articles.html:29
+msgid "No Rejected Manuscripts Yet"
+msgstr "لا يوجد مقالات مرفوضة بعد"
+
+#: .\articles\templates\articles\reviewer_done_review.html:3
+msgid "Done Reviews"
+msgstr "المراجعات المنتهية"
+
+#: .\articles\templates\articles\reviewer_done_review.html:8
+msgid "Done Reviews: Count"
+msgstr "المراجعات المنتهية: عدد"
+
+#: .\articles\templates\articles\reviewer_done_review.html:29
+msgid "No Done Reviews Yet"
+msgstr "لا يوجد مراجعات منتهية بعد"
+
+#: .\articles\templates\articles\reviewer_invites.html:3
+#: .\profiles\templates\profiles\reviewer_dashboard.html:18
+msgid "Invites"
+msgstr "الدعوات"
+
+#: .\articles\templates\articles\reviewer_invites.html:8
+msgid "Review Invites: Count"
+msgstr "دعوات التحكيم: عدد"
+
+#: .\articles\templates\articles\reviewer_invites.html:29
+msgid "No Review Invits Yet"
+msgstr "لا يوجد دعوات تحكيم بعد"
+
+#: .\articles\templates\articles\reviewer_recently_updated.html:8
+msgid "Reviewer Recently Updated Manuscripts: Count"
+msgstr "المراجعات المعدلة مؤخراً: عدد"
+
+#: .\articles\templates\articles\reviewer_under_review.html:3
+#: .\articles\templates\articles\under_review_articles.html:3
+msgid "Under-Review Manuscripts"
+msgstr "المقالات قيد المراجعة"
+
+#: .\articles\templates\articles\reviewer_under_review.html:8
+#: .\articles\templates\articles\under_review_articles.html:8
+msgid "Under-Review Manuscripts: Count"
+msgstr "المقالات قيد المراجعة: عدد"
+
+#: .\articles\templates\articles\reviewer_under_review.html:29
+#: .\articles\templates\articles\under_review_articles.html:29
+msgid "No Under-Review Manuscripts Yet"
+msgstr "لا يوجد مقالات قيد المراجعة بعد"
+
+#: .\articles\templates\articles\search_article_result.html:5
+#: .\profiles\templates\profiles\search_result.html:5
+msgid "Search Results"
+msgstr "نتائج البحث"
+
+#: .\articles\templates\articles\search_article_result.html:9
+#: .\profiles\templates\profiles\search_result.html:26
+msgid "Search Results Count: "
+msgstr "نتائج البحث"
+
+#: .\articles\templates\articles\show-volume.html:5
+msgid "Journal Issues"
+msgstr "أعداد المجلة"
+
+#: .\articles\templates\articles\show-volume.html:14
+#, python-format
+msgid ""
+"\n"
+"                    Volume (%(volume)s) - Essue (%(issue)s) - %(year)s\n"
+"                "
+msgstr ""
+"\n"
+"المجلد (%(volume)s) - العدد (%(issue)s) - %(year)s"
+
+#: .\articles\templates\articles\show-volume.html:24
+msgid "Pages"
+msgstr "الصفحات"
+
+#: .\articles\templates\articles\show-volume.html:25
+msgid "Content"
+msgstr "المحتوى"
+
+#: .\articles\templates\articles\unsubmitted_articles.html:3
+msgid "Pre-Submit Manuscripts"
+msgstr "المقالات المرسلة أولياً"
+
+#: .\articles\templates\articles\unsubmitted_articles.html:8
+msgid "Pre-Submit Manuscripts: Count"
+msgstr "المقالات المرسلة أولياً: عدد"
+
+#: .\articles\templates\articles\unsubmitted_articles.html:30
+msgid "No Pre-Submit Manuscripts Now"
+msgstr "لا يوجد مقالات مرسلة أولياً بعد"
+
+#: .\articles\templates\articles\user_published_articles.html:3
+msgid "User Publications"
+msgstr "منشورات المستخدم"
+
+#: .\articles\templates\articles\user_published_articles.html:8
+msgid "Published Articles: Count"
+msgstr "منشورات المستخدم: عدد"
+
+#: .\articles\templates\articles\user_published_articles.html:29
+msgid "No Published Articles Yet"
+msgstr "لا يوجد منشورات بعد"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:4
+msgid "Decision Prediction"
+msgstr "التنبؤ بالقرار النهائي"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:9
+msgid "The Prediction Score of This Article is"
+msgstr "العلامة المتبأ بها لهذه المقالة هي"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:12
+msgid "The score is"
+msgstr "العلامة"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:14
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:15
+#: .\reviews\templates\reviews\reviewing.html:179
+msgid "Very Weak"
+msgstr "ضعيف جداً"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:16
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:17
+#: .\reviews\templates\reviews\reviewing.html:180
+msgid "Weak"
+msgstr "ضعيف"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:18
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:19
+#: .\reviews\templates\reviews\reviewing.html:181
+msgid "Acceptable"
+msgstr "مقبول"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:20
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:21
+#: .\reviews\templates\reviews\reviewing.html:182
+msgid "Good"
+msgstr "جيد"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:22
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:23
+#: .\reviews\templates\reviews\reviewing.html:183
+msgid "Very Good"
+msgstr "جيد جداً"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:24
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:25
+msgid "according to Likert Scale"
+msgstr "حسب مقياس Likert"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:27
+msgid "Very Weak  "
+msgstr "ضعيف جداً"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:28
+msgid "Weak  "
+msgstr "ضعيف"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:29
+msgid "Acceptable  "
+msgstr "مقبول"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:30
+msgid "Good  "
+msgstr "جيد"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:31
+msgid "Very Good  "
+msgstr "جيد جداً"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:34
+msgid "So The Predicted Decision is: "
+msgstr "لذا فإن القرار المتنبأ به هو:"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:36
+#: .\profiles\templates\profiles\author_dashboard.html:64
+#: .\profiles\templates\profiles\editor_dashboard.html:65
+#: .\profiles\templates\profiles\editor_dashboard.html:162
+#: .\profiles\templates\profiles\reviewer_dashboard.html:116
+msgid "Rejected"
+msgstr "مرفوض"
+
+#: .\mlapplications\templates\mlapplications\decision_predictions.html:38
+#: .\profiles\templates\profiles\author_dashboard.html:51
+#: .\profiles\templates\profiles\editor_dashboard.html:52
+#: .\profiles\templates\profiles\editor_dashboard.html:149
+#: .\profiles\templates\profiles\reviewer_dashboard.html:103
+msgid "Accepted"
+msgstr "مقبول"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:5
+msgid "Quality Prediction"
+msgstr "التنبؤ بجودة البحث"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:10
+msgid "The Estimated Quality of This Article is"
+msgstr "القيمة المقدرة لجودة المقالة هي"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:13
+msgid "The result is"
+msgstr "النتائج"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:28
+msgid "Very Weak "
+msgstr "ضعيف جداً"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:29
+msgid "Weak "
+msgstr "ضعيف"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:30
+msgid "Acceptable "
+msgstr "مقبول"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:31
+msgid "Good "
+msgstr "جيد"
+
+#: .\mlapplications\templates\mlapplications\quality_predictions.html:32
+msgid "Very Good "
+msgstr "جيد جداً"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:4
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:4
+msgid "Reviewers Recommendations"
+msgstr "اقتراح محكمين"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:9
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:9
+msgid "Review Recommender System Results"
+msgstr "نتائج نظام التوصية بالمحكمين"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:12
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:12
+msgid "Article Title:"
+msgstr "عنوان المقالة:"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:27
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:27
+#: .\reviews\templates\reviews\reviewing.html:84
+msgid "Reviewer Name"
+msgstr "اسم المحكم"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:28
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:28
+msgid "Reviewer Specialist"
+msgstr "اختصاص المحكم"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:29
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:29
+msgid "Reviewer's Scope"
+msgstr "مجال اختصاص المحكم"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:30
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:30
+msgid "Similarity Value"
+msgstr "قيمة التشابه"
+
+#: .\mlapplications\templates\mlapplications\reviewer_recommender.html:56
+#: .\mlapplications\templates\mlapplications\reviewer_recommender_plus.html:57
+msgid "Reviewer's Publication"
+msgstr "منشورات المحكم"
+
+#: .\mlapplications\templates\mlapplications\scope_predictions.html:9
+msgid "Predicted Subject with Reliability ratio is"
+msgstr "المواضيع المتنبأ بها مع قيمة الموثوقية هي"
+
+#: .\pages\forms.py:10
+msgid "Arabic Name"
+msgstr "الاسم العربي"
+
+#: .\pages\forms.py:11 .\profiles\models.py:20
+msgid "English Name"
+msgstr "الاسم الانكليزي"
+
+#: .\pages\forms.py:12
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#: .\pages\forms.py:13
+msgid "Specification"
+msgstr "الاختصاص"
+
+#: .\pages\forms.py:14
+msgid "en_Specification"
+msgstr "الاختصاص (بالإنكليزية)"
+
+#: .\pages\forms.py:15 .\profiles\models.py:23
+msgid "Work Address"
+msgstr "مكان العمل"
+
+#: .\pages\forms.py:16
+msgid "en_Work Address"
+msgstr "مكان العمل (بالإنكليزية)"
+
+#: .\pages\models.py:20
+msgid "arabic_name"
+msgstr "الاسم العربي"
+
+#: .\pages\models.py:21
+msgid "english_name"
+msgstr "الاسم الانكليزي"
+
+#: .\pages\models.py:22
+msgid "job_title"
+msgstr "المسمى الوظيفي"
+
+#: .\pages\models.py:23
+msgid "specification"
+msgstr "الاختصاص"
+
+#: .\pages\models.py:24
+msgid "en_specification"
+msgstr "الاختصاص (بالإنكليزية)"
+
+#: .\pages\models.py:25
+msgid "work_address"
+msgstr "مكان العمل"
+
+#: .\pages\models.py:26
+msgid "en_work_address"
+msgstr "مكان العمل (بالإنكليزية)"
+
+#: .\pages\models.py:32
+msgid "name"
+msgstr "الاسم"
+
+#: .\pages\models.py:33
+msgid "email"
+msgstr "البريد الالكتروني"
+
+#: .\pages\models.py:34
+msgid "subject"
+msgstr "الموضوع"
+
+#: .\pages\models.py:35
+msgid "message"
+msgstr "الرسالة"
+
+#: .\pages\templates\pages\contact_details.html:3
+#: .\pages\templates\pages\contact_details.html:8
+msgid "Contact Details"
+msgstr "معلوامات الاتصال"
+
+#: .\pages\templates\pages\contact_us.html:3
+msgid "Contact US"
+msgstr "اتصل بنا"
+
+#: .\pages\templates\pages\contact_us.html:10
+msgid "Address: Hejazz station, Damascus, Syria"
+msgstr "العنوان: محطة الحجاز، دمشق، سوريا"
+
+#: .\pages\templates\pages\contact_us.html:11 .\profiles\models.py:25
+#: .\profiles\templates\profiles\profile_details.html:56
+msgid "Phone"
+msgstr "الهاتف"
+
+#: .\pages\templates\pages\contact_us.html:14
+msgid "Or Contact Us Directly"
+msgstr "أو تواصل معنا مباشرة"
+
+#: .\pages\templates\pages\contact_us.html:50
+msgid "Show all Messages"
+msgstr "عرض كل الرسائل"
+
+#: .\pages\templates\pages\editorial_board.html:9
+msgid "Add Editorial Member"
+msgstr "إضافة عضو تحرير"
+
+#: .\pages\templates\pages\editorial_board.html:17
+#, python-format
+msgid "%(key)s"
+msgstr ""
+
+#: .\pages\templates\pages\editorial_board.html:22
+#: .\pages\templates\pages\editorial_board.html:43
+#: .\pages\templates\pages\editorial_board.html:63
+#: .\pages\templates\pages\editorial_board.html:84
+#: .\pages\templates\pages\editorial_board.html:104
+msgid "Edit"
+msgstr "تعديل"
+
+#: .\pages\templates\pages\editorial_board.html:23
+#: .\pages\templates\pages\editorial_board.html:44
+#: .\pages\templates\pages\editorial_board.html:64
+#: .\pages\templates\pages\editorial_board.html:85
+#: .\pages\templates\pages\editorial_board.html:105
+#: .\profiles\templates\profiles\profile_filter.html:130
+#: .\profiles\templates\profiles\search_result.html:59
+#: .\profiles\templates\profiles\set_reviewer_publications.html:44
+#: .\profiles\templates\profiles\show_reviewers_table.html:55
+msgid "delete"
+msgstr "حذف"
+
+#: .\pages\templates\pages\editorial_board.html:31
+msgid "International Editorial Board"
+msgstr "هيئة التحرير الخارجية"
+
+#: .\pages\templates\pages\editorial_board.html:53
+msgid "International Reviewers"
+msgstr "المحكمين الخارجيين"
+
+#: .\pages\templates\pages\editorial_board.html:73
+msgid "National Editorial Board"
+msgstr "هيئة التحرير الوطنية"
+
+#: .\pages\templates\pages\editorial_board.html:94
+msgid "National Reviewers"
+msgstr "المحكمين الوطنيين"
+
+#: .\pages\templates\pages\guidelines.html:10
+msgid ""
+"<br>\n"
+"        <span class='text-success fw-bold'>Journal affiliation:</span> Syrian Journal of Agricultural Research (SJAR) is a scientific refereed periodical (six times a year) that is concerned with creative, original researches and studies of different agricultural sciences \n"
+"        <strong class='text-secondary'>(Crops, Horticulture, Animal Production, Plant Protection, Soil, Irrigation and drainage, Environment, Economic Studies, Biotechnology, Genetics, Forestry, Natural resources)</strong>.<br> \n"
+"        The journal welcomes to receive the scientific and original manuscripts that achieved the scientific quality, long researches (8-12 pages), or short researches (2-4 pages), or short communication (one page). The journal issues six a year, at the end of February,  April, June, August, October and December.\n"
+"\n"
+"        <br><br><span class='text-success fw-bold'>Languages of publication:</span> The languages of publication are either Arabic or English.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Submitting the manuscript: </span>The manuscript (or its content) that is sent for publication must not been published before or sent to another periodical for publication, either in Arabic language or other languages. The author must declare also that the manuscript is original not copied or derived (totally or partly) from any other works, except the academic thesis (master’s and PhD’s).  All the recipient manuscripts will be revised and checked if it is repeated or faked. If it is the journal will follow the proper procedures of the International Guide of Publication Morals. The corresponding author must be clarified besides the approval of the other authors before submitting the manuscript and after the reviewing.\n"
+"        \n"
+"        <br><br><strong class='text-secondary'>Manuscript should be submitted online via:</strong> sjargcsar@gmail.com or dr.entessara@gmail.com. Upon receipt of manuscript submission, the corresponding author will be notified within 72 hours. In absence of a confirmation email, you are advice to contact the journal via its email address.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Peer Review:</span> The submitted manuscript is sent to tow referees at least specialized in the subject area. If the manuscript rejected the corresponding author will be notified, otherwise, the referee notes and comments are conveyed to the corresponding author so that he can respond to them in order to meet the publication rules to be at the required scholarly level.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Preparation of manuscript:</span> The manuscript should be typed in Arabic language with no mistakes and clear and typed single-spaced and all pages numbered. Page size is A4 (29.7 X 21.0 cm). Font type is Simplified Arabic (font size is 12), leaving 2 cm  margin on all four sides, Only the Arabic numbers are used (1,2,3,4,5,6,7,8,9), using the proper numeral marks. Abbreviations are to be used sparingly and given at first mention of word. Each abbreviation should be spelled out and introduced in parentheses the first time it is used in the text. A full page should be assigned (in English language) including the title, the name of authors and their addresses, the abstract and key words. The length of the manuscript should not exceed 15 pages. It is preferable to low the numbering within the materials and methods, and the results.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Title:</span> The title should be brief and clear, not exceeds 100 words.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Author’s name and address:</span> The full name should be mentioned followed by a subscript number in parentheses (1, 2, 3), which denotes the place of work. The numbers should be explained in separate rows as follow: Place of work, contact address, and e-mail if so. The contact address of the corresponding author should write in details (email id, fax, and telephone number) in a separate row.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>English abstract:</span> The English abstract should brief and accurate (not more than 150 words), clarifies the place, time, and methods of the research, focuses basically on the results and conclusions. It should be written as one paragraph.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Key words:</span> 4 to 6 key words can be used to ease the search and tracking information.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Introduction:</span> Should provide a clear statement of the problem, the relevant literature on the subject, and the proposed approach or solution, besides the goals and justifications.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Materials and methods:</span> This should be sufficiently detailed (with reference where possible) to permit other work to duplicate the study. Sources of materials (plant, animal, chemical compounds ….etc) used must be given (scientific, commercial, and common names), and statistical method must be specified by reference unless non standard ones are used.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Results:</span> Must be clearly and concisely with the help of appropriate illustrative material tables and/or figures (with its serial number). Each table or figure should be explained before presented, and it is preferable to use less number of tables.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Discussion:</span> Should interpret the findings in view of the results obtained in this and in past studies on this topic. Unjustified speculation should be avoided. The results and discussion can be one title.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Conclusion:</span> Briefs the main results.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>Acknowledgments:</span> (if any) should be included sparingly the people, or institutions for supporting or funding the research.\n"
+"        \n"
+"        <br><br><span class='text-primary fw-bold'>References:</span> In the text, references should be arranged when they are mentioned one after one, first chronologically (the older first then the most recent), and then further sorted alphabetically if necessary.  the English references should be mentioned according to the author’s family name (A, B, C…..etc).\n"
+"        All references should be cited within the text. A reference identified by means of an author‘s family name should be followed by the date of the reference in parentheses. In case of one author (Zaid, 2014); in case of two authors (Zaid and Amr, 2014); while in case of more than two authors(Zaid et al., 2014). According the citation of the reference in the text, the year of publication in parentheses, for example:  “Zaid (2014) mentioned that ??????”. It is preferable to write the full title of the reference (not abbreviated), to reduce the citation of the academic books; also the cited references very related with subject and most recent.\n"
+"        Examples about reference citation in the list reference according the terms of the journal\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Reference to a journal publication:</span><br>\n"
+"        \n"
+"        Mansour, A.; L. Al-Banna; N. Salem; and N. Alsmairat (2014). Disease management of organic tomato under greenhouse conditions in the Jordan Valley. Journal of Crops Protection. 60(1): 48-55.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Reference to a scientific conferences and proceeding publication:</span><br>\n"
+"        \n"
+"        Medini, M.; and M. Al halabi. (2003). Virulence of Mycosphaerella graminicola from Tunisia, Algeria and Canada. Pages 14-44. In: Proceeding of the 6th International Symposium on Septoria and Stagonospora Diseases of Cereals. 8-12th December, 2003, Tunis, Tunisia.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Reference to a book:</span><br>\n"
+"        \n"
+"        Haj, K.; and A. Amer (2013). Virology. Publication Department, Aleppo University.  Aleppo, Syria. 446 Pp.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Reference to a chapter in an edited book:</span><br>        \n"
+"        \n"
+"        Shehab, A., and R.M. Sharif (2011). Rodenticides. In. Zamitty, M.S.S.; I.K. Alnazer and M.B. Ashour (Eds.). Safe Application of pesticides (Pp. 373-396). Dar Wael for Publishing and Distribution. (in Arabic).\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Reference to institutions or organizations:</span><br>\n"
+"        \n"
+"        Ministry of Agriculture and Agrarian Reform (2013). Statistic Department, Statistic and International Affairs Directorate, Ministry of Agriculture and Agrarian Reform, Damascus, Syria.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Reference to MS’s or PhD’s thesis:</span><br>\n"
+"        \n"
+"        Ismaeil, M.F. (2012). Characteristics of tomato mosaic virus and tomato spotted wilt virus isolates and evaluation of some tomato cultivars in Syria (PhD theses). Department of Plant Protection, Faculty of Agriculture, Aleppo University, Aleppo, Syria. Pp 133.\n"
+"        \n"
+"        <br><br><span class='text-success fw-bold'>Tables and figures:</span> should be included sufficient description so that the table or figure is understandable without reading the text of the manuscript. Each table and figure should include a title and be comprehensible without reference to the text. Tables adapted abbreviations or symbols must be clarified in footnote. Each table and figure should be numbered consecutively in Arabic numerals and supplied with a heading and a footnote. The table should be inserted from right to left as the text, and kept to a minimum and be designed to be as simple as possible, clear, and accurate (accuracy rate 300 spot per inch).\n"
+"        "
+msgstr ""
+"<br>\n"
+"<span class='text-success fw-bold'>\n"
+"اختصاصات المجلة:</span> تنشر المجلة بحوثاً علمية في جميع مجالات العلوم الزراعية <strong class='text-secondary'>(محاصيل، بستنة، انتاج حيواني، وقاية نبات، علوم التربة، ري وصرف، بيئة وحراج، علوم أغذية، دراسات اقتصادية واجتماعية، تقانات حيوية)</strong>.<br> وترحب المجلة بتسلم مخطوطات بحوث أصيلة حديثة تحقق معايير الجودة العلمية، من بحوث طويلة (8-12 صفحة)، أو قصيرة (2-4 صفحات)، أو الاتصال القصير (صفحة واحدة). \n"
+"تصدر المجلة ستة مرات سنوياً: شباط/فبراير، ونيسان/أبريل، وحزيران/ يونيو، وآب/أغسطس، وتشرين الأول/أكتوبر، وكانون الأول/ديسيمبر.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'> لغة المجلة: </span> تنشر المجلة بحوثا مكتوبة بالعربية ومرفقة بملخص إنكليزي، وبحوثاً مكتوبة بالانكليزية ومرفقة بملخص عربي.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>تسليم مخطوطة البحث: </span> يجب أن لا تكون مخطوطة البحث /أو محتواها/ قد نشرت أو سلمت للنشر في مجلة أخرى سواء باللغة العربية أو بأي لغة أخرى. وعلى المؤلف أن يصرح بذلك، وبإن البحث أصيل للمؤلف/المؤلفين وليس منسوخاً أو مشتقاً (كلياً أو جزئياً) من أي عمل منشور آخر (باستثناء البحث المشتق من أطروحة ماجستير أو دكتوراه). سيتم تدقيق جميع المقالات الواردة للمجلة لناحية تكرار النشر أو التزييف. في حال اتضح أن البحث مكرر أو زائفاً فستقوم المجلة بما هو مناسب تبعاً للدليل الدولي لأخلاقيات النشر. عند تسليم المخطوطة النهائية للمجلة يفترض أن يوضح المؤلف المعني بالمراسلة بأن جميع المؤلفين المشاركين قد شاهدوا ووافقوا على تسليم المخطوطة بشكلها النهائي. وأن يكون قد حصل على موافقتهم قبل تسليم التعديلات المطلوبة نتيجة التحكيم. \n"
+"<br><br><strong class='text-secondary'>يتم تسليم مخطوطة البحث على شكل ملف الكتروني مرفق برسالة بريد إلكتروني يرسل لرئيس التحرير على العنوان التالي</strong> (sjargcsar@gmail.com). بعد تسلم مخطوطة البحث بالبريد الالكتروني، سيتم إعلام المؤلف برقم المخطوطة لدى المجلة خلال 72 ساعة، وإن لم يتلقى المؤلف رسالة إعلام باستلام البحث يُنصح بمراسلة المجلة بهذا الخصوص.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>عملية التحكيم: </span> تُرسل هيئة التحرير مخطوطة البحث المتوافقة مع تخصصات المجلة، إلى  محكمين اثنين على الأقل، متخصصين لمراجعتها وتدقيقها وإغنائها وتقويمها وإعلام المجلة بملاحظاتهم ونتيجة التقييم. وفي حال كانت نتيجة التقييم رفض نشر البحث سيتم إعلام المؤلف بذلك، وفي حال القبول مع التعديل، تُعاد المخطوطة مع ملاحظات وتعليقات المحكمين إلى المؤلف المعني بالمراسلة للاستجابة لملاحظات المحكمين وتعليقاتهم وإجراء التعديلات اللازمة.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>إعداد مخطوطة البحث: </span> يجب أن يكون البحث مكتوباً بلغة عربية واضحة وسليمة، في سطور تفصلها مسافات مفردة، على صفحات مرقمة، قياس (21×29.7 سم )A4، وهوامش الصفحات 2 سم من كل جانب، وحجم الخط 12 ومن النوع (Simplified Arabic). تستخدم الأرقام العربية فقط في الكتابة (1، 2، 3، 4، 5، 6، 7، 8، 9)، وتستخدم علامات الترقيم الصحيحة، وفي حال استخدام رموز واختصارات غير شائعة يجب توضيح معناها بين قوسين عند ذكرها للمرة الأولى. يضاف في نهاية البحث صفحة (ترجمة باللغة الإنكليزية) لعنوان البحث وأسماء المؤلفين وعناوينهم والملخص والكلمات المفتاحية. يجب أن لا يزيد عدد صفحات مخطوطة البحث عن 15 صفحة. ويفضل التقليل ما أمكن من ترقيم الفقرات ضمن المواد والطرائق والنتائج.\n"
+"\n"
+"-العناصر الأساسية للبحث:\n"
+"<br><br><span class='text-primary fw-bold'>العنوان: </span> يفضل أن يكون العنوان مختصراً وواضحاً ولا يزيد عن 100 حرف وفراغ. \n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>أسماء وعناوين المؤلفين: </span> تذكر أسماء المؤلفين الثلاثية، متبوعة برقم علوي (1 ، 2، 3) يشير الى مكان العمل. ثم يتم توضيح تلك الأرقام في الأسطر التالية (الإشارة الى مكان العمل وعنوان المراسلة ويفضل إضافة البريد الالكتروني). ويذكر في سطر مستقل اسم المؤلف المعني بالمراسلات مع عنوان البريد الالكتروني ورقم الهاتف/الجوال.\n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>الملخص العربي: </span> يجب أن يكون الملخص دقيقاً وموجزاً (حوالي 150 كلمة) ويوضح مكان وزمان وطرائق تنفيذ البحث، ويركز بشكل أساسي على النتائج، وماذا تعني تلك النتائج. ويكتب الملخص على شكل فقرة واحدة. \n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>الكلمات المفتاحية: </span> تكتب 4-6 كلمات مفتاحية مناسبة لتسهيل تصنيف وفهرسة البحث في أنظمة البحث وتعقب المعلومات.\n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>المقدمة: </span> توضح المقدمة خلفية موضوع البحث وما هي أهم الدراسات السابقة وخاصة المحلية والاقليمية، وما هو هدف البحث ومبررات تنفيذه.\n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>مواد البحث وطرائقه: </span> تُذكر المواد والطرائق بوضوح لتمكين إعادة تنفيذ التجارب. الطرق المعروفة والمنشورة يكفي الإشارة إليها مرجعياً، أما الطرائق المعدلة والطرائق الجديدة فيجب ذكرها بالتفصيل. يجب ذكر الأسماء العلمية والتجارية والشائعة للمواد المستخدمة سواء أكانت نبات، حيوان، مركبات كيميائية، إلخ.. ويجب ذكر الطرق الإحصائية المستخدمة.\n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>النتائج والمناقشة: </span> تُذكر النتائج بدقة ووضوح، مع ذكر معنويتها وتفسيرها ولكن بدون الاشارة الى نتائج الدراسات السابقة. ترد النتائج في جداول و/أو أشكال (ذات أرقام) يسبقها نص للتعقيب على أهم ما ورد فيها، ولا يجب أن يرد أي جدول أو شكل دون التعقيب عليه في النص. وتستخدم الجداول بالحد الأدنى. المناقشة: يجب أن لا تكون المناقشة إعادة لسرد النتائج ولكنها تفسير مفصل للبيانات وأهمية تلك النتائج. وهنا يجب مقارنة نتائج البحث ومدى اختلافها أو تطابقها مع نتائج الدراسات السابقة، ومحاولة الوقوف على أسباب تلك الاختلافات. عادة ما ترد النتائج والمناقشة منفصلة ولكن يمكن دمجهما معاً في فقرة واحدة (النتائج والمناقشة).\n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>الاستنتاجات: </span> توضح الاستنتاجات باختصار النتائج الرئيسة للبحث.\n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>الشكر: </span> يمكن أن يذكر المؤلفون شكراً مقتضباً لأشخاص أو لمؤسسات على المساعدة في تنفيذ أو تمويل البحث.\n"
+"\n"
+"<br><br><span class='text-primary fw-bold'>المراجع: </span> يشار الى المراجع في النص (عند ورودها تباعاً) تبعاً للتسلسل الزمني (الأقدم فالأحدث)، أما في قائمة المراجع في نهاية البحث فتسرد المراجع العربية أولاً ثم الأجنبية وتبعاً للترتيب الأبجدي لاسم عائلة المؤلف الأول (أ، ب، ت….) للمراجع العربية، و(…..a, b, c) للمراجع الأجنبية. كل بحث يتم ذكره في النص يجب أن يذكر في قائمة المراجع، ولا يجوز أن تضم قائمة المراجع ما لم يرد ذكره في النص. يشار الى المراجع في النص باستخدام إسم عائلة المؤلف وتاريخ النشر: في حال مؤلف واحد (زيد، 2014) / (Zaid, 2014)، في حال مؤلفين (زيد وعمرو، 2014) / (Zaid and Amr, 2014)، في حال أكثر من مؤلفين (زيد وآخرون، 2014) / (Zaid et al., 2014). \n"
+"ويذكر تاريخ النشر لوحده ضمن قوسين حسب سياق الجملة ضمن النص؛ “ذكر زيد (2014) أن ؟؟؟؟؟؟؟ ” / “ ?????Zaid (2014) mentioned that “. وكذلك الحال بالنسبة للمراجع الأجنبية. ويفضل كتابة اسم المصدر كاملاً دونما اختصار. تستخدم الكتب التدريسية كمراجع بالحد الأدنى، ويفضل أن تكون المراجع ذات صلة وثيقة بموضوع البحث وحديثة قدر الامكان. فيما يلي أمثلة عن كتابة المراجع في نهاية البحث تبعاً لمتطلبات المجلة (سواء باللغة العربية أو الأنكليزية):\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>• الإشارة الى مقالة منشورة في مجلة علمية محكمة: </span><br> منصور، عقل ولما البنّا ونداء سالم ونهاد السميرات (2014). إدارة الأمراض النباتية في البندورة العضوية المزروعة تحت ظروف البيوت البلاستيكية في وادي الأردن. مجلة وقاية النبات. 60 (1): 48-55.\n"
+"Mansour, A.; L. Al-Banna; N. Salem; and N. Alsmairat (2014). Disease management of organic tomato under greenhouse conditions in the Jordan Valley. Crop Protection. 60 (1): 48-55.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>• الإشارة الى بحوث منشورة في وقائع المؤتمرات والندوات العلمية:</span><br> \n"
+"مديني، موسى ومحمد القادري (2003). شراسة الفطر من تونس والجزائر وكندا. الصفحات 14-44. في وقائع الندوة الدولية السادسة حول أمراض السبتوريا في والستاغونوسبورا على النجيليات. 8-12 كانون الأول/ديسمبر 2003، تونس العاصمة، تونس.\n"
+"Medini, M.; and M. Al Qadry (2003). Virulence of Mycosphaerella graminicola from Tunisia, Algeria and Canada. Pages 14-44. In: Proceedings of the 6th International Symposium on Septoria and Stagonospora Diseases of Cereals. December 8-12, 2003, Tunis, Tunisia.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>• الإشارة إلى كتاب منشور:</span><br> \n"
+"حاج قاسم، أمين عامر (2013). علم الفيروسات. منشورات مديرية الكتب والمطبوعات الجامعية، جامعة حلب، حلب، سورية. 446 صفحة.\n"
+"Haj Kassem, A.A. (2013). Virology. Publication Department, Aleppo University. Aleppo, Syria. 446 pp.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>• الإشارة الى فصل في كتاب محرر: </span><br>\n"
+"شهاب، عدوان ورياض محمد شريف (2011). مبيدات القوارض. في كتاب التطبيقات الآمنة لمبيدات الآفات. (تحرير: الزميتي محمد سعيد الصالح وإبراهيم خالد الناظر ومحمد باسم عاشور). الصفحات (373-396). دار وائل للنشر والتوزيع.\n"
+"Shehab, A.; and R.M. Sharif (2011). Rodenticides. In. Zamitty, M.S.S.; I.K. Alnazer; and M.B. Ashour (Eds.). Safe Application for Pesticides (pp. 373-396). Dar Wael for Publishing and Distribution. (in Arabic)\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>• منشورات صادرة عن هيئات أو مؤسسات: </span><br>\n"
+"وزارة الزراعة والإصلاح الزراعي (2014). مديرية الاحصاء والتعاون الدولي، قسم الإحصاء والتخطيط، وزارة الزراعة والإصلاح الزراعي، دمشق، سورية.\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>• الإشارة الى أطروحة ماجستير أو دكتوراه: </span><br>\n"
+"إسماعيل، محمد فايز (2012). توصيف عزلات فيروسي موزاييك البندورة والذبول المتبقع للبندورة وتقييم أداء بعض أصناف البندورة إزاءهما في سورية. رسالة دكتوراه. قسم وقاية النبات، كلية الزراعة، جامعة حلب، حلب، سورية. 133 صفحة.\n"
+"Ismaeil, F. M. (2012). Characterization of Tomato Mosaic Virus and Tomato Spotted Wilt Virus Isolates and Evaluation of Some Tomato Cultivars in Syria. Ph.D. Theses. Department of Plant Protection, Faculty of Agriculture, Aleppo University, Aleppo, Syria. Pp 133.\n"
+"\n"
+"\n"
+"<br><br><span class='text-success fw-bold'>الجداول والأشكال: </span><br> تزود الجداول والأشكال بمعلومات بحيث تشرح نفسها دون العودة إلى النص (فلكل منها رقم وعنوان وفي حال ورود رمز أو اختصارات يتم شرحها أسفل الجدول أو الشكل). يجب أن يتم إعداد الجدول من اليمين الى اليسار ليتناسب مع النصوص. وأن يرد بصيغة جدول وليس على شكل صورة. يسبق الجدول أو الشكل معلومات عنه، ولا يجب إدراج أي جدول أو شكل ما لم تتم مناقشته في النص. يفترض أن تكون الجداول والأشكال واضحة ومعبرة ودقيقة (دقة الصور 300 نقطة بالانش) وتوضع في مكانها في النص ويرقم كل منها بالترتيب ويفضل أن يكون عدد الجداول بالحد الأدنى."
+
+#: .\pages\templates\pages\guidelines.html:78
+#: .\pages\templates\pages\guidelines.html:80
+msgid "Download SJAR Guidelines"
+msgstr "تحميل تعليمات المجلة SJAR"
+
+#: .\pages\templates\pages\publication_ethics.html:9
+msgid ""
+"<br>\n"
+"        <span class='text-success fw-bold'>Publication Ethics</span>\n"
+"        <br>Our publication ethics and publication malpractice statement are mainly based on the Code of Conduct and Best-Practice Guidelines for Journal Editors (Committee on Publication Ethics, 2011).\n"
+"        <br><br><span class='text-success fw-bold'>Editors’ responsibilities</span><br>\n"
+"        <br><span class='text-primary fw-bold'>Publication decisions</span><br>\n"
+"        The editor is responsible for deciding which of the papers submitted to the journal will be published. The editor will evaluate manuscripts without regard to the authors’ race, gender, sexual orientation, religious belief, ethnic origin, citizenship, or political philosophy. The decision will be based on the paper’s importance, originality and clarity, and the study’s validity and its relevance to the journal’s scope. Current legal requirements regarding libel, copyright infringement, and plagiarism should also be considered.\n"
+"        <br><br><span class='text-primary fw-bold'>Confidentiality</span><br>\n"
+"        The editor and any editorial staff must not disclose any information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, other editorial advisers, and the publisher, as appropriate.\n"
+"        <br><br><span class='text-primary fw-bold'>Disclosure and conflicts of interest</span><br>\n"
+"        Unpublished materials disclosed in a submitted paper will not be used by the editor or the members of the editorial board for their own research purposes without the author’s explicit written consent.\n"
+"        <br><br><span class='text-success fw-bold'>Reviewers’ responsibilities</span>\n"
+"        <br><br><span class='text-primary fw-bold'>Contribution to editorial decisions</span>\n"
+"        The peer-reviewing process assists the editor and the editorial board in making editorial decisions and may also serve the author in improving the paper.\n"
+"        <br><br><span class='text-primary fw-bold'>Promptness</span>\n"
+"        Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and withdraw from the review process.\n"
+"        <br><br><span class='text-primary fw-bold'>Confidentiality</span>\n"
+"        Any manuscripts received for review must be treated as confidential documents. They must not be disclosed to or discussed with others except as authorized by the editor.\n"
+"        <br><br><span class='text-primary fw-bold'>Standards of objectivity</span>\n"
+"        Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.\n"
+"        <br><br><span class='text-primary fw-bold'>Acknowledgement of sources</span>\n"
+"        Reviewers should identify cases in which relevant published work referred to in the paper has not been cited in the reference section. They should point out whether observations or arguments derived from other publications are accompanied by the respective source. Reviewers will notify the editor of any substantial similarity or overlap between the manuscript under consideration and any other published paper of which they have personal knowledge.\n"
+"        <br><br><span class='text-primary fw-bold'>Disclosure and conflict of interest</span>\n"
+"        Privileged information or ideas obtained through peer review must be kept confidential and not used for personal advantage. Reviewers should not consider manuscripts in which they have conflicts of interest resulting from competitive, وا, or other relationships or connections with any of the authors, companies, or institutions associated with the papers.\n"
+"        <br><br><span class='text-success fw-bold'>Authors’ duties</span>\n"
+"        <br><br><span class='text-primary fw-bold'>Reporting standards</span>\n"
+"        Authors of original research reports should present an accurate account of the work performed as well as an objective discussion of its significance. Underlying data should be represented accurately in the paper. A paper should contain sufficient detail and references to permit others to replicate the work. Fraudulent or knowingly inaccurate statements constitute unethical behavior and are unacceptable.\n"
+"        <br><br><span class='text-primary fw-bold'>Data access and retention</span>\n"
+"        Authors could be asked to provide the raw data of their study together with the paper for editorial review and should be prepared to make the data publicly available if practicable. In any event, authors should ensure accessibility of such data to other competent professionals for at least ten years after publication (preferably via an institutional or subject-based data repository or other data center), provided that the confidentiality of the participants can be protected and legal rights concerning proprietary data do not preclude their release.\n"
+"        <br><br><span class='text-primary fw-bold'>Originality, plagiarism and acknowledgement of sources</span>\n"
+"        Authors will submit only entirely original works, and will appropriately cite or quote the work and/or words of others. Publications that have been influential in determining the nature of the reported work should also be cited.\n"
+"        <br><br><span class='text-primary fw-bold'>Multiple, redundant or concurrent publication</span>\n"
+"        In general, papers describing essentially the same research should not be published in more than one journal. Submitting the same paper to more than one journal constitutes unethical publishing behavior and is unacceptable.\n"
+"        <br>Manuscripts which have been published as copyrighted material elsewhere cannot be submitted. In addition, manuscripts under review by the journal should not be resubmitted to copyrighted publications. However, by submitting a manuscript, the author(s) retain the rights to the published material. In case of publication they permit the use of their work under a CC-BY license [http://creativecommons.org/licenses/by/3.0/], which allows others to copy, distribute and transmit the work as well as to adapt the work and to make commercial use of it.\n"
+"        <br><br><span class='text-primary fw-bold'>Authorship of the paper</span>\n"
+"        Authorship should be limited to those who have made a significant contribution to the conception, design, execution, or interpretation of the reported study. All those who have made significant contributions should be listed as co-authors.\n"
+"        <br>The corresponding author ensures that all contributing co-authors and no uninvolved persons are included in the author list. The corresponding author will also verify that all co-authors have approved the final version of the paper and have agreed to its submission for publication.\n"
+"        <br><br><span class='text-primary fw-bold'>Disclosure and conflicts of interest</span>\n"
+"        <br>All authors should include a statement disclosing any financial or other substantive conflicts of interest that may be construed to influence the results or interpretation of their manuscript. All sources of financial support for the project should be disclosed.\n"
+"        <br><br><span class='text-primary fw-bold'>Fundamental errors in published works</span>\n"
+"        <br>When an author discovers a significant error or inaccuracy in his/her own published work, it is the author’s obligation to promptly notify the journal editor or publisher and to cooperate with the editor to retract or correct the paper in form of an erratum.\n"
+"        <br><br><span class='text-success fw-bold'>References</span>\n"
+"        "
+msgstr ""
+"<br>\n"
+"<span class='text-success fw-bold'>أخلاقيات النشر </span>\n"
+"<br>\n"
+"تستند أخلاقيات النشر وبيان سوء التصرف في النشر في المجلة إلى قواعد السلوك والمبادئ التوجيهية لمحرري المجلة (لجنة أخلاقيات النشر، 2011).\n"
+"<br><br><span class='text-success fw-bold'>مسؤوليات المحرر: </span><br>\n"
+"<br><span class='text-primary fw-bold'>قرارات النشر: </span><br>\n"
+"المحرر مسؤول عن تحديد أي من الأوراق المقدمة إلى المجلة سيتم نشرها. ويقوم المحرر بتقييم المخطوطات بغض النظر عن عرق المؤلفين أو الجنس أو الميول الجنسية أو المعتقد الديني أو الأصل العرقي أو المواطنة أو الفلسفة السياسية. وسيستند القرار إلى أهمية الورقة وأصالتها ووضوحها، وصحة الدراسة وأهميتها بالنسبة لاهتمامات المجلة. كما يجب أيضًا مراعاة المتطلبات القانونية الحالية المتعلقة بالتشهير وانتهاك حقوق النشر والانتحال.\n"
+"<br><br><span class='text-primary fw-bold'>السرية: </span><br>\n"
+"يجب على المحرر وأي من موظفي التحرير عدم الكشف عن أي معلومات حول المخطوطة المقدمة لأي شخص آخر غير المؤلف المعني بالمراسلة والمراجعين والمحكمين المحتملين ومستشاري التحرير الآخرين والناشر، حسب ما يقتضي الأمر.\n"
+"<br><br><span class='text-primary fw-bold'>التصريح وتضارب المصالح: </span><br>\n"
+"لا يجوز استخدام محتويات الأبحاث غير المنشورة والمقدمة للنشر في المجلة من قبل المحرر أو أعضاء هيئة التحرير لأغراض بحثهم الخاصة دون موافقة كتابية صريحة من المؤلف.\n"
+"<br><br><span class='text-success fw-bold'> مسؤوليات المحكم: </span>\n"
+"<br><br><span class='text-primary fw-bold'>المساهمة في دعم قرارات المحررين: </span>\n"
+"تساعد عملية التحكيم المحرر وهيئة التحرير في اتخاذ القرار حول البحث المقدم للنشر، وقد تخدم المؤلف أيضًا في تحسين البحث.\n"
+"<br><br><span class='text-primary fw-bold'>عاجل وفوري: </span>\n"
+"عندما يتيقن المحكم بأنه غير مؤهل لمراجعة البحث الذي تم إرساله من قبل المجلة، أو يعرف أن مراجعته السريعة للمخطوطة ستكون مستحيلة.يجب أن يخطر المحرر ويعتذر عن التحكيم بشكل فوري وعاجل.\n"
+"<br><br><span class='text-primary fw-bold'>السرية: </span>\n"
+"يجب التعامل مع أي مخطوطات يتم استلامها للمراجعة كوثائق سرية. يجب عدم الكشف عنها أو مناقشتها مع الآخرين باستثناء ما يصرح به المحرر.\n"
+"<br><br><span class='text-primary fw-bold'>معايير الموضوعية: </span>\n"
+"يجب إجراء المراجعات بموضوعية. النقد الشخصي للمؤلف لا يعتبر فعلاً لائقاً. ويجب على المحكمين التعبير عن وجهات نظرهم بوضوح مع الحجج الداعمة.\n"
+"<br><br><span class='text-primary fw-bold'>توثيق المصادر: </span>\n"
+"يجب على المحكمين تحديد الحالات التي لم يتم ذكر الأعمال المنشورة ذات الصلة المشار إليها في المخطوطة في قسم المراجع. وينبغي أن يشيروا إلى ما إذا كانت الملاحظات أو الحجج المستمدة من المنشورات الأخرى مصحوبة بالمصدر المعني. ويقوم المحكمون بإخطار المحرر بأي تشابه أو تداخل جوهري بين المخطوطة قيد الدراسة وأي ورقة منشورة أخرى لديهم معرفة شخصية بها.\n"
+"<br><br><span class='text-primary fw-bold'>التصريح وتضارب المصالح: </span>\n"
+"يجب الحفاظ على سرية المعلومات أو الأفكار التي تم الحصول عليها من خلال التحكيم وعدم استخدامها لتحقيق منفعة شخصية. لا ينبغي للمحكمين النظر في المخطوطات التي لديهم فيها تضارب في المصالح ناتج عن تنافس أو تعاون أو أي اتصال مع أحد مؤلفي المخطوطة أو الشركات أو المؤسسات ذات الصلة بالبحث.\n"
+"<br><br><span class='text-success fw-bold'>واجبات المؤلف: </span>\n"
+"<br><br><span class='text-primary fw-bold'>معايير الدراسة أو البحث: </span>\n"
+"يجب على مؤلفي الدراسة البحثية الأصلية تقديم وصف دقيق للعمل المنجز وكذلك مناقشة موضوعية لأهميته. ويجب أن تكون البيانات الأساسية ممثلة بدقة في المخطوطة. ويجب أن تحتوي الدراسة على تفاصيل ومراجع كافية للسماح للآخرين بتكرار العمل. وتشكل التصريحات الاحتيالية أو غير الدقيقة عن علم سلوكًا غير أخلاقي وغير مقبول.\n"
+"<br><br><span class='text-primary fw-bold'>الوصول إلى البيانات والاحتفاظ بها: </span>\n"
+"يمكن أن يُطلب من المؤلفين تقديم البيانات الأولية لدراستهم وينبغي أن يكونوا على استعداد لجعل البيانات متاحة للعامّة إذا كان قابلاً للتنفيذ. في أي حال ، يجب على المؤلفين ضمان وصول هذه البيانات إلى غيرهم من المهنيين المؤهلين لمدة عشر سنوات على الأقل بعد النشر (ويفضل أن يكون ذلك من خلال مستودع بيانات مؤسسي أو غيرها من مراكز البيانات)، بشرط حماية سرية المشاركين ولا تمنع الحقوق القانونية المتعلقة ببيانات الملكية من إصدارها ونشرها.\n"
+"<br><br><span class='text-primary fw-bold'>الأصالة ، الاقتباس وتوثيق المصادر: </span>\n"
+"يجب أن يقدم المؤلفون أعمالًا أصلية تمامًا فقط ، ويستشهدون أو يقتبسون بشكل مناسب أعمال و / أو كلمات الآخرين. ويجب أيضاً الاستشهاد بالمنشورات التي كان لها تأثير في تحديد مجال البحث المنفذ.\n"
+"<br><br><span class='text-primary fw-bold'>نشر متعدد أو متكرر أو متزامن: </span>\n"
+"بشكل عام ، لا ينبغي نشر الأبحاث التي تصف نفس البحث بشكل أساسي في أكثر من مجلة. تقديم ورقة واحدة إلى أكثر من مجلة يشكل سلوك نشر غير أخلاقي وغير مقبول.\n"
+"لا يمكن إرسال المخطوطات التي تم نشرها كمواد محمية بحقوق الطبع والنشر في مكان آخر. بالإضافة إلى ذلك ، لا ينبغي إعادة إرسال المخطوطات قيد التحكيم من قبل المجلة إلى المنشورات المحمية بحقوق النشر. ومع ذلك ، من خلال تقديم مخطوطة ، يحتفظ المؤلف (المؤلفون) بالحق في المواد المنشورة. في حالة النشر ، يسمحون باستخدام أعمالهم بموجب ترخيص CC-BY [http://creativecommons.org/licenses/by/3.0/] ، والذي يسمح للآخرين بنسخ العمل وتوزيعه ونقله وكذلك تبني العمل واستخدامه على الصعيد التجاري.\n"
+"<br><br><span class='text-primary fw-bold'>كتابة البحث: </span>\n"
+"يجب أن تقتصر كتابة البحث على أولئك الذين ساهموا بشكل كبير في تصور أو تصميم أو تنفيذ أو تفسير الدراسة التي تم إرسالها للنشر. يجب أن يتم سرد جميع الذين قدموا مساهمات كبيرة كمؤلفين مشاركين.\n"
+"يضمن المؤلف المعني بالمراسلة تضمين جميع المؤلفين المشاركين وليس أي أشخاص غير مشاركين في قائمة المؤلفين. ويجب أن يتحقق المؤلف المعني بالمراسلة أيضًا من موافقة جميع المؤلفين المشاركين على النسخة النهائية للورقة وعلى تقديمها للنشر.\n"
+"<br><br><span class='text-primary fw-bold'>التصريح وتضارب المصالح: </span>\n"
+"يجب أن يصرح جميع المؤلفين عن أي تضارب في المصالح المالية أو غيرها من المصالح التي يمكن تفسير تأثيرها على نتائج البحث. كما يجب الكشف عن جميع مصادر الدعم المالي للمشروع.\n"
+"<br><br><span class='text-primary fw-bold'>الأخطاء الأساسية في الأبحاث المنشورة: </span>\n"
+"عندما يكتشف المؤلف خطأً كبيراً أو عدم دقة في عمله المنشور ، يكون من واجب المؤلف إخطار رئيس تحرير المجلة أو الناشر على الفور والتعاون مع المحرر لسحب الورقة أو تصحيحها على شكل خطأ مطبعي.\n"
+"<br><br><span class='text-success fw-bold'>المراجع: </span>"
+
+#: .\pages\templates\pages\update_editorial_board.html:3
+#: .\pages\templates\pages\update_editorial_board.html:8
+msgid "Update Editorial Board"
+msgstr "تحديث هيئة التحرير"
+
+#: .\profiles\models.py:10
+msgid "AUTHOR"
+msgstr "مؤلف"
+
+#: .\profiles\models.py:11
+msgid "REVIEWER"
+msgstr "محكم"
+
+#: .\profiles\models.py:12
+msgid "EDITOR"
+msgstr "محرر"
+
+#: .\profiles\models.py:13
+msgid "PUBLISHER"
+msgstr "ناشر"
+
+#: .\profiles\models.py:21
+msgid "E.mail2"
+msgstr "البريد الالكتروني2"
+
+#: .\profiles\models.py:22
+msgid "Address"
+msgstr "العنوان"
+
+#: .\profiles\models.py:24
+msgid "English Work Address"
+msgstr "مكان العمل (بالإنكليزية)"
+
+#: .\profiles\models.py:26
+#: .\profiles\templates\profiles\profile_details.html:60
+msgid "Phone2"
+msgstr "الهاتف2"
+
+#: .\profiles\models.py:29
+msgid "English Certificate"
+msgstr "الدرجة العلمية (بالإنكليزية)"
+
+#: .\profiles\models.py:31
+#: .\profiles\templates\profiles\delete__filter_users.html:117
+#: .\profiles\templates\profiles\delete_all_authors.html:30
+#: .\profiles\templates\profiles\profile_details.html:103
+#: .\profiles\templates\profiles\profile_filter.html:104
+#: .\profiles\templates\profiles\search_result.html:36
+msgid "Specific Specialist"
+msgstr "الاختصاص الدقيق"
+
+#: .\profiles\models.py:32
+#: .\profiles\templates\profiles\profile_details.html:109
+msgid "Publications Count"
+msgstr "عدد المنشورات السابقة"
+
+#: .\profiles\models.py:33
+msgid "Bio"
+msgstr "لمحة تعريفية"
+
+#: .\profiles\models.py:35
+msgid "User Type"
+msgstr "نمط المستخدم"
+
+#: .\profiles\models.py:37
+msgid "Created at"
+msgstr "تم الإنشاء منذ"
+
+#: .\profiles\models.py:49
+msgid "Profiles"
+msgstr "الملف الشخصي"
+
+#: .\profiles\templates\profiles\add_reviewer_publications.html:3
+msgid "Set Reviewer"
+msgstr "تعيين محكم"
+
+#: .\profiles\templates\profiles\add_reviewer_publications.html:13
+msgid "Add or Update reviewer publication:"
+msgstr "إضافة أو تحديث منشورات المحكم"
+
+#: .\profiles\templates\profiles\author_dashboard.html:10
+#: .\profiles\templates\profiles\editor_dashboard.html:108
+#: .\profiles\templates\profiles\reviewer_dashboard.html:62
+msgid "Your Manuscripts"
+msgstr "مقالاتك في هذه المجلة"
+
+#: .\profiles\templates\profiles\author_dashboard.html:18
+#: .\profiles\templates\profiles\editor_dashboard.html:19
+#: .\profiles\templates\profiles\editor_dashboard.html:116
+#: .\profiles\templates\profiles\reviewer_dashboard.html:70
+msgid "Pre-Submitted"
+msgstr "المرسلة أولياً"
+
+#: .\profiles\templates\profiles\author_dashboard.html:20
+#: .\profiles\templates\profiles\author_dashboard.html:31
+#: .\profiles\templates\profiles\author_dashboard.html:42
+#: .\profiles\templates\profiles\author_dashboard.html:53
+#: .\profiles\templates\profiles\author_dashboard.html:66
+#: .\profiles\templates\profiles\author_dashboard.html:77
+#: .\profiles\templates\profiles\author_dashboard.html:88
+#: .\profiles\templates\profiles\author_dashboard.html:99
+#: .\profiles\templates\profiles\editor_dashboard.html:21
+#: .\profiles\templates\profiles\editor_dashboard.html:32
+#: .\profiles\templates\profiles\editor_dashboard.html:43
+#: .\profiles\templates\profiles\editor_dashboard.html:54
+#: .\profiles\templates\profiles\editor_dashboard.html:67
+#: .\profiles\templates\profiles\editor_dashboard.html:78
+#: .\profiles\templates\profiles\editor_dashboard.html:89
+#: .\profiles\templates\profiles\editor_dashboard.html:100
+#: .\profiles\templates\profiles\editor_dashboard.html:118
+#: .\profiles\templates\profiles\editor_dashboard.html:129
+#: .\profiles\templates\profiles\editor_dashboard.html:140
+#: .\profiles\templates\profiles\editor_dashboard.html:151
+#: .\profiles\templates\profiles\editor_dashboard.html:164
+#: .\profiles\templates\profiles\editor_dashboard.html:175
+#: .\profiles\templates\profiles\editor_dashboard.html:186
+#: .\profiles\templates\profiles\editor_dashboard.html:197
+#: .\profiles\templates\profiles\reviewer_dashboard.html:20
+#: .\profiles\templates\profiles\reviewer_dashboard.html:31
+#: .\profiles\templates\profiles\reviewer_dashboard.html:42
+#: .\profiles\templates\profiles\reviewer_dashboard.html:53
+#: .\profiles\templates\profiles\reviewer_dashboard.html:72
+#: .\profiles\templates\profiles\reviewer_dashboard.html:83
+#: .\profiles\templates\profiles\reviewer_dashboard.html:94
+#: .\profiles\templates\profiles\reviewer_dashboard.html:105
+#: .\profiles\templates\profiles\reviewer_dashboard.html:118
+#: .\profiles\templates\profiles\reviewer_dashboard.html:129
+#: .\profiles\templates\profiles\reviewer_dashboard.html:140
+#: .\profiles\templates\profiles\reviewer_dashboard.html:151
+msgid "Show All"
+msgstr "عرض الكل"
+
+#: .\profiles\templates\profiles\author_dashboard.html:29
+#: .\profiles\templates\profiles\editor_dashboard.html:30
+#: .\profiles\templates\profiles\editor_dashboard.html:127
+#: .\profiles\templates\profiles\reviewer_dashboard.html:81
+msgid "Pre-Review"
+msgstr "المراجعة الأولية"
+
+#: .\profiles\templates\profiles\author_dashboard.html:40
+#: .\profiles\templates\profiles\editor_dashboard.html:41
+#: .\profiles\templates\profiles\editor_dashboard.html:138
+#: .\profiles\templates\profiles\reviewer_dashboard.html:92
+msgid "Under-Review"
+msgstr "قيد المراجعة"
+
+#: .\profiles\templates\profiles\author_dashboard.html:75
+#: .\profiles\templates\profiles\editor_dashboard.html:76
+#: .\profiles\templates\profiles\editor_dashboard.html:173
+#: .\profiles\templates\profiles\reviewer_dashboard.html:127
+msgid "Pre-Published"
+msgstr "قيد النشر"
+
+#: .\profiles\templates\profiles\author_dashboard.html:86
+#: .\profiles\templates\profiles\editor_dashboard.html:87
+#: .\profiles\templates\profiles\editor_dashboard.html:184
+#: .\profiles\templates\profiles\reviewer_dashboard.html:138
+msgid "Published"
+msgstr "منشور"
+
+#: .\profiles\templates\profiles\author_dashboard.html:97
+#: .\profiles\templates\profiles\editor_dashboard.html:98
+#: .\profiles\templates\profiles\editor_dashboard.html:195
+#: .\profiles\templates\profiles\reviewer_dashboard.html:149
+msgid "Recently Updated"
+msgstr "المعدل مؤخراً"
+
+#: .\profiles\templates\profiles\delete_all_authors.html:5
+#: .\profiles\templates\profiles\delete_all_authors.html:14
+#: .\profiles\templates\profiles\profile_filter.html:5
+#: .\reviews\templates\reviews\invite_response.html:4
+#: .\reviews\templates\reviews\reviewing.html:4
+msgid "All Authors"
+msgstr "جميع المؤلفين"
+
+#: .\profiles\templates\profiles\delete_all_authors.html:16
+msgid "Add new author"
+msgstr "إضافة مؤلف جديد"
+
+#: .\profiles\templates\profiles\editor_dashboard.html:11
+msgid "Journal Manuscripts"
+msgstr "مقالات المجلة"
+
+#: .\profiles\templates\profiles\profile_create.html:5
+msgid "Create Profile"
+msgstr "إنشاء ملف تعريفي"
+
+#: .\profiles\templates\profiles\profile_create.html:24
+msgid "Add New User"
+msgstr "إضافة مستخدم جديد"
+
+#: .\profiles\templates\profiles\profile_create.html:30
+#: .\profiles\templates\profiles\profile_details.html:12
+#: .\profiles\templates\profiles\profile_update.html:29
+msgid "Personal Informations:"
+msgstr "المعلومات الشخصية:"
+
+#: .\profiles\templates\profiles\profile_create.html:67
+msgid "Contact Informations"
+msgstr "معلومات الاتصال"
+
+#: .\profiles\templates\profiles\profile_create.html:107
+#: .\profiles\templates\profiles\profile_details.html:84
+#: .\profiles\templates\profiles\profile_update.html:100
+msgid "Major Informations:"
+msgstr "الاختصاص"
+
+#: .\profiles\templates\profiles\profile_details.html:17
+msgid "ID"
+msgstr ""
+
+#: .\profiles\templates\profiles\profile_details.html:25
+msgid "Name (English)"
+msgstr "الاسم (بالإنكليزية)"
+
+#: .\profiles\templates\profiles\profile_details.html:31
+msgid "bio"
+msgstr "لمحة تعريفية"
+
+#: .\profiles\templates\profiles\profile_details.html:37
+#: .\profiles\templates\profiles\profile_update.html:61
+msgid "Contact Informations:"
+msgstr "معلومات الاتصال:"
+
+#: .\profiles\templates\profiles\profile_details.html:46
+msgid "Email2"
+msgstr "البريد الالكتروني2"
+
+#: .\profiles\templates\profiles\profile_details.html:66
+msgid "Address "
+msgstr "العنوان"
+
+#: .\profiles\templates\profiles\profile_details.html:72
+msgid "Institution"
+msgstr "مكان العمل"
+
+#: .\profiles\templates\profiles\profile_details.html:78
+msgid "Institution (English)"
+msgstr "مكان العمل (بالانكليزية)"
+
+#: .\profiles\templates\profiles\profile_details.html:93
+msgid "Certificate (English)"
+msgstr "الدرجة العلمية (بالانكليزية)"
+
+#: .\profiles\templates\profiles\profile_details.html:115
+msgid "Publications"
+msgstr "المنشورات السابقة"
+
+#: .\profiles\templates\profiles\profile_details.html:125
+msgid "Reviews"
+msgstr "تحكيم المقالات"
+
+#: .\profiles\templates\profiles\profile_details.html:135
+msgid "Profile Created at"
+msgstr "أُنشى الملف التعريفي منذ"
+
+#: .\profiles\templates\profiles\profile_details.html:136
+msgid "Profile Updated at"
+msgstr "عُدل الملف التعريفي منذ"
+
+#: .\profiles\templates\profiles\profile_filter.html:17
+msgid "Search profiles"
+msgstr "بحث في حسابات المستخدمين"
+
+#: .\profiles\templates\profiles\profile_filter.html:27
+msgid "Reviewers Table"
+msgstr "جدول المحكمين"
+
+#: .\profiles\templates\profiles\profile_filter.html:121
+#: .\profiles\templates\profiles\search_result.html:53
+msgid "view"
+msgstr "عرض"
+
+#: .\profiles\templates\profiles\profile_filter.html:124
+#: .\profiles\templates\profiles\search_result.html:56
+#: .\profiles\templates\profiles\set_reviewer_publications.html:41
+#: .\profiles\templates\profiles\show_reviewers_table.html:52
+msgid "edit"
+msgstr "تعديل"
+
+#: .\profiles\templates\profiles\profile_filter.html:127
+msgid "set reviewer"
+msgstr "تعيين محكم"
+
+#: .\profiles\templates\profiles\profile_filter.html:142
+#, python-format
+msgid ""
+"\n"
+"                                    Are you sure you want to delete this user (%(a)s) permanintly? <br>\n"
+"                                    this action can't be undone!\n"
+"                                \n"
+"                                    "
+msgstr ""
+"\n"
+"هل أنت متأكد من حذف المستخدم (%(a)s) نهائياً؟\n"
+"لا يمكن التراجع عن هذه الخطوة!"
+
+#: .\profiles\templates\profiles\profile_filter.html:183
+#: .\profiles\templates\profiles\show_reviewers_table.html:108
+msgid "Please Make Sure You Filter by the First Page!"
+msgstr "يرجى التأكد أنك في الصفحة رقم 1 قبل استخدام الفلترة!"
+
+#: .\profiles\templates\profiles\profile_update.html:4
+#: .\profiles\templates\profiles\profile_update.html:23
+msgid "Update Profile"
+msgstr "تحديث الملف التعريفي"
+
+#: .\profiles\templates\profiles\reviewer_dashboard.html:10
+msgid "Review Manuscripts"
+msgstr "مراجعة الأبحاث"
+
+#: .\profiles\templates\profiles\reviewer_dashboard.html:29
+msgid "Under Review"
+msgstr "قيد المراجعة"
+
+#: .\profiles\templates\profiles\reviewer_dashboard.html:51
+msgid "Last Updated"
+msgstr "آخر تحديث"
+
+#: .\profiles\templates\profiles\search_result.html:71
+#, python-format
+msgid ""
+"\n"
+"                                        Are you sure you want to delete this user (%(a)s) permanintly? <br>\n"
+"                                        this action can't be undone!                                        \n"
+"                                    "
+msgstr ""
+"\n"
+"هل أنت متأكد من حذف المستخدم (%(a)s) نهائياً؟ \n"
+"لا يمكن التراجع عن هذه الخطوة!"
+
+#: .\profiles\templates\profiles\set_reviewer_publications.html:4
+msgid "Show Reviewer Publications"
+msgstr "عرض منشورات المحكم"
+
+#: .\profiles\templates\profiles\set_reviewer_publications.html:9
+msgid "All Reviewer Publications"
+msgstr "كل منشورات المحكم"
+
+#: .\profiles\templates\profiles\set_reviewer_publications.html:18
+#: .\profiles\templates\profiles\show_reviewers_table.html:34
+msgid "User"
+msgstr "المستخدم"
+
+#: .\profiles\templates\profiles\set_reviewer_publications.html:56
+#, python-format
+msgid ""
+"\n"
+"                                                Are you sure you want to delete this publication (%(pub)s) permanintly? <br>\n"
+"                                                this action can't be undone!\n"
+"                                            \n"
+"                                                "
+msgstr ""
+"\n"
+"هل أنت متأكد من حذف منشور المحكم(%(pub)s)نهائياً؟ \n"
+"لا يمكن التراجع عن هذه الخطوة!"
+
+#: .\profiles\templates\profiles\show_reviewers_table.html:5
+msgid "Show Reviewer Table"
+msgstr "عرض جدول المحكمين"
+
+#: .\profiles\templates\profiles\show_reviewers_table.html:17
+msgid "Search publications"
+msgstr "بحث في المنشورات"
+
+#: .\profiles\templates\profiles\show_reviewers_table.html:27
+msgid "Reviewer Table"
+msgstr "جدول المحكمين"
+
+#: .\profiles\templates\profiles\show_reviewers_table.html:67
+#, python-format
+msgid ""
+"\n"
+"                                    Are you sure you want to delete this publication (%(a)s) permanintly? <br>\n"
+"                                    this action can't be undone!\n"
+"                                \n"
+"                                    "
+msgstr ""
+"\n"
+"هل أنت متأكد من حذف المنشور(%(a)s) نهائياً؟\n"
+"لا يمكن التراجع عن هذه الخطوة!"
+
+#: .\reviews\forms.py:49 .\reviews\models.py:12
+msgid ""
+"Approve this article after complying with suggested amendments and comments,"
+" without return."
+msgstr ""
+"قبول هذا البحث للنشر بعد التقيد بالتعديلات والتعليقات المدرجة، دون عودة."
+
+#: .\reviews\forms.py:50 .\reviews\models.py:13
+msgid ""
+"Reject this article and send it back to the author for the following "
+"reasons:"
+msgstr "رفض هذا البحث وإعادته للمؤلف للأسباب التالية:"
+
+#: .\reviews\forms.py:51 .\reviews\models.py:14
+msgid ""
+"Return the article to the author to make the required modifications, then "
+"return it to me again."
+msgstr ""
+"إعادة البحث إلى المؤلف لإجراء التعديلات المطلوبة، ويعاد إلي مرة ثانية."
+
+#: .\reviews\models.py:8
+msgid "accept invitation"
+msgstr "قبول الدعوة"
+
+#: .\reviews\models.py:9
+msgid "reject invitaion"
+msgstr "رفض الدعوة"
+
+#: .\reviews\models.py:19 .\reviews\templates\reviews\reviewing.html:329
+msgid "Approval"
+msgstr "النتيجة"
+
+#: .\reviews\models.py:22
+msgid "Invitation Expire on"
+msgstr "تنتهي الدعوة عند"
+
+#: .\reviews\models.py:23
+msgid "Replay"
+msgstr "رد"
+
+#: .\reviews\models.py:24
+msgid "Review Start on"
+msgstr "بدأت المراجعة في"
+
+#: .\reviews\templates\reviews\email\_base_message.txt:2
+#, python-format
+msgid ""
+"\n"
+"Hello from %(site_name)s!\n"
+msgstr ""
+"\n"
+"مرحباً في %(site_name)s!\n"
+
+#: .\reviews\templates\reviews\email\_base_message.txt:6
+#, python-format
+msgid ""
+"\n"
+"Best wishes from %(site_name)s\n"
+"%(site_domain)s\n"
+msgstr ""
+"\n"
+"أطيب التمنيات من %(site_name)s\n"
+"%(site_domain)s\n"
+
+#: .\reviews\templates\reviews\email\reviewer_invitation.txt:5
+msgid "Manuscript title"
+msgstr "عنوان البحث"
+
+#: .\reviews\templates\reviews\email\reviewer_invitation.txt:6
+msgid "Date submitted"
+msgstr "المرسل بتاريخ"
+
+#: .\reviews\templates\reviews\email\reviewer_invitation.txt:9
+#, python-format
+msgid ""
+"\n"
+"The above manuscript has been submitted to the %(site_name)s. Given your expertise in this field, I am kindly asking if you would be willing to review this manuscript.\n"
+"It is the policy of the journal to ensure that the submission process is quick and efficient and, therefore, we schedule only 15 days for the reviewing process. \n"
+"If you agree to review this manuscript, we assume that you accept this condition and have the available time to complete the task within the stipulated time. It would greatly assist us if you could respond as soon as possible.\n"
+"Please click the link below and then agree or decline to review this manuscript.\n"
+"I do hope that the journal can take advantage of your expertise.\n"
+"Sincerely,\n"
+msgstr ""
+"\n"
+"إن البحث أعلاه من ضمن الأبحاث المقدمة للتحكيم في مجلة %(site_name)s. وبالنظر إلى خبرتك في هذا المجال أسألك إذا كنت ترغب في مراجعة هذا البحث. \n"
+"إن سياسة المجلة هي التأكد من أن عملية المراجعة سريعة وسرية، وبالتالي فإننا نقوم بجدولة 15 يوماً فقط لعملية المراجعة. \n"
+"إذا وافقت على مراجعة هذا البحث، فإننا نفترض أنك تقبل هذا الشرط ولديك الوقت المتاح لإكمال المهمة في الوقت المحدد. سيساعدنا كثيراً إذا استطعت الرد في أسرع وقت ممكن. \n"
+"الرجاء الضغط على الرابط أدناه ثم الموافقة أو الرفض لمراجعة هذا البحث.\n"
+"آمل أن تستفيد المجلة من خبرتك.\n"
+"كل التقدير،\n"
+
+#: .\reviews\templates\reviews\email\reviewer_invitation.txt:20
+msgid "ABSTRACT"
+msgstr "الملخص"
+
+#: .\reviews\templates\reviews\email\reviewer_invitation.txt:23
+msgid "Click the link and then agree or decline to review"
+msgstr "اضغط الرابط التالي للموافقة أو رفض تحكيم بحث"
+
+#: .\reviews\templates\reviews\invite_response.html:10
+msgid "Agree or decline to review manuscript intitled"
+msgstr "قبول أو رفض تحكيم البحث المعنون"
+
+#: .\reviews\templates\reviews\invite_response.html:19
+msgid "ACCEPT"
+msgstr "قبول"
+
+#: .\reviews\templates\reviews\invite_response.html:24
+msgid "REJECT"
+msgstr "رفض"
+
+#: .\reviews\templates\reviews\invite_success.html:18
+msgid "Invitation Email is sent"
+msgstr "تم إرسال الدعوة عبر البريد الالكتروني"
+
+#: .\reviews\templates\reviews\invite_success.html:19
+msgid "Continue Revieweing this Manuscript"
+msgstr "متابعة مراجعة البحث"
+
+#: .\reviews\templates\reviews\invite_success.html:21
+msgid "Here"
+msgstr "هنا"
+
+#: .\reviews\templates\reviews\reviewing.html:14
+#: .\reviews\templates\reviews\reviewing.html:30
+msgid "Review Guidelines"
+msgstr "تعليمات المراجعة"
+
+#: .\reviews\templates\reviews\reviewing.html:20
+msgid "Review Form"
+msgstr "استمارة القييم"
+
+#: .\reviews\templates\reviews\reviewing.html:23
+msgid "Decission"
+msgstr "القرار"
+
+#: .\reviews\templates\reviews\reviewing.html:34
+msgid ""
+"\n"
+"                    <br><br><span class='text-success fw-bold'>Reviewers’ responsibilities</span>\n"
+"                    <br><br><span class='text-primary fw-bold'>Contribution to editorial decisions</span>\n"
+"                    The peer-reviewing process assists the editor and the editorial board in making editorial decisions and may also serve the author in improving the paper.\n"
+"                    <br><br><span class='text-primary fw-bold'>Promptness</span>\n"
+"                    Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and withdraw from the review process.\n"
+"                    <br><br><span class='text-primary fw-bold'>Confidentiality</span>\n"
+"                    Any manuscripts received for review must be treated as confidential documents. They must not be disclosed to or discussed with others except as authorized by the editor.\n"
+"                    <br><br><span class='text-primary fw-bold'>Standards of objectivity</span>\n"
+"                    Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.\n"
+"                    <br><br><span class='text-primary fw-bold'>Acknowledgement of sources</span>\n"
+"                    Reviewers should identify cases in which relevant published work referred to in the paper has not been cited in the reference section. They should point out whether observations or arguments derived from other publications are accompanied by the respective source. Reviewers will notify the editor of any substantial similarity or overlap between the manuscript under consideration and any other published paper of which they have personal knowledge.\n"
+"                    <br><br><span class='text-primary fw-bold'>Disclosure and conflict of interest</span>\n"
+"                    Privileged information or ideas obtained through peer review must be kept confidential and not used for personal advantage. Reviewers should not consider manuscripts in which they have conflicts of interest resulting from competitive, وا, or other relationships or connections with any of the authors, companies, or institutions associated with the papers.\n"
+"                    "
+msgstr ""
+"\n"
+"<br><br><span class='text-success fw-bold'> مسؤوليات المحكم: </span>\n"
+"<br><br><span class='text-primary fw-bold'>المساهمة في دعم قرارات المحررين: </span>\n"
+"تساعد عملية التحكيم المحرر وهيئة التحرير في اتخاذ القرار حول البحث المقدم للنشر، وقد تخدم المؤلف أيضًا في تحسين البحث.\n"
+"<br><br><span class='text-primary fw-bold'>عاجل وفوري: </span>\n"
+"عندما يتيقن المحكم بأنه غير مؤهل لمراجعة البحث الذي تم إرساله من قبل المجلة، أو يعرف أن مراجعته السريعة للمخطوطة ستكون مستحيلة.يجب أن يخطر المحرر ويعتذر عن التحكيم بشكل فوري وعاجل.\n"
+"<br><br><span class='text-primary fw-bold'>السرية: </span>\n"
+"يجب التعامل مع أي مخطوطات يتم استلامها للمراجعة كوثائق سرية. يجب عدم الكشف عنها أو مناقشتها مع الآخرين باستثناء ما يصرح به المحرر.\n"
+"<br><br><span class='text-primary fw-bold'>معايير الموضوعية: </span>\n"
+"يجب إجراء المراجعات بموضوعية. النقد الشخصي للمؤلف لا يعتبر فعلاً لائقاً. ويجب على المحكمين التعبير عن وجهات نظرهم بوضوح مع الحجج الداعمة.\n"
+"<br><br><span class='text-primary fw-bold'>توثيق المصادر: </span>\n"
+"يجب على المحكمين تحديد الحالات التي لم يتم ذكر الأعمال المنشورة ذات الصلة المشار إليها في المخطوطة في قسم المراجع. وينبغي أن يشيروا إلى ما إذا كانت الملاحظات أو الحجج المستمدة من المنشورات الأخرى مصحوبة بالمصدر المعني. ويقوم المحكمون بإخطار المحرر بأي تشابه أو تداخل جوهري بين المخطوطة قيد الدراسة وأي ورقة منشورة أخرى لديهم معرفة شخصية بها.\n"
+"<br><br><span class='text-primary fw-bold'>التصريح وتضارب المصالح: </span>\n"
+"يجب الحفاظ على سرية المعلومات أو الأفكار التي تم الحصول عليها من خلال التحكيم وعدم استخدامها لتحقيق منفعة شخصية. لا ينبغي للمحكمين النظر في المخطوطات التي لديهم فيها تضارب في المصالح ناتج عن تنافس أو تعاون أو أي اتصال مع أحد مؤلفي المخطوطة أو الشركات أو المؤسسات ذات الصلة بالبحث."
+
+#: .\reviews\templates\reviews\reviewing.html:87
+msgid "Review Started on"
+msgstr "بدأت المراجعة منذ"
+
+#: .\reviews\templates\reviews\reviewing.html:171
+msgid "Evaluation Form"
+msgstr "استمارة التقييم"
+
+#: .\reviews\templates\reviews\reviewing.html:175
+msgid "please select score for each element"
+msgstr "يرجى اختيار علامة لكل سؤال"
+
+#: .\reviews\templates\reviews\reviewing.html:193
+msgid "Form control"
+msgstr "عناصر التقييم"
+
+#: .\reviews\templates\reviews\reviewing.html:194
+msgid "Score 1-5"
+msgstr "العلامة 1-5"
+
+#: .\reviews\templates\reviews\reviewing.html:195
+msgid "Notes"
+msgstr "ملاحظات"
+
+#: .\reviews\templates\reviews\reviewing.html:200
+msgid "أصالة البحث (حداثته) , Originality (significance of the subject)"
+msgstr "أصالة البحث (حداثته) "
+
+#: .\reviews\templates\reviews\reviewing.html:207
+msgid ""
+"وضوح ودقة عنوان البحث ومدى ملاءمته للموضوع (في حال اقتراحكم تعديل العنوان؛ "
+"يرجى ذكر ذلك مع المقترحات), Clarity and accuracy of the title (mention the "
+"alter title if so in the suggestions)"
+msgstr ""
+"وضوح ودقة عنوان البحث ومدى ملاءمته للموضوع (في حال اقتراحكم تعديل العنوان؛ "
+"يرجى ذكر ذلك مع المقترحات)"
+
+#: .\reviews\templates\reviews\reviewing.html:214
+msgid ""
+"الوضوح والشمولية والإيجاز في الملخص., Length and clarity of the abstract"
+msgstr "الوضوح والشمولية والإيجاز في الملخص"
+
+#: .\reviews\templates\reviews\reviewing.html:221
+msgid ""
+"وضوح الدراسة المرجعية ومدى ارتباطها بموضوع البحث., The clarity and "
+"contribution of the references to the subject"
+msgstr "وضوح الدراسة المرجعية ومدى ارتباطها بموضوع البحث"
+
+#: .\reviews\templates\reviews\reviewing.html:228
+msgid "وضوح مبررات وهدف تنفيذ البحث., Goals and justifications clarity"
+msgstr "وضوح مبررات وهدف تنفيذ البحث"
+
+#: .\reviews\templates\reviews\reviewing.html:235
+msgid "ملاءمة المواد والطرائق المستخدمة., Tools and methodology"
+msgstr "ملاءمة المواد والطرائق المستخدمة"
+
+#: .\reviews\templates\reviews\reviewing.html:242
+msgid ""
+"ملاءمة التصميم الإحصائي المستخدم في تنفيذ التجارب والمعالجة الاحصائية "
+"للنتائج., Statistical design suitability"
+msgstr ""
+"ملاءمة التصميم الإحصائي المستخدم في تنفيذ التجارب والمعالجة الاحصائية "
+"للنتائج"
+
+#: .\reviews\templates\reviews\reviewing.html:249
+msgid ""
+"ملاءمة المصطلحات العلمية والرموز المستخدمة., Utility of scientific "
+"abbreviations and terminology"
+msgstr "ملاءمة المصطلحات العلمية والرموز المستخدمة"
+
+#: .\reviews\templates\reviews\reviewing.html:256
+msgid ""
+"وضوح ودقة النتائج وطرائق عرضها ومعنويتها., Results significance, accuracy, "
+"and clarity"
+msgstr "وضوح ودقة النتائج وطرائق عرضها ومعنويتها"
+
+#: .\reviews\templates\reviews\reviewing.html:263
+msgid ""
+"دقة المناقشة للنتائج وأسلوب تفسيرها وتبيان أهميتها., Discussion "
+"significance, accuracy, and clarity"
+msgstr "دقة المناقشة للنتائج وأسلوب تفسيرها وتبيان أهميتها"
+
+#: .\reviews\templates\reviews\reviewing.html:270
+msgid ""
+"وضوح الجداول، الأشكال، والصور، والرسوم (أرقامها، عناوينها، محتوياتها، "
+"ارتباطها بالنص) وضرورتها., The necessity and significance of tables, "
+"figures, photos, and graphics (its numbers, titles, contents, and "
+"contribution to the subject)"
+msgstr ""
+"وضوح الجداول، الأشكال، والصور، والرسوم (أرقامها، عناوينها، محتوياتها، "
+"ارتباطها بالنص) وضرورتها"
+
+#: .\reviews\templates\reviews\reviewing.html:277
+msgid ""
+"الدقة في استخدام وعرض المراجع (في النص وفي قائمة المراجع) ومدى ارتباطها "
+"بالموضوع وحداثتها., The contribution of survey coverage and references that "
+"is mentioned in the text and reference list."
+msgstr ""
+"الدقة في استخدام وعرض المراجع (في النص وفي قائمة المراجع) ومدى ارتباطها "
+"بالموضوع وحداثتها"
+
+#: .\reviews\templates\reviews\reviewing.html:284
+msgid ""
+"سلامة اللغة والأسلوب في كتابة البحث., Grammar, typesetting, and paper "
+"presentation"
+msgstr "سلامة اللغة والأسلوب في كتابة البحث"
+
+#: .\reviews\templates\reviews\reviewing.html:291
+msgid ""
+"الأمانة العلمية في البحث (نُشر سابقاً كلياً أو جزئياً /بالعربية أو بلغة "
+"أخرى، أغفل عمداً دراسات ذات صلة، أورد عمل غيره دون الإشارة), Scientific "
+"originality (has been published totally or partially/ in Arabic language or "
+"other, ignore in permit other contribution papers, mentioned results not "
+"documented)"
+msgstr ""
+"الأمانة العلمية في البحث (نُشر سابقاً كلياً أو جزئياً /بالعربية أو بلغة "
+"أخرى، أغفل عمداً دراسات ذات صلة، أورد عمل غيره دون الإشارة)"
+
+#: .\reviews\templates\reviews\reviewing.html:301
+msgid "Save Form"
+msgstr "حفظ الاستمارة"
+
+#: .\reviews\templates\reviews\reviewing.html:320
+msgid "Review Result"
+msgstr "نتيجة التحكيم"
+
+#: .\reviews\templates\reviews\reviewing.html:341
+msgid "Upload Review .docx file"
+msgstr "رفع ملف المراجعة .docx"
+
+#: .\reviews\templates\reviews\reviewing.html:346
+msgid "Done Review?"
+msgstr "إنتهت المراجعة؟"
+
+#~ msgid "Welcome to SJAR Journal Management System"
+#~ msgstr "مرحباً في نظام إدارة المجلة SJAR "
+
+#~ msgid "num_current_reviews"
+#~ msgstr "عدد المراجعات الحالية"
+
+#~ msgid "abstract"
+#~ msgstr "الملخص"
+
+#~ msgid "The subject of this article is"
+#~ msgstr "موضوع/مواضيع هذا البحث هو"
+
+#~ msgid "Contrl Panel"
+#~ msgstr "لوحة التحكم"
+
+#~ msgid "About"
+#~ msgstr "عن المجلة"
+
+#~ msgid "language"
+#~ msgstr "اللغة"
+
+#~ msgid "country"
+#~ msgstr "البلد"
+
+#~ msgid "received_date"
+#~ msgstr "تاريخ الاستلام"
+
+#~ msgid "score"
+#~ msgstr "العلامة"
+
+#~ msgid "volume"
+#~ msgstr "المجلد"
+
+#~ msgid "issue"
+#~ msgstr "العدد"
+
+#~ msgid "result"
+#~ msgstr "النتيجة"
+
+#~ msgid "date_of_editor_decision"
+#~ msgstr "تاريخ قرار التحرير"
+
+#~ msgid "key_words"
+#~ msgstr "الكلمات المفتاحية"
+
+#~ msgid "en_abstract"
+#~ msgstr "Abstract"
+
+#~ msgid "en_keyword"
+#~ msgstr "Keywords"
+
+#~ msgid "file_link"
+#~ msgstr "رابط تحميل المقالة"
+
+#~ msgid "from_page"
+#~ msgstr "من الصفحة"
+
+#~ msgid "to_page"
+#~ msgstr "إلى الصفحة"
+
+#~ msgid "notes_to_author"
+#~ msgstr "ملاحظات للمؤلف"
+
+#~ msgid "current stage"
+#~ msgstr "المرحلة الحالية"
+
+#~ msgid "received at"
+#~ msgstr "تم استلام البحث في"
+
+#~ msgid "time in review"
+#~ msgstr "البحث قيد المراجعة منذ"
+
+#, fuzzy
+#~ msgid "under_review"
+#~ msgstr "قيد المراجعة"
+
+#~ msgid "pre_publish"
+#~ msgstr "ما قبل النشر"
+
+#~ msgid "recommendations from reviewers list"
+#~ msgstr "التوصيات من قائمة المحكمين"
+
+#~ msgid "additional recommendations from authors list"
+#~ msgstr "اقتراحات إضافية من قائمة المؤلفين"
+
+#~ msgid "stat"
+#~ msgstr "إبدأ"
+
+#~ msgid "expired at"
+#~ msgstr "تنتهي الدعوة عند"
+
+#~ msgid "replay pending"
+#~ msgstr "بانتظار الرد"
+
+#~ msgid "review_ends_on"
+#~ msgstr "إنتهاء المراجعة عند"
+
+#~ msgid "late"
+#~ msgstr "متأخر"
+
+#~ msgid "approve"
+#~ msgstr "موافقة"
+
+#~ msgid "reject"
+#~ msgstr "رفض"
+
+#~ msgid "review counts"
+#~ msgstr "عدد المراجعات"
+
+#~ msgid "scope predictions"
+#~ msgstr "التنبؤ بالموضوع"
+
+#~ msgid "ضعيف"
+#~ msgstr "ضعيف"
+
+#~ msgid "مقبول"
+#~ msgstr "مقبول"
+
+#~ msgid "جيد"
+#~ msgstr "جيد"
+
+#~ msgid "جيد جداً"
+#~ msgstr "جيد جداً"
+
+#~ msgid "ممتاز"
+#~ msgstr "ممتاز"
+
+#~ msgid "authors_list"
+#~ msgstr "قائمة المؤلفين"
+
+#~ msgid "paper_scope_list"
+#~ msgstr "قائمة المواضيع"
+
+#~ msgid "publication_scope"
+#~ msgstr "مواضيع المنشورات السابقة"
+
+#~ msgid "reviewer_name"
+#~ msgstr "اسم المحكم"
+
+#~ msgid "reviewer specific_specialist"
+#~ msgstr "الاختصاص الدقيق"
+
+#~ msgid "scope_output"
+#~ msgstr "الموضوع"
+
+#~ msgid "address"
+#~ msgstr "عناوين البريد الالكتروني"
+
+#~ msgid "phone"
+#~ msgstr "الهاتف"
+
+#~ msgid "phone2"
+#~ msgstr "الهاتف2"
+
+#~ msgid "certificate"
+#~ msgstr "الدرجة العلمية"
+
+#~ msgid "specialist"
+#~ msgstr "الاختصاص"
+
+#~ msgid "specific_specialist"
+#~ msgstr "الاختصاص الدقيق"
+
+#~ msgid "publications_count"
+#~ msgstr "عدد المنشورات السابقة"
+
+#~ msgid "user_type"
+#~ msgstr "نمط المستخدم"
+
+#~ msgid "created_at"
+#~ msgstr "أُنشىء في"
+
+#~ msgid "More info"
+#~ msgstr "معلومات إضافية"
+
+#~ msgid "pinding articles"
+#~ msgstr "المقالات قيد المعالجة"
+
+#~ msgid "published articles"
+#~ msgstr "المقالات المنشورة"
+
+#~ msgid "Rejected articles"
+#~ msgstr "المقالات المرفوضة"
+
+#~ msgid "This is the profile page for"
+#~ msgstr "الملف التعريفي للمستخدم"
+
+#~ msgid "approval"
+#~ msgstr "قبول"
+
+#~ msgid "invited_at"
+#~ msgstr "تمت الدعوة منذ"
+
+#~ msgid "notes_to_editor"
+#~ msgstr "ملاحظات للمحرر"
+
+#~ msgid "last_update"
+#~ msgstr "آخر تحديث"
+
+#~ msgid "done_review"
+#~ msgstr "إنتهت المراجعة"
+
+#~ msgid "back to main list"
+#~ msgstr "العودة إلى القائمة الرئيسية"
+
+#~ msgid "Welcome"
+#~ msgstr "مرحباً"
+
+#~ msgid "Nots"
+#~ msgstr "ملاحظات"
+
+#~ msgid "Informations:"
+#~ msgstr "التفاصيل"

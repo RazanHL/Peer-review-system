@@ -1,0 +1,264 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Update Article" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+    <div class="my-3 p-3">
+        <div class="form-content">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <div class="col">
+                        <hr><h3 class="fw-light my-1 text-center" >{% trans 'Update Manuscript information:' %}</h3><hr>
+                    </div>                    
+                </div> 
+                <div hidden>
+                    {{ form.received_date }}
+                    {{ form.from_page }}
+                    {{ form.to_page }}
+                    {{ form.notes_to_author }}
+                </div>               
+                <div class="row mt-3">
+                    <div class="col">
+                        {{ form.title|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        {{ form.en_title|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ form.ar_en|as_crispy_field }}                        
+                    </div>
+                    <div class="col-md-5">
+                        {{ form.country|as_crispy_field }}                       
+                    </div>
+                    {% if user.profiles.user_type == 'EDITOR' %}
+                        <div class="col">
+                            <div class="input-group date " id="datetimepicker1" data-target-input="nearest">
+                                {{ form.date_of_editor_decision|as_crispy_field }}
+                            </div>                        
+                        </div>
+                    {% else %}
+                        <div hidden>{{ form.date_of_editor_decision|as_crispy_field }}</div>
+                    {% endif %}
+                </div>
+                {% if user.profiles.user_type == 'EDITOR' %}
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{ form.score|as_crispy_field }}                        
+                        </div>
+                        <div class="col-md-4">
+                            {{ form.volume|as_crispy_field }}                       
+                        </div>
+                        <div class="col-md-4">
+                            {{ form.issue|as_crispy_field }}                        
+                        </div>
+                    </div>
+                    <div class="row">                        
+                        <div class="col">
+                            {{ form.result|as_crispy_field }}                       
+                        </div>
+                        <div class="'col">
+                            {{ form.current_status|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.scope|as_crispy_field }}                        
+                        </div>
+                    </div>
+                {% else %}
+                    <div hidden>
+                        {{ form.score|as_crispy_field }}
+                        {{ form.volume|as_crispy_field }}
+                        {{ form.issue|as_crispy_field }}
+                        {{ form.result|as_crispy_field }}
+                        {{ form.scope|as_crispy_field }}
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col">
+                        {{ form.file_link|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.no_author_file|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.revised_pdf_link|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.copyright_file_link|as_crispy_field }}
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="col"> {% trans "authors" %}:
+                        <table class="table table-striped table-hover table-sm table-bordered align-middle">                          
+                            <thead>
+                                <tr role="row" class="small text-center">
+                                    <th>{% trans "Name" %}</th>
+                                    <th>{% trans "Certificate" %}</th>
+                                    <th>{% trans "Specialist" %}</th>
+                                    <th>{% trans "Email" %}</th>
+                                    <th class="col-md-2">{% trans "Actions" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody class="small">
+                                {% for auth in article.author.all %}  
+
+                                    <tr>
+                                        <td>{{ auth.profiles.name|capfirst }}</td>
+                                        <td>{{ auth.profiles.certificate|default_if_none:"" }}</td>
+                                        <td>{{ auth.profiles.specialist|default_if_none:"" }}<br>
+                                            {{ auth.profiles.specific_specialist|default_if_none:"" }}</td>
+                                        <td>{{ auth.email }}</td>
+                                        <td class="small text-center">
+                                            <a class="btn btn-primary btn-sm" href="{% url 'view-user-profile' auth.id %}" title="view">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% if user.profiles.user_type == 'EDITOR' %}
+                            <div class="row text-center">
+                                <div class="col">
+                                    <div class="w-50 btn btn-dark">{% trans "Add Authors" %}</div>
+                                    {{ form.author|as_crispy_field }}
+                                </div>                            
+                                <div class="col">
+                                    <a class="w-50 btn btn-dark" href="{% url 'create-user-profile' %}" 
+                                    role="button">{% trans "Add new" %}</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div hidden>{{ form.author|as_crispy_field }}</div>
+                        {% endif %}                      
+                    </div>
+                </div>
+                {% if user.profiles.user_type == 'EDITOR' %}
+                    <div class="row">
+                        <div class="col">{% trans "Reviewers" %}:
+                            <!-- {{ form.reviewer|as_crispy_field }}   -->
+                            <table class="table table-striped table-hover table-sm table-bordered align-middle">
+                                <thead>
+                                    <tr role="row" class="small text-center">
+                                        <th>{% trans "Name" %}</th>
+                                        <th>{% trans "Type" %}</th>
+                                        <th>{% trans "Certificate" %}</th>
+                                        <th>{% trans "Specialist" %}</th>
+                                        <th>{% trans "Email" %}</th>
+                                        <th class="col-md-2">{% trans "Actions" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="small">
+                                    {% for rev in article.reviewer.all %}  
+
+                                        <tr>
+                                            <td>{{ rev.name|capfirst }}</td>
+                                            <td>{{ rev.user_type }}</td>
+                                            <td>{{ rev.certificate|default_if_none:"" }}</td>
+                                            <td>{{ rev.specialist|default_if_none:"" }}<br>
+                                                {{ rev.specific_specialist|default_if_none:"" }}</td>
+                                            <td>{{ rev.user.email }}</td>
+                                            <td class="small text-center">
+                                                <a class="btn btn-primary btn-sm" href="{% url 'view-user-profile' rev.id %}" title="view">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <div class="row text-center">
+                                <div class="col">
+                                    <div class="w-50 btn btn-dark">{% trans "Add Reviewers" %}</div>
+                                    {{ form.reviewer|as_crispy_field }} 
+                                </div>                            
+                                <div class="col">
+                                    <a class="w-50 btn btn-dark" href="{% url 'create-user-profile' %}" 
+                                    role="button">{% trans "Add new" %}</a>
+                                </div>
+                            </div>                      
+                        </div>
+                    </div>
+                {% else %}
+                    <div hidden>{{ form.reviewer|as_crispy_field }}</div>
+                {% endif %}
+                <div class="row my-3">
+                    <div class="col">
+                        <hr><h3 class="fw-light my-1 text-center" >{% trans "Full text:" %}</h3><hr>
+                    </div>                    
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        {{ form.abstract|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.key_words|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.en_abstract|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.en_keyword|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.introduction|as_crispy_field }}                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.references|as_crispy_field }}                        
+                    </div>
+                </div>              
+
+                <br>
+                <div class="text-center">
+                    <input type="hidden" name="next" value="{{ request.META.HTTP_REFERER }}">
+                    <button type="submit" class="btn btn-dark rounded-0">{% trans 'Save Changes' %}</button><span>   </span>
+                    <button type="reset" class="btn btn-dark rounded-0">{% trans 'Reset' %}</button>
+                    
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+    <!-- {% for object in consumer %}
+        <select>
+            {% for val, text in object.OPTIONS %}
+                <option value="{{ val }}">{{ text }}</option>
+            {% endfor %}
+        </select>
+    {% endfor %} -->
+
+
+    <!-- <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+      <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      </div>
+    </div> -->
+
+    <script>
+        $(function () {
+            $("#datetimepicker1").datetimepicker({
+            format: 'DD-MM-YYYY',
+            });
+        });
+    </script>
+{% endblock content %}

@@ -1,0 +1,180 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Article Detailes" %}{% endblock %}
+{% block include_header %} 
+<meta name="citation_title" content="{{ article.title }}">
+{% for author in article.author.all %}
+    <meta name="citation_author" content="{{ author.profiles.name }}">
+{% endfor %}
+<meta name="citation_publication_date" content="{{ article.date_of_editor_decision }}">
+<meta name="citation_journal_title" content="Syrian Journal of Agricultural Research (SJAR)">
+<meta name="citation_volume" content="{{ article.volume }}">
+<meta name="citation_issue" content="{{ article.issue }}">
+<meta name="citation_firstpage" content="{{ article.from_page }}">
+<meta name="citation_lastpage" content="{{ article.to_page }}">
+<meta name="citation_pdf_url" content="{{ site.domain }}/en/articles/article-detailes/{{ article.id }}/{{ article.file_link }}">
+{% endblock include_header %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+
+{% block content %}
+<div class="my-3 p-3"><br>
+    <div dir="{% if article.ar_en == 'en' %}ltr{% else %}rtl{% endif %}">
+        <div class="row">
+            <h5 class="fw-bold my-1 text-center">
+                {% if article.ar_en == 'en' %}
+                    {{ article.en_title }}
+                {% else %}
+                    {{ article.title }}
+                {% endif %}<br>
+            </h5><br>
+        </div><br>
+        <div class="row">
+            <div class="text-center">
+                <!-- {# for name in article.author.all #}
+                    {{ name|join:", "|escape }}
+                    
+                {# endfor #}<br> -->
+                {% if article.ar_en == 'en' %}
+                    {% for name,nn,order,contact in en_names %}
+                        <strong>
+                            
+                                {{name}} {% if nn %} <sup>({{nn}})</sup>{% endif %} 
+                            
+                        </strong>        
+                        <strong >
+                            {% if contact == True %}
+                            <sup class="text-danger fw-bold">*</sup>
+                            {% endif %}                        
+                        </strong>
+                    {% endfor %}
+                {% else %}
+                    {% for name,nn,order,contact in ar_names %}
+                    <strong>
+                            
+                        {{name}} {% if nn %} <sup>({{nn}})</sup>{% endif %} 
+                        
+                    </strong>        
+                    <strong >
+                        {% if contact == True %}
+                        <sup class="text-danger fw-bold">*</sup>
+                        {% endif %}                        
+                    </strong>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+        </div><br>
+        <div class="row">
+            <div>
+                {% if article.ar_en == 'en' %}
+                    {% for inst in en_institute %}
+                        ({{ forloop.counter }}) {{ inst }} <br>
+                    {% endfor %}
+                {% else %}
+                    {% for inst in ar_institute %}
+                        ({{ forloop.counter }}) {{ inst }} <br>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+            <div class="row">
+                {% for auth in authors_order %}
+                    {% if auth.contact == True %}
+                        {% if article.ar_en == 'ar' %}
+                            (* للتواصل مع {{ auth.author_id.profiles.name }} عبر البريد الإلكتروني: {{ auth.author_id.email }})
+                        {% else %}
+                            (*Contact {{ auth.author_id.profiles.en_name }} by E.mail: {{ auth.author_id.email }})
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div><br><br>
+        </div>
+        <div class="row">
+            <div class="fw-bold text-center">
+                {% if article.ar_en == 'en' %}
+                    Abstract
+                {% else %}
+                    الملخص
+                {% endif %}
+            </div><br>
+            {% if article.ar_en == 'en' %}
+                <div class="text-justify">{{ article.en_abstract }}</div><br>
+                <div class="fw-bold">{{ article.en_keyword }}</div><br>
+            {% else %}
+                <div class="text-justify">{{ article.abstract }}</div><br>
+                <div class="fw-bold">{{ article.key_words }}</div><br>
+            {% endif %}
+                    
+        </div><br>
+        <div class="row p-3">
+            <div class="">
+                {% if article.revised_pdf_link %}
+                <a class="link-info" href="{% url 'download_manuscript' article.id article.revised_pdf_link %}">
+                    <i class="h2 text-secondary fa fa-file-pdf "></i>
+                    <span class="">{% trans 'Revised PDF' %}</span>
+                    
+                </a><br>
+                {% endif %}
+            </div>  
+            {% if user.profiles.user_type == 'EDITOR' or user.profiles.user_type == 'AUTHOR' %}
+                <div class="">
+                    {% if article.file_link %}
+                    <a class="link-info" href="{% url 'download_manuscript' article.id article.file_link %}">
+                        <i class="h2 text-secondary fa fa-file-word"></i>
+                        <span class="">{% trans 'Full Manuscript' %}</span>
+                    </a><br>
+                    {% endif %}
+                </div>
+                <div class="">
+                    {% if article.no_author_file %}
+                    <a class="link-info" href="{% url 'download_manuscript' article.id article.no_author_file %}">
+                        <i class="h2 text-secondary fa fa-file-word"></i>
+                        {% trans "Manuscript without Author's names" %}</a><br>
+                    {% endif %}
+                </div>
+                <div class="">
+                    {% if article.copyright_file_link %}
+                    <a class="link-info" href="{% url 'download_manuscript' article.id article.copyright_file_link %}">
+                        <i class="h2 text-secondary fa fa-file-word"></i>
+                        {% trans 'Copyrighting File' %}</a><br>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div><br>
+        <div class="row">
+            <div class="">
+                {% if user.profiles.user_type == 'EDITOR' or user.profiles.user_type == 'PUBLISHER' %}
+                    <a href="{% url 'article-review' article.id %}" class="btn btn-dark rounded-0">
+                        {% trans 'Go to Review Page' %}
+                    </a>                
+                {% elif article.current_status == 'Unsubmitted' or article.current_status == 'Pre Review' or article.current_status == 'Under Review'  %}
+                    {% if user in article.author.all %}
+                    <a href="{% url 'article-update' article.id %}" class="btn btn-dark rounded-0">
+                        {% trans 'Edit Manuscript' %}
+                    </a> 
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="text-center">
+                <b>{% trans "received at:" %}</b> {{ article.received_date }}<br>
+                {% if article.date_of_editor_decision %}
+                    <b>{% trans "accepted at:" %}</b> {{ article.date_of_editor_decision }}
+                {% endif %}
+            </div>
+        </div><br>
+    </div>
+
+    <!-- <p>
+        {% for s in article.scope.values %}
+            {{ s.scope }}
+
+        {% endfor %}
+    </p> -->
+</div>
+
+
+{% endblock content %}

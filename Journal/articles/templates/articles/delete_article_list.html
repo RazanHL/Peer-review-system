@@ -1,0 +1,114 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "article list" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+
+{% block content %}
+
+<p class="antialiased text-center mx-16 text-blue-700 text-3xl py-10">
+    {% trans "Pending Articles" %} <sup> hhh </sup>
+</p>
+<main class="py-4 mx-16">
+    <div class="px-4">
+        <div class="block md:flex justify-between md:-mx-2">
+            {% for x in accepted_articles %}
+                <div class="w-full lg:w-1/3  md:mx-2 mb-4 md:mb-0 ">
+                    <div class="bg-white rounded-lg overflow-hidden shadow relative">
+                        <div class="p-4 h-auto md:h-40 lg:h-64">
+                            <a href="article-list/pending/{{ x.id }}" class="block text-blue-500 hover:text-blue-600 font-semibold mb-2 text-lg md:text-base lg:text-lg">
+                                {{ x.title }}
+                            </a>
+                            <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+                                {{ x.abstract | truncatewords:20 }}
+                            </div>                            
+                            <div class="text-teal-600 py-1 text-lg leading-relaxed block md:text-xs lg:text-sm">
+                                <strong>{% trans "Created" %} </strong>{{ x.received_date|timesince }} {% trans "ago" %}.
+                            </div>
+                            <div class="relative mt-2 lg:absolute bottom-0 mb-4 md:hidden lg:block">
+                                <p class="inline bg-gray-300 py-1 px-2 rounded-full text-xs  text-gray-700" href="#">Author -
+                                    {% for auth in x.author.values %}
+                                        <p>{{ auth.username }}</p>
+                                        
+                                    {% endfor %}
+                                </p>
+                                <p class="inline bg-gray-300 py-1 px-2 rounded-full text-xs  text-gray-700" href="#">
+                                    {% trans "Scope" %} - 
+                                    {% for s in x.scope.values %}
+                                        {{ s.scope }} 
+                                        
+                                    {% endfor %}
+                            
+                                </p>
+                                <a class="inline bg-gray-300 py-1 px-2 rounded-full text-xs  text-gray-700" href="#">{% trans "Volume" %} - {{ x.volume }}</a>
+                                <a class="inline bg-gray-300 py-1 px-2 rounded-full text-xs  text-gray-700" href="#">{% trans "Issue" %} - {{ x.issue }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+<p class="antialiased text-center mx-16 text-green-700 text-3xl"> {% trans "Accepted Articles for publishing" %}</p>
+<main class="py-4 mx-16">
+    <div class="px-4">
+        <!-- <div class="block md:flex justify-between md:-mx-2">
+            {% for x in accepted_articles %}
+                <div class="w-full lg:w-1/3 md:mx-2 mb-4 md:mb-0">
+                    <div class="bg-white rounded-lg overflow-hidden shadow relative">
+                        <div class="p-4 h-auto md:h-64 lg:h-64">
+                            <a href="{{ x.get_absolute_url }}" class="block text-green-500 hover:text-blue-600 font-semibold mb-2 text-lg md:text-base lg:text-lg">
+                                {{ x.title }}
+                            </a>
+                            <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+                                {{ x.abstract | truncatewords:20 }}
+                            </div>
+                            <div class="text-teal-600 py-1 text-lg leading-relaxed block md:text-xs lg:text-sm">
+                                <strong>Created - </strong>{{ x.created_at|timesince }} ago.
+                            </div>
+                            <div class="relative mt-2 lg:absolute bottom-0 mb-4 md:hidden lg:block">
+                                <a class="inline bg-gray-300 py-1 px-2 rounded-full text-xs  text-gray-700" href="#">Author - {{ x.author.name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div> -->
+    </div>
+</main>
+
+
+<p class="antialiased text-center mx-16 text-red-700 text-3xl"> {% trans "Rejected Articles" %} </p>
+
+<main class="py-4 mx-16">
+    <div class="px-4">
+        <!-- <div class="block md:flex justify-between md:-mx-2">
+            {% for x in rejected_articles %}
+                <div class="w-full lg:w-1/3 md:mx-2 mb-4 md:mb-0">
+                    <div class="bg-white rounded-lg overflow-hidden shadow relative">
+                        <div class="p-4 h-auto md:h-64 lg:h-64">
+                            <a href="{{ x.get_absolute_url }}" class="block text-red-500 hover:text-blue-600 font-semibold mb-2 text-lg md:text-base lg:text-lg">
+                            {{ x.title }}
+                            </a>
+                            <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+                                {{ x.abstract | truncatewords:20 }}
+                            </div>
+                            <div class="text-teal-600 py-1 text-lg leading-relaxed block md:text-xs lg:text-sm">
+                                <strong>Created - </strong>{{ x.created_at|timesince }} ago.
+                            </div>
+                            <div class="relative mt-2 lg:absolute bottom-0 mb-4 md:hidden lg:block">
+                                <a class="inline bg-gray-300 py-1 px-2 rounded-full text-xs  text-gray-700" href="#">Author - {{ x.author.name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div> -->
+    </div>
+</main>
+
+{% endblock content %}

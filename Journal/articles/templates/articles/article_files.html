@@ -1,0 +1,49 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{% trans "Article Files" %}{% endblock %}
+{% block include_sidebar %}{% include '_sidebar.html' %}{% endblock include_sidebar %}
+{% block content %}
+<div class="row my-3 p-3">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                <hr><h3 class="fw-light my-1 text-center" >{% trans "Article Files:" %}</h3><hr>
+            </div>
+            
+        </div>
+        <div hidden>
+            {{ form }}
+            
+        </div>  
+        <div class="row">
+            <div class="col">
+                {{ form.title|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form.en_title|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form.file_link|as_crispy_field }}
+            </div>
+            <div class="col">
+                {{ form.no_author_file|as_crispy_field }}
+            </div>
+            <div class="col">
+                {{ form.copyright_file_link|as_crispy_field }}
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark rounded-0">{% trans "Save Changes" %}</button><span>   </span>
+            <button type="reset" class="btn btn-dark rounded-0">{% trans "Reset" %}</button>
+        </div>
+    
+    </form>
+</div>
+{% endblock content %}
