@@ -7,5 +7,10 @@
     "routes": [{
         "src": "/(.*)",
         "dest": "Journal/wsgi.py"
+    }],
+    "rewrites": 
+    [{ 
+        "source": "/(.*)", 
+        "destination": "Journal/templates/home.html" 
     }]
 }

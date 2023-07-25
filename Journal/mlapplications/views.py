@@ -15,8 +15,8 @@ from sentence_transformers import SentenceTransformer, util
 from django.contrib.auth.decorators import user_passes_test, login_required
 from profiles.views import is_editor, is_reviewer, is_editor_or_reviewer
 
-model_name = "model/arabert"
-# model_name = "aubmindlab/bert-base-arabertv2"
+# model_name = "model/arabert"
+model_name = "aubmindlab/bert-base-arabertv2"
 
 arabert_model = AutoModel.from_pretrained(model_name, return_dict=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
