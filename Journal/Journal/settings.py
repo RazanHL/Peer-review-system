@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from decouple import config
 from django.utils.translation import gettext_lazy as _
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,8 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool) 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*.vercel.app", "*Journal.vercel.app" ,"*"] # ".vercel.app"
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app", ".now.sh"] #, "*Journal.vercel.app" ,"*"] 
 
 # Application definition
 
@@ -103,18 +103,27 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     # 'ENGINE': 'django.db.backends.sqlite3',
+    #     # 'NAME': BASE_DIR / 'db.sqlite3',
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': config('DATABASE_NAME'),
+    #     'USER': config('DATABASE_USER'), 
+    #     'PASSWORD': config('DATABASE_PASSWORD'),
+    #     'HOST': config('DATABASE_HOST'),
+    #     'PORT': config('DATABASE_PORT'),
+    # }
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DATABASE_NAME'),
-        'USER': config('DATABASE_USER'), 
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': config('DATABASE_HOST'),
-        'PORT': config('DATABASE_PORT'),
+        'NAME': config('REMOTEDATABASE_NAME'),
+        'USER': config('REMOTEDATABASE_USER'), 
+        'PASSWORD': config('REMOTEDATABASE_PASSWORD'),
+        'HOST': config('REMOTEDATABASE_HOST'),
+        'PORT': config('REMOTEDATABASE_PORT'),
     }
 }
 
+# pg_restore -U "postgres" -h "localhost" -p "5432" -W -F t -d "test" "D:\\MWT\\master_thesis\\database\\jourdb_backup.backup"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -158,7 +167,10 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'Journal/static', ]
+# STATICFILES_DIRS = [BASE_DIR / 'Journal/static', ]
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'Journal/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build' ,'Journal/static')
+
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = (BASE_DIR / 'Journal/media')
