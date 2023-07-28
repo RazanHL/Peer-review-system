@@ -56,7 +56,7 @@ class Article(models.Model):
     issue = models.SmallIntegerField(_('Issue'), blank=True, null=True)
     result = models.CharField(_('Result'), max_length=30, blank=True, null=True)
     date_of_editor_decision = models.DateField(_('Date of Editorial Decision'), blank=True, null=True)
-    title = models.TextField(_('Arabic Title'))
+    title = models.TextField(_('Arabic Title'), default="Null title")
     en_title = models.TextField(_('English Title'), blank=True, null=True)
     abstract = models.TextField(_('Arabic Abstract'), blank=True, null=True)
     key_words = models.TextField(_('Arabic Keywords'), blank=True, null=True)

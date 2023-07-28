@@ -114,7 +114,7 @@ DATABASES = {
     #     'PORT': config('DATABASE_PORT'),
     # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',#_psycopg2',
         'NAME': config('REMOTEDATABASE_NAME'),
         'USER': config('REMOTEDATABASE_USER'), 
         'PASSWORD': config('REMOTEDATABASE_PASSWORD'),
@@ -122,8 +122,6 @@ DATABASES = {
         'PORT': config('REMOTEDATABASE_PORT'),
     }
 }
-
-# pg_restore -U "postgres" -h "localhost" -p "5432" -W -F t -d "test" "D:\\MWT\\master_thesis\\database\\jourdb_backup.backup"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -168,7 +166,7 @@ LOCALE_PATHS = [
 
 STATIC_URL = 'static/'
 # STATICFILES_DIRS = [BASE_DIR / 'Journal/static', ]
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'Journal/static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, '/Journal/static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build' ,'Journal/static')
 
 

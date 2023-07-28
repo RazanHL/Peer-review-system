@@ -15,73 +15,73 @@ from sentence_transformers import SentenceTransformer, util
 from django.contrib.auth.decorators import user_passes_test, login_required
 from profiles.views import is_editor, is_reviewer, is_editor_or_reviewer
 
-# model_name = "model/arabert"
-model_name = "aubmindlab/bert-base-arabertv2"
+# # model_name = "model/arabert"
+# model_name = "aubmindlab/bert-base-arabertv2"
 
-arabert_model = AutoModel.from_pretrained(model_name, return_dict=True)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+# arabert_model = AutoModel.from_pretrained(model_name, return_dict=True)
+# tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
-target_list =['	إقتصاد زراعي',	'	تقانات حيوية',	'محاصيل حقلية',
-              'بيئة',	'تكنولوجيا الأغذية',	'بستنة',	'إنتاج حيواني',
-              'موارد طبيعية',	'	وقاية النبات']
-# target_list =['Agricultural_Economics',	'Agriculture_Biotechnology',	'Crop_production',
-#               'Environmental_Sciences',	'Food_Technology',	'Horticulture',	'Livestock_production',
-#               'Natural_Resources',	'Plant_Protection']
-MAX_LEN = 256
-device = torch.device('cpu')
+# target_list =['	إقتصاد زراعي',	'	تقانات حيوية',	'محاصيل حقلية',
+#               'بيئة',	'تكنولوجيا الأغذية',	'بستنة',	'إنتاج حيواني',
+#               'موارد طبيعية',	'	وقاية النبات']
+# # target_list =['Agricultural_Economics',	'Agriculture_Biotechnology',	'Crop_production',
+# #               'Environmental_Sciences',	'Food_Technology',	'Horticulture',	'Livestock_production',
+# #               'Natural_Resources',	'Plant_Protection']
+# MAX_LEN = 256
+# device = torch.device('cpu')
 
-class BERTClass(torch.nn.Module):
-    def __init__(self):
-        super(BERTClass, self).__init__()
-        self.model = arabert_model
-        self.dropout = torch.nn.Dropout(0.3)
-        self.linear = torch.nn.Linear(768, 9)
+# class BERTClass(torch.nn.Module):
+#     def __init__(self):
+#         super(BERTClass, self).__init__()
+#         self.model = arabert_model
+#         self.dropout = torch.nn.Dropout(0.3)
+#         self.linear = torch.nn.Linear(768, 9)
 
-    def forward(self, input_ids, attn_mask, token_type_ids):
-        output = self.model(
-            input_ids,
-            attention_mask=attn_mask,
-            token_type_ids=token_type_ids
-        )
-        output_dropout = self.dropout(output.pooler_output)
-        output = self.linear(output_dropout)
-        return output
+#     def forward(self, input_ids, attn_mask, token_type_ids):
+#         output = self.model(
+#             input_ids,
+#             attention_mask=attn_mask,
+#             token_type_ids=token_type_ids
+#         )
+#         output_dropout = self.dropout(output.pooler_output)
+#         output = self.linear(output_dropout)
+#         return output
 
-bert_model = BERTClass()
-bert_model.load_state_dict(torch.load('model/arabert_classifier.pt', map_location=device))
-bert_model.eval()
+# bert_model = BERTClass()
+# bert_model.load_state_dict(torch.load('model/arabert_classifier.pt', map_location=device))
+# bert_model.eval()
 
 def arabert_predict(request, article_id):
-  reviewed_article = get_object_or_404(Article, id=article_id)
+#   reviewed_article = get_object_or_404(Article, id=article_id)
 
-  sample = reviewed_article.title + reviewed_article.abstract
-#   sample = request.GET('sample')
-  encodings = tokenizer.encode_plus(
-    sample,
-    None,
-    add_special_tokens=True,
-    max_length= 256,
-    padding='max_length',
-    return_token_type_ids=True,
-    truncation=True,
-    return_attention_mask=True,
-    return_tensors='pt'
-  )
-  bert_model.eval()
-  with torch.no_grad():
-    input_ids = encodings['input_ids'].to(device, dtype=torch.long)
-    attention_mask = encodings['attention_mask'].to(device, dtype=torch.long)
-    token_type_ids = encodings['token_type_ids'].to(device, dtype=torch.long)
-    output = bert_model(input_ids, attention_mask, token_type_ids)
-    final_output = torch.sigmoid(output).cpu().detach().numpy().tolist()
-    # print(train_dataset.columns[1:].to_list()[(np.argmax(final_output, axis=1)).astype(int)])
-    predictions = []
-    for idx, label in enumerate(target_list):
-      if (final_output[0][idx] > 0.5):
-        predictions.append((label,round(final_output[0][idx]*100, 2)))  # round(preds[idx]*100, 2
-    context = {'predictions' : predictions, 'final_output': final_output}
-    return render(request, 'mlapplications/scope_predictions.html', context)
+#   sample = reviewed_article.title + reviewed_article.abstract
+# #   sample = request.GET('sample')
+#   encodings = tokenizer.encode_plus(
+#     sample,
+#     None,
+#     add_special_tokens=True,
+#     max_length= 256,
+#     padding='max_length',
+#     return_token_type_ids=True,
+#     truncation=True,
+#     return_attention_mask=True,
+#     return_tensors='pt'
+#   )
+#   bert_model.eval()
+#   with torch.no_grad():
+#     input_ids = encodings['input_ids'].to(device, dtype=torch.long)
+#     attention_mask = encodings['attention_mask'].to(device, dtype=torch.long)
+#     token_type_ids = encodings['token_type_ids'].to(device, dtype=torch.long)
+#     output = bert_model(input_ids, attention_mask, token_type_ids)
+#     final_output = torch.sigmoid(output).cpu().detach().numpy().tolist()
+#     # print(train_dataset.columns[1:].to_list()[(np.argmax(final_output, axis=1)).astype(int)])
+#     predictions = []
+#     for idx, label in enumerate(target_list):
+#       if (final_output[0][idx] > 0.5):
+#         predictions.append((label,round(final_output[0][idx]*100, 2)))  # round(preds[idx]*100, 2
+#     context = {'predictions' : predictions, 'final_output': final_output}
+    return render(request, 'mlapplications/scope_predictions.html')#, context)
 
 
 @login_required
@@ -283,170 +283,170 @@ def quality_prediction(request, article_id):
 
 
 
-embedder = SentenceTransformer(model_name)
+# embedder = SentenceTransformer(model_name)
 @login_required
 @user_passes_test(is_editor)
 def reviewer_recommender(request, article_id):
 
-  # get authors list for this article
-  reviewed_article = get_object_or_404(Article, id=article_id)
-  authors = reviewed_article.author.values_list('id')
-  authors_list = []
-  for a in authors:
-    authors_list.append(a)
+  # # get authors list for this article
+  # reviewed_article = get_object_or_404(Article, id=article_id)
+  # authors = reviewed_article.author.values_list('id')
+  # authors_list = []
+  # for a in authors:
+  #   authors_list.append(a)
 
-  # get topic list for this article
-  publications = []
-  paper_scope = reviewed_article.scope.values_list('id')
-  paper_scope_list = []
-  for r in paper_scope:
-    paper_scope_list.append(r[0])
-    publication_scope = Reviewer_publication.objects.filter(scope = r[0]).values_list('user_id')
-    target_publications = [pub for pub in publication_scope if pub not in authors_list]
+  # # get topic list for this article
+  # publications = []
+  # paper_scope = reviewed_article.scope.values_list('id')
+  # paper_scope_list = []
+  # for r in paper_scope:
+  #   paper_scope_list.append(r[0])
+  #   publication_scope = Reviewer_publication.objects.filter(scope = r[0]).values_list('user_id')
+  #   target_publications = [pub for pub in publication_scope if pub not in authors_list]
 
-    targets = []
-    for target in target_publications:
-      current_user = Profiles.objects.get(id=target[0])
-      if current_user.user_type == 'REVIEWER':
-        targets.append(target)
+  #   targets = []
+  #   for target in target_publications:
+  #     current_user = Profiles.objects.get(id=target[0])
+  #     if current_user.user_type == 'REVIEWER':
+  #       targets.append(target)
 
-    for p in targets:
-      publications.append(p[0])
+  #   for p in targets:
+  #     publications.append(p[0])
   
-  # removing duplicated values:
-  list_set = set(publications)
-  publications = list(list_set)
+  # # removing duplicated values:
+  # list_set = set(publications)
+  # publications = list(list_set)
 
-  # embedding query string:
-  query_embedding = embedder.encode(reviewed_article.abstract, convert_to_tensor=True)
-  results =[]
-  ids =[]
-  for u_id in publications:
-    abstract = Reviewer_publication.objects.filter(user_id = u_id).values_list('abstract')
-    art_emp = embedder.encode(abstract[0], convert_to_tensor=True, show_progress_bar=True)
-    # cosin similarity between query string & each publication
-    res = util.cos_sim(query_embedding, art_emp).item()
-    results.append(res)
-    ids.append(u_id)
-  top_simi = sorted(zip(results, ids), reverse=True)
+  # # embedding query string:
+  # query_embedding = embedder.encode(reviewed_article.abstract, convert_to_tensor=True)
+  # results =[]
+  # ids =[]
+  # for u_id in publications:
+  #   abstract = Reviewer_publication.objects.filter(user_id = u_id).values_list('abstract')
+  #   art_emp = embedder.encode(abstract[0], convert_to_tensor=True, show_progress_bar=True)
+  #   # cosin similarity between query string & each publication
+  #   res = util.cos_sim(query_embedding, art_emp).item()
+  #   results.append(res)
+  #   ids.append(u_id)
+  # top_simi = sorted(zip(results, ids), reverse=True)
 
-  output = []
-  scope_output = []
-  similarity_value = []
-  reviewer_name = []
-  reviewer_specialist = []
-  reviewer_specific_specialist = []
-  final = []
-  topn = min(len(publications), 10) #topN)
-  for i in range(topn):
-    related_paper = Reviewer_publication.objects.get(user_id =top_simi[i][1])
-    scope_output.append(related_paper.scope.values_list('scope'))
-    output.append(related_paper.abstract)
-    reviewer = Profiles.objects.get(id =top_simi[i][1])
-    reviewer_name.append(reviewer.name)
-    reviewer_specialist.append(reviewer.specialist)
-    reviewer_specific_specialist.append(reviewer.specific_specialist)
-    result = {'similarity_value': round(top_simi[i][0],2),
-           'reviewer_id': reviewer.id,
-           'reviewer_name': reviewer.name,
-           'reviewer_specialist': reviewer.specialist,
-           'reviewer_specific_specialist': reviewer.specific_specialist,
-           'abstract': related_paper.abstract,
-           'scope_output': related_paper.scope.values_list('scope')}
-    final.append(result)
-    similarity_value.append(top_simi[i][0])
+  # output = []
+  # scope_output = []
+  # similarity_value = []
+  # reviewer_name = []
+  # reviewer_specialist = []
+  # reviewer_specific_specialist = []
+  # final = []
+  # topn = min(len(publications), 10) #topN)
+  # for i in range(topn):
+  #   related_paper = Reviewer_publication.objects.get(user_id =top_simi[i][1])
+  #   scope_output.append(related_paper.scope.values_list('scope'))
+  #   output.append(related_paper.abstract)
+  #   reviewer = Profiles.objects.get(id =top_simi[i][1])
+  #   reviewer_name.append(reviewer.name)
+  #   reviewer_specialist.append(reviewer.specialist)
+  #   reviewer_specific_specialist.append(reviewer.specific_specialist)
+  #   result = {'similarity_value': round(top_simi[i][0],2),
+  #          'reviewer_id': reviewer.id,
+  #          'reviewer_name': reviewer.name,
+  #          'reviewer_specialist': reviewer.specialist,
+  #          'reviewer_specific_specialist': reviewer.specific_specialist,
+  #          'abstract': related_paper.abstract,
+  #          'scope_output': related_paper.scope.values_list('scope')}
+  #   final.append(result)
+  #   similarity_value.append(top_simi[i][0])
 
-  context = {'reviewed_article': reviewed_article,
-             'final': final,
-            }
-  return render(request, 'mlapplications/reviewer_recommender.html', context)
+  # context = {'reviewed_article': reviewed_article,
+  #            'final': final,
+  #           }
+  return render(request, 'mlapplications/reviewer_recommender.html')#, context)
 
 @login_required
 @user_passes_test(is_editor)
 def extra_reviewer_recommender(request, article_id):
-  # get authors list for this article
-  reviewed_article = get_object_or_404(Article, id=article_id)
-  authors = reviewed_article.author.values_list('id')
-  authors_list = []
-  for a in authors:
-    authors_list.append(a[0])
+  # # get authors list for this article
+  # reviewed_article = get_object_or_404(Article, id=article_id)
+  # authors = reviewed_article.author.values_list('id')
+  # authors_list = []
+  # for a in authors:
+  #   authors_list.append(a[0])
 
-  # get topic list for this article
-  # publications = []
-  ids_list = []
-  paper_scope = reviewed_article.scope.values_list('id')
-  paper_scope_list = []
-  for r in paper_scope:
-    paper_scope_list.append(r[0])
-    publication_scope = Article.objects.filter(scope = r[0]).values_list('author')
-    for i in publication_scope:
-      # for p in paper.values_list('id'):
-      if i[0] not in authors_list:
-        ids_list.append(i[0])
+  # # get topic list for this article
+  # # publications = []
+  # ids_list = []
+  # paper_scope = reviewed_article.scope.values_list('id')
+  # paper_scope_list = []
+  # for r in paper_scope:
+  #   paper_scope_list.append(r[0])
+  #   publication_scope = Article.objects.filter(scope = r[0]).values_list('author')
+  #   for i in publication_scope:
+  #     # for p in paper.values_list('id'):
+  #     if i[0] not in authors_list:
+  #       ids_list.append(i[0])
 
   
-  # removing duplicated values:
-  list_set = set(ids_list)
-  ids_list = list(list_set)
+  # # removing duplicated values:
+  # list_set = set(ids_list)
+  # ids_list = list(list_set)
 
-  certificated_reviewer = []
-  certificated = Profiles.objects.filter(id__in = ids_list).filter(certificate__in = ['الدكتور', 'الدكتورة'])
-  for cert in certificated:
-    if cert.pk not in authors_list:
-      certificated_reviewer.append(cert.pk)
+  # certificated_reviewer = []
+  # certificated = Profiles.objects.filter(id__in = ids_list).filter(certificate__in = ['الدكتور', 'الدكتورة'])
+  # for cert in certificated:
+  #   if cert.pk not in authors_list:
+  #     certificated_reviewer.append(cert.pk)
 
-  # embedding query string:
-  query_embedding = embedder.encode(reviewed_article.abstract, convert_to_tensor=True)
-  results =[]
-  rev_ids =[]
-  art_ids =[]
-  for u_id in certificated_reviewer:
-    article = Article.objects.filter(author = u_id).filter(scope__in = paper_scope_list)
-    for art in article:
-      if art.pk not in art_ids:
-        abstract = art.abstract
-        if (abstract and len(abstract) > 10):
-          art_emp = embedder.encode(abstract, convert_to_tensor=True, show_progress_bar=True)
-          # cosin similarity between query string & each publication
-          res = util.cos_sim(query_embedding, art_emp).item()
-          results.append(res)
-          rev_ids.append(u_id)
-          art_ids.append(art.pk)
-  top_simi = sorted(zip(results, rev_ids, art_ids), reverse=True)
-  output = []
-  scope_output = []
-  similarity_value = []
-  reviewer_name = []
-  reviewer_specialist = []
-  reviewer_specific_specialist = []
-  final = []
-  topn = min(len(certificated_reviewer), 10) #topN)
-  for i in range(topn):
-    related_paper = Article.objects.get(id =top_simi[i][2])
-    scope_output.append(related_paper.scope.values_list('scope'))
-    output.append(related_paper.abstract)
-    reviewer = Profiles.objects.get(id =top_simi[i][1])
-    reviewer_name.append(reviewer.name)
-    reviewer_specialist.append(reviewer.specialist)
-    reviewer_specific_specialist.append(reviewer.specific_specialist)
-    result = {'similarity_value': round(top_simi[i][0],2),
-           'reviewer_id': reviewer.id,
-           'reviewer_name': reviewer.name,
-           'reviewer_specialist': reviewer.specialist,
-           'reviewer_specific_specialist': reviewer.specific_specialist,
-           'abstract': related_paper.abstract,
-           'scope_output': related_paper.scope.values_list('scope')}
-    final.append(result)
-    similarity_value.append(top_simi[i][0])
+  # # embedding query string:
+  # query_embedding = embedder.encode(reviewed_article.abstract, convert_to_tensor=True)
+  # results =[]
+  # rev_ids =[]
+  # art_ids =[]
+  # for u_id in certificated_reviewer:
+  #   article = Article.objects.filter(author = u_id).filter(scope__in = paper_scope_list)
+  #   for art in article:
+  #     if art.pk not in art_ids:
+  #       abstract = art.abstract
+  #       if (abstract and len(abstract) > 10):
+  #         art_emp = embedder.encode(abstract, convert_to_tensor=True, show_progress_bar=True)
+  #         # cosin similarity between query string & each publication
+  #         res = util.cos_sim(query_embedding, art_emp).item()
+  #         results.append(res)
+  #         rev_ids.append(u_id)
+  #         art_ids.append(art.pk)
+  # top_simi = sorted(zip(results, rev_ids, art_ids), reverse=True)
+  # output = []
+  # scope_output = []
+  # similarity_value = []
+  # reviewer_name = []
+  # reviewer_specialist = []
+  # reviewer_specific_specialist = []
+  # final = []
+  # topn = min(len(certificated_reviewer), 10) #topN)
+  # for i in range(topn):
+  #   related_paper = Article.objects.get(id =top_simi[i][2])
+  #   scope_output.append(related_paper.scope.values_list('scope'))
+  #   output.append(related_paper.abstract)
+  #   reviewer = Profiles.objects.get(id =top_simi[i][1])
+  #   reviewer_name.append(reviewer.name)
+  #   reviewer_specialist.append(reviewer.specialist)
+  #   reviewer_specific_specialist.append(reviewer.specific_specialist)
+  #   result = {'similarity_value': round(top_simi[i][0],2),
+  #          'reviewer_id': reviewer.id,
+  #          'reviewer_name': reviewer.name,
+  #          'reviewer_specialist': reviewer.specialist,
+  #          'reviewer_specific_specialist': reviewer.specific_specialist,
+  #          'abstract': related_paper.abstract,
+  #          'scope_output': related_paper.scope.values_list('scope')}
+  #   final.append(result)
+  #   similarity_value.append(top_simi[i][0])
 
-  context = {'ids_list': ids_list,
-             'certificated_reviewer': certificated_reviewer,
-             'len_ids_list': len(ids_list),
-             'len_certificated_reviewer': len(certificated_reviewer),
-             'reviewer_name': reviewer_name,
-             'result': final,
-             'authors_list': authors_list,
-             'paper_scope_list': paper_scope_list,
-             'reviewed_article': reviewed_article,
-            }
-  return render(request, 'mlapplications/reviewer_recommender_plus.html', context)
+  # context = {'ids_list': ids_list,
+  #            'certificated_reviewer': certificated_reviewer,
+  #            'len_ids_list': len(ids_list),
+  #            'len_certificated_reviewer': len(certificated_reviewer),
+  #            'reviewer_name': reviewer_name,
+  #            'result': final,
+  #            'authors_list': authors_list,
+  #            'paper_scope_list': paper_scope_list,
+  #            'reviewed_article': reviewed_article,
+  #           }
+  return render(request, 'mlapplications/reviewer_recommender_plus.html')#, context)
