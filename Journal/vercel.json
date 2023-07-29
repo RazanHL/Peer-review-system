@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "Journal/Journal/wsgi.py",
+        "src": "Journal/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
       },
@@ -16,8 +16,12 @@
     ],
     "routes": [
       {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
         "src": "/(.*)",
-        "dest": "Journal/Journal/wsgi.py"
+        "dest": "Journal/wsgi.py"
       }
     ]
   }
