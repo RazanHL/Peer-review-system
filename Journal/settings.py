@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.linkedin',
     'crispy_forms',
     'crispy_bootstrap5',
-    'rest_framework',
     'rosetta',
     'notifications',
     # local:
@@ -166,8 +165,8 @@ LOCALE_PATHS = [
 
 STATIC_URL = 'static/'
 # STATICFILES_DIRS = [BASE_DIR / 'Journal/static', ]
-STATICFILES_DIRS = os.path.join(BASE_DIR, '/Journal/static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build' ,'Journal/static')
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build' ,'static')
 
 
 MEDIA_URL = 'media/'
