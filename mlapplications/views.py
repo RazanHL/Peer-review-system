@@ -1,17 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from django.contrib.auth.models import User
-import torch
+# import torch
 from articles.models import Article, Reviewer_publication
 from profiles.models import Profiles
-from transformers import AutoModel, AutoTokenizer
+# from transformers import AutoModel, AutoTokenizer
 import numpy as np
 import pandas as pd
 from joblib import load
 from xgboost import XGBRegressor
 import re
 import datetime
-from sentence_transformers import SentenceTransformer, util
+# from sentence_transformers import SentenceTransformer, util
 from django.contrib.auth.decorators import user_passes_test, login_required
 from profiles.views import is_editor, is_reviewer, is_editor_or_reviewer
 
