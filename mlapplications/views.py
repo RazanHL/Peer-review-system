@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from articles.models import Article, Reviewer_publication
 from profiles.models import Profiles
 # from transformers import AutoModel, AutoTokenizer
-import numpy as np
-import pandas as pd
+# import numpy as np
+# import pandas as pd
 from joblib import load
-from xgboost import XGBRegressor
+# from xgboost import XGBRegressor
 import re
 import datetime
 # from sentence_transformers import SentenceTransformer, util
@@ -102,16 +102,16 @@ def decision_prediction(request, article_id):
   return render(request, 'mlapplications/decision_predictions.html', context)
 
 
-def get_latest_reference_year(references):
-  pattern = re.compile(r'\d\d\d\d')
-  references_years = pattern.findall(references)
-  today = datetime.date.today()
-  years = [int(y) for y in references_years if (int(y) > (today.year - 70) and int(y)< today.year)]
-  if (len(years) > 0 ):
-    return (len(years), max(years), min(years), round(np.mean(years),2), round(np.median(years),2))
-  else:
-    print('empty')
-    return (0, 0, 0, 0, 0)
+# def get_latest_reference_year(references):
+#   pattern = re.compile(r'\d\d\d\d')
+#   references_years = pattern.findall(references)
+#   today = datetime.date.today()
+#   years = [int(y) for y in references_years if (int(y) > (today.year - 70) and int(y)< today.year)]
+#   if (len(years) > 0 ):
+#     return (len(years), max(years), min(years), round(np.mean(years),2), round(np.median(years),2))
+#   else:
+#     print('empty')
+#     return (0, 0, 0, 0, 0)
 
 # number of figurs & tabels
 def get_figurs(paper_txt):
@@ -201,86 +201,76 @@ from django.template import Context, Template
 @user_passes_test(is_editor)
 def quality_prediction(request, article_id):
 
-  reviewed_article = get_object_or_404(Article, id=article_id)
-  references = reviewed_article.references
-  paper_txt = reviewed_article.introduction
-  full_txt = reviewed_article.title + reviewed_article.abstract + reviewed_article.key_words + reviewed_article.en_abstract + reviewed_article.en_keyword + paper_txt + references
-  data = []
-  num_references , latest_reference, oldest_reference, me, meadian_reference = get_latest_reference_year(references)
-  if num_references < 5:
-    context = {'result': "can't make predictions, no references found!"}
-    return render(request, 'mlapplications/quality_predictions.html', context)
+  # reviewed_article = get_object_or_404(Article, id=article_id)
+  # references = reviewed_article.references
+  # paper_txt = reviewed_article.introduction
+  # full_txt = reviewed_article.title + reviewed_article.abstract + reviewed_article.key_words + reviewed_article.en_abstract + reviewed_article.en_keyword + paper_txt + references
+  # data = []
+  # num_references , latest_reference, oldest_reference, me, meadian_reference = get_latest_reference_year(references)
+  # if num_references < 5:
+  #   context = {'result': "can't make predictions, no references found!"}
+  #   return render(request, 'mlapplications/quality_predictions.html', context)
 
   
-  num_figurs, num_tables, num_charts = get_figurs(paper_txt)
-  num_authors = reviewed_article.author.count()
-  avg_recent_references = avg_recent_ref(latest_reference,oldest_reference,meadian_reference)
-  paper_len = len(full_txt.split())
-  ar_word_count = ar_counter(full_txt)
-  en_word_count = en_counter(full_txt)
-  if paper_len > 50 :
-    ar_word_avg = float(ar_word_count)/float(paper_len)
-    en_word_avg = float(en_word_count)/float(paper_len)
-  else:
-      context = {'result': "can't make predictions, article is too short!"}
-      return render(request, 'mlapplications/quality_predictions.html', context)
+  # num_figurs, num_tables, num_charts = get_figurs(paper_txt)
+  # num_authors = reviewed_article.author.count()
+  # avg_recent_references = avg_recent_ref(latest_reference,oldest_reference,meadian_reference)
+  # paper_len = len(full_txt.split())
+  # ar_word_count = ar_counter(full_txt)
+  # en_word_count = en_counter(full_txt)
+  # if paper_len > 50 :
+  #   ar_word_avg = float(ar_word_count)/float(paper_len)
+  #   en_word_avg = float(en_word_count)/float(paper_len)
+  # else:
+  #     context = {'result': "can't make predictions, article is too short!"}
+  #     return render(request, 'mlapplications/quality_predictions.html', context)
 
-  num_sentences = num_sentence(full_txt)
-  avg_words_per_sentence = avg_words_per_sent(full_txt)
-  ref_mention_count = ref_mention_counts(full_txt, oldest_reference, latest_reference)
+  # num_sentences = num_sentence(full_txt)
+  # avg_words_per_sentence = avg_words_per_sent(full_txt)
+  # ref_mention_count = ref_mention_counts(full_txt, oldest_reference, latest_reference)
 
-  counts_list = []
-  al =  reviewed_article.author.values_list('id')
-  for auth in reviewed_article.author.values_list('id'):
-    aut = User.objects.get(id=auth[0])
-    count2 = aut.profiles.publications_count
-    if count2:
-      counts_list.append(count2)
+  # counts_list = []
+  # al =  reviewed_article.author.values_list('id')
+  # for auth in reviewed_article.author.values_list('id'):
+  #   aut = User.objects.get(id=auth[0])
+  #   count2 = aut.profiles.publications_count
+  #   if count2:
+  #     counts_list.append(count2)
 
-  if len(counts_list) > 0 :  num_publication = max(counts_list)
-  else: num_publication = 0
+  # if len(counts_list) > 0 :  num_publication = max(counts_list)
+  # else: num_publication = 0
 
-  data.append(num_references)
-  data.append(latest_reference)
-  data.append(oldest_reference)
-  data.append(meadian_reference)
-  data.append(num_figurs)
-  data.append(num_tables)
-  data.append(num_charts)
-  data.append(num_authors)
-  data.append(avg_recent_references)
-  data.append(paper_len)
-  data.append(ar_word_count)
-  data.append(en_word_count)
-  data.append(ar_word_avg)
-  data.append(en_word_avg)
-  data.append(num_sentences)
-  data.append(avg_words_per_sentence)
-  data.append(ref_mention_count)
-  data.append(num_publication)
+  # data.append(num_references)
+  # data.append(latest_reference)
+  # data.append(oldest_reference)
+  # data.append(meadian_reference)
+  # data.append(num_figurs)
+  # data.append(num_tables)
+  # data.append(num_charts)
+  # data.append(num_authors)
+  # data.append(avg_recent_references)
+  # data.append(paper_len)
+  # data.append(ar_word_count)
+  # data.append(en_word_count)
+  # data.append(ar_word_avg)
+  # data.append(en_word_avg)
+  # data.append(num_sentences)
+  # data.append(avg_words_per_sentence)
+  # data.append(ref_mention_count)
+  # data.append(num_publication)
 
-  stat_labels = ['num_references', 'latest_reference', 'oldest_reference',
-        'meadian_reference', 'num_figurs', 'num_tables', 'num_charts',
-        'num_authors', 'avg_recent_references', 'paper_len', 'ar_word_count',
-        'en_word_count', 'ar_word_avg', 'en_word_avg', 'num_sentences',
-        'avg_words_per_sentence', 'ref_mention_count', 'num_publication']
-  cdata = np.array(data)
-  df = pd.DataFrame(cdata.reshape(1,-1), columns=stat_labels)
-  xgbr_model = XGBRegressor()
-  xgbr_model.load_model('model/quality_xgbm_regression_model.json')
-  result = xgbr_model.predict(df)
-  # cc = request.GET.get('quality')
-  # cc = result
-  context = {'result': round(result[0], 2)}
-  # template = Template(str(round(result[0], 2)))
-  # context = Context(con)
-
-  # result = template.render(context)
-  # return HttpResponse(result)
-  # return TemplateResponse(request, 'articles/article_review.html', context)
-  return render(request, 'mlapplications/quality_predictions.html', context)
-  # return redirect('article-review', article_id= article_id)
-
+  # stat_labels = ['num_references', 'latest_reference', 'oldest_reference',
+  #       'meadian_reference', 'num_figurs', 'num_tables', 'num_charts',
+  #       'num_authors', 'avg_recent_references', 'paper_len', 'ar_word_count',
+  #       'en_word_count', 'ar_word_avg', 'en_word_avg', 'num_sentences',
+  #       'avg_words_per_sentence', 'ref_mention_count', 'num_publication']
+  # cdata = np.array(data)
+  # df = pd.DataFrame(cdata.reshape(1,-1), columns=stat_labels)
+  # xgbr_model = XGBRegressor()
+  # xgbr_model.load_model('model/quality_xgbm_regression_model.json')
+  # result = xgbr_model.predict(df)
+  # context = {'result': round(result[0], 2)}
+  return render(request, 'mlapplications/quality_predictions.html')#, context)
 
 
 # embedder = SentenceTransformer(model_name)
